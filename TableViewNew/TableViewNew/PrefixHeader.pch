@@ -1,0 +1,32 @@
+//
+//  PrefixHeader.pch
+//  TableViewNew
+//
+//  Created by HZW on 16/2/22.
+//  Copyright © 2016年 韩志伟. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "CustomButton.h"
+#import "PASSDK.h"
+#import "UIView+Frame.h"
+#import "CMLogManagement.h"
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define WMAIN   [[UIScreen mainScreen] bounds].size.width
+#define HMAIN   [[UIScreen mainScreen] bounds].size.height
+
+/**< 一:出现No previous prototype for function 'areIntsDifferent'的错误？
+ 解决办法:
+ 1: 可以在#import下一行加入：(加入方法)
+ BOOL areIntsDifferent(int thing1, int thing2);
+ NSString* boolString(BOOL yesNo);
+ 2:xcode中-->Build Settings --->搜索Missing Function Prototypes--->属性设为NO;
+ */
+
+#endif /* PrefixHeader_pch */

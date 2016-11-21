@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++523F066" : {
+
+    },
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++C17C099" : {
+
+    },
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++7D92815" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++523F066" : 0,
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++C17C099" : 0,
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++7D92815" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "58B3ADB5-0F6D-471C-8810-FFCEAC8419E9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++523F066" : "TableViewNew\/TableViewNew\/libraries\/MJRefresh\/",
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++C17C099" : "TableViewNew\/TableViewNew\/libraries\/AFNetworking\/",
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++7D92815" : "TableViewNew\/TableViewNew\/libraries\/MJRefresh\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TableViewNew",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TableViewNew.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/10.17.193.96:3690\/svn\/AyFinancing",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++523F066"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/10.17.193.96:3690\/svn\/AyFinancing",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++7D92815"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/10.17.193.96:3690\/svn\/AyFinancing",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++C17C099"
+    }
+  ]
+}
