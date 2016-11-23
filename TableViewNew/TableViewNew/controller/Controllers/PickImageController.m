@@ -21,6 +21,8 @@
 
 @property (nonatomic, assign) NSInteger tapIndex;
 
+@property (nonatomic, strong) UIImageView *imageView1;
+
 
 @end
 
@@ -53,6 +55,68 @@
     [self createUISlider];  /**< 自定义UISlider */
     
     [self createGestureRecognizerTestView]; /**< 手势测试 */
+    [self createFicker]; /**< 添加闪烁view */
+}
+
+/**< 添加闪烁view */
+- (void)createFicker
+{
+    UIView *view = [UIView viewForColor:[UIColor blueColor] withFrame:CGRectZero];
+    [self.view addSubview:view];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(15);
+        make.right.equalTo(self.view.mas_right).offset(15);
+        make.top.mas_equalTo(330);
+        make.height.mas_equalTo(50);
+    }];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapViewAction)];
+    [view addGestureRecognizer:tap];
+    
+    
+    self.imageView1 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
+    [view addSubview:self.imageView1];
+    
+    [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view.mas_left).offset(15);
+        make.top.mas_equalTo(10);
+        make.size.mas_equalTo(CGSizeMake(5, 5));
+    }];
+    
+    UIImageView * imageView2 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
+    [view addSubview:imageView2];
+    
+    [imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.imageView1);
+        make.size.mas_equalTo(CGSizeMake(5, 5));
+    }];
+    
+}
+
+- (void)tapViewAction
+{
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"bounds"];
+    animation.values = @[[NSValue valueWithCGRect:CGRectMake(0, 0, 5, 5)], [NSValue valueWithCGRect:CGRectMake(0, 0, 20, 20)], [NSValue valueWithCGRect:CGRectMake(0, 0, 10, 10)]];
+    animation.keyTimes = @[@(0), @(1), @(1)];
+    //    animation.duration = 2.0f;
+    //    animation.repeatCount = 10;
+    
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    opacity.values = @[@1.0,@0.5,@1.0];
+    opacity.keyTimes = @[@(0), @(1), @(1)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[animation,opacity];
+    group.duration = 1.f;
+    group.repeatCount = 1;
+    group.removedOnCompletion = NO;
+    
+    CALayer *layer = self.imageView1.layer;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [layer addAnimation:group forKey:@""];
+    });
+    
     
 }
 
@@ -75,7 +139,7 @@
     /**< 长按 */
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     longPress.minimumPressDuration = 1;
-    longPress.numberOfTouchesRequired = 2;
+    longPress.numberOfTouchesRequired = 1;
     [guestureView addGestureRecognizer:longPress];
 
     /**< 轻扫 (方向左)*/
@@ -134,12 +198,12 @@
     slider.maximumValue       = 1.0;
     
     //设置轨道的图片
-//    [slider setMinimumTrackImage:stetchLeftTrack forState:UIControlStateNormal];
-//    [slider setMaximumTrackImage:stetchRightTrack forState:UIControlStateNormal];
+    [slider setMinimumTrackImage:stetchLeftTrack forState:UIControlStateNormal];
+    [slider setMaximumTrackImage:stetchRightTrack forState:UIControlStateNormal];
     
     //设置滑块的图片
-    //[slider setThumbImage:thumbImage forState:UIControlStateHighlighted];
-//    [slider setThumbImage:thumbImage forState:UIControlStateNormal];
+    [slider setThumbImage:thumbImage forState:UIControlStateHighlighted];
+    [slider setThumbImage:thumbImage forState:UIControlStateNormal];
     
     [slider setValue:0.5 animated:YES];
     
@@ -210,7 +274,7 @@
     if (rgn.location != NSNotFound) {
         newString = [newString substringToIndex:rgn.location];
     }
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(50, 400, 400, 30)];
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(50, 400, kMainScreenWidth, 30)];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textColor = [UIColor redColor];
     textField.text = newString;

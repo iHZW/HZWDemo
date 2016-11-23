@@ -50,6 +50,8 @@
 		7C43A2F01D2B95A700C54B9F /* GYZSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2ED1D2B95A700C54B9F /* GYZSheetView.m */; };
 		7C43E3561D1FEB7000EE1EBF /* MyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43E3551D1FEB7000EE1EBF /* MyFlowLayout.m */; };
 		7C43E3591D1FEBCC00EE1EBF /* WaterFallViewController_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43E3581D1FEBCC00EE1EBF /* WaterFallViewController_2.m */; };
+		7C599D1A1DE4198000C2394E /* flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C599D181DE4198000C2394E /* flash@2x.png */; };
+		7C599D1B1DE4198000C2394E /* flash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C599D191DE4198000C2394E /* flash@3x.png */; };
 		7C7F0CE61BE644EC0073CE8C /* URLHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0CE51BE644EC0073CE8C /* URLHTTP.m */; };
 		7C7F0D1F1BE707EE0073CE8C /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0CF51BE707EE0073CE8C /* MJRefreshAutoFooter.m */; };
 		7C7F0D201BE707EE0073CE8C /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0CF71BE707EE0073CE8C /* MJRefreshBackFooter.m */; };
@@ -156,6 +158,7 @@
 		7CD0106A1C5EF220002E38B5 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD010691C5EF220002E38B5 /* CustomButton.m */; };
 		7CDFFD1E1B9DD2F600E7C63A /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFFD1D1B9DD2F600E7C63A /* BookCell.m */; };
 		7CDFFD211B9DD31300E7C63A /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFFD201B9DD31300E7C63A /* BookModel.m */; };
+		7CFC14DA1DE3D9940017C831 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */; };
 		7CFE36891D1B87D200D02D9D /* MyInformationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36881D1B87D200D02D9D /* MyInformationCollectionViewController.m */; };
 		7CFE36901D1BEDC200D02D9D /* PASMyInfoMationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE368F1D1BEDC200D02D9D /* PASMyInfoMationCollectionViewCell.m */; };
 		7CFE36D41D1CD24800D02D9D /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36D31D1CD24800D02D9D /* CollectionViewModel.m */; };
@@ -255,6 +258,8 @@
 		7C43E3551D1FEB7000EE1EBF /* MyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlowLayout.m; sourceTree = "<group>"; };
 		7C43E3571D1FEBCC00EE1EBF /* WaterFallViewController_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallViewController_2.h; sourceTree = "<group>"; };
 		7C43E3581D1FEBCC00EE1EBF /* WaterFallViewController_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallViewController_2.m; sourceTree = "<group>"; };
+		7C599D181DE4198000C2394E /* flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@2x.png"; sourceTree = "<group>"; };
+		7C599D191DE4198000C2394E /* flash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@3x.png"; sourceTree = "<group>"; };
 		7C7F0CE41BE644EC0073CE8C /* URLHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHTTP.h; sourceTree = "<group>"; };
 		7C7F0CE51BE644EC0073CE8C /* URLHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHTTP.m; sourceTree = "<group>"; };
 		7C7F0CF41BE707EE0073CE8C /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
@@ -449,6 +454,7 @@
 		7CDFFD1D1B9DD2F600E7C63A /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookCell.m; path = ../model/BookCell.m; sourceTree = "<group>"; };
 		7CDFFD1F1B9DD31300E7C63A /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		7CDFFD201B9DD31300E7C63A /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+		7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		7CFE36871D1B87D200D02D9D /* MyInformationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyInformationCollectionViewController.h; path = ../MyInformationCollectionViewController.h; sourceTree = "<group>"; };
 		7CFE36881D1B87D200D02D9D /* MyInformationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInformationCollectionViewController.m; path = ../MyInformationCollectionViewController.m; sourceTree = "<group>"; };
 		7CFE368E1D1BEDC200D02D9D /* PASMyInfoMationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PASMyInfoMationCollectionViewCell.h; path = ../PASMyInfoMationCollectionViewCell.h; sourceTree = "<group>"; };
@@ -464,6 +470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CFC14DA1DE3D9940017C831 /* JavaScriptCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,6 +956,8 @@
 		7C81E1B61C7D389200E0E298 /* qietu_image */ = {
 			isa = PBXGroup;
 			children = (
+				7C599D181DE4198000C2394E /* flash@2x.png */,
+				7C599D191DE4198000C2394E /* flash@3x.png */,
 				7C81E1B71C7D389200E0E298 /* 00.jpg */,
 				7C81E1B81C7D389200E0E298 /* 1.1.png */,
 				7C81E1B91C7D389200E0E298 /* 1.11.png */,
@@ -1056,6 +1065,7 @@
 		7CC481C01B9C2B75008A08AE = {
 			isa = PBXGroup;
 			children = (
+				7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */,
 				7CBB69981BEA0160005A7BDF /* libiconv.tbd */,
 				7CBB69961BEA00E6005A7BDF /* libsqlite3.tbd */,
 				7CBB69941BEA00B7005A7BDF /* libxml2.tbd */,
@@ -1275,6 +1285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C599D1B1DE4198000C2394E /* flash@3x.png in Resources */,
 				7C81E1D51C7D389200E0E298 /* 1.1.png in Resources */,
 				7C81E1D01C7D389200E0E298 /* 6.jpg in Resources */,
 				7C81E1C71C7D389200E0E298 /* 16.jpg in Resources */,
@@ -1311,6 +1322,7 @@
 				7C81E1CF1C7D389200E0E298 /* 5.jpg in Resources */,
 				7C81E1CD1C7D389200E0E298 /* 3.jpg in Resources */,
 				7C81E1CC1C7D389200E0E298 /* 20.jpg in Resources */,
+				7C599D1A1DE4198000C2394E /* flash@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
