@@ -10,6 +10,7 @@
 #import "HSViewConrtroller.h"
 #import "Masonry.h"
 #import "UIView+Create.h"
+#import "GCDCommon.h"
 
 //  http://blog.csdn.net/lsy2013/article/details/42965805图片判断类型   pan/  jpg /  jpeg
 
@@ -22,6 +23,8 @@
 @property (nonatomic, assign) NSInteger tapIndex;
 
 @property (nonatomic, strong) UIImageView *imageView1;
+
+@property (nonatomic, strong) UILabel *bgLabel; /**< 变色背景label */
 
 
 @end
@@ -56,8 +59,57 @@
     
     [self createGestureRecognizerTestView]; /**< 手势测试 */
     [self createFicker]; /**< 添加闪烁view */
+    
+    [self createFickerLabel]; /**<  添加闪烁Label*/
 }
 
+ /**<  添加闪烁Label*/
+- (void)createFickerLabel
+{
+//    self.bgLabel = [UIView viewForColor:[[UIColor blueColor] colorWithAlphaComponent:0.6] withFrame:CGRectZero];
+    self.bgLabel                        = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.bgLabel.backgroundColor        = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+    self.bgLabel.userInteractionEnabled = YES;
+    [self.view addSubview:self.bgLabel];
+    
+    [self.bgLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(450);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(50, 30));
+    }];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgLabelAction:)];
+    [self.bgLabel addGestureRecognizer:tap];
+    
+}
+
+- (void)bgLabelAction:(id)sender
+{
+    self.bgLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    opacity.values = @[@(0.1),@(0.6)];
+//    opacity.keyTimes = @[@(0),@(1)];
+    opacity.duration = 1.0f;
+    opacity.repeatCount = 1;
+    opacity.removedOnCompletion = NO;
+    opacity.delegate = self;
+    
+    CALayer *layer = self.bgLabel.layer;
+    
+    performBlockDelay(dispatch_get_main_queue(), .3, ^{  /**< 延迟.3秒执行 */
+        [layer addAnimation:opacity forKey:@""];
+    });
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [layer addAnimation:opacity forKey:@""];
+//    });
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    self.bgLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+    
+}
 /**< 添加闪烁view */
 - (void)createFicker
 {
@@ -116,7 +168,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [layer addAnimation:group forKey:@""];
     });
-    
     
 }
 
