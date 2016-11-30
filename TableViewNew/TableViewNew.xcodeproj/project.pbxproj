@@ -51,7 +51,6 @@
 		7C43E3561D1FEB7000EE1EBF /* MyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43E3551D1FEB7000EE1EBF /* MyFlowLayout.m */; };
 		7C43E3591D1FEBCC00EE1EBF /* WaterFallViewController_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43E3581D1FEBCC00EE1EBF /* WaterFallViewController_2.m */; };
 		7C599D1A1DE4198000C2394E /* flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C599D181DE4198000C2394E /* flash@2x.png */; };
-		7C599D1B1DE4198000C2394E /* flash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C599D191DE4198000C2394E /* flash@3x.png */; };
 		7C7F0CE61BE644EC0073CE8C /* URLHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0CE51BE644EC0073CE8C /* URLHTTP.m */; };
 		7C7F0D1F1BE707EE0073CE8C /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0CF51BE707EE0073CE8C /* MJRefreshAutoFooter.m */; };
 		7C7F0D201BE707EE0073CE8C /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0CF71BE707EE0073CE8C /* MJRefreshBackFooter.m */; };
@@ -129,6 +128,7 @@
 		7C96F9E81D531CC400381092 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96F9DB1D531CC400381092 /* View+MASAdditions.m */; };
 		7C96F9E91D531CC400381092 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96F9DE1D531CC400381092 /* ViewController+MASAdditions.m */; };
 		7C9E362A1DEC1523001072D5 /* GCDCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E36291DEC1523001072D5 /* GCDCommon.m */; };
+		7C9E362D1DEC1A0A001072D5 /* FlashTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E362C1DEC1A0A001072D5 /* FlashTagView.m */; };
 		7C9EEC4F1D2E736100DB803E /* GroupNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9EEC4E1D2E736100DB803E /* GroupNameView.m */; };
 		7CBB69C71BEA0898005A7BDF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB69A31BEA0898005A7BDF /* AFHTTPRequestOperation.m */; };
 		7CBB69C81BEA0898005A7BDF /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB69A51BEA0898005A7BDF /* AFHTTPRequestOperationManager.m */; };
@@ -260,7 +260,6 @@
 		7C43E3571D1FEBCC00EE1EBF /* WaterFallViewController_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallViewController_2.h; sourceTree = "<group>"; };
 		7C43E3581D1FEBCC00EE1EBF /* WaterFallViewController_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallViewController_2.m; sourceTree = "<group>"; };
 		7C599D181DE4198000C2394E /* flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@2x.png"; sourceTree = "<group>"; };
-		7C599D191DE4198000C2394E /* flash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@3x.png"; sourceTree = "<group>"; };
 		7C7F0CE41BE644EC0073CE8C /* URLHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHTTP.h; sourceTree = "<group>"; };
 		7C7F0CE51BE644EC0073CE8C /* URLHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHTTP.m; sourceTree = "<group>"; };
 		7C7F0CF41BE707EE0073CE8C /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
@@ -391,6 +390,8 @@
 		7C96F9DE1D531CC400381092 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		7C9E36281DEC1523001072D5 /* GCDCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDCommon.h; sourceTree = "<group>"; };
 		7C9E36291DEC1523001072D5 /* GCDCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDCommon.m; sourceTree = "<group>"; };
+		7C9E362B1DEC1A0A001072D5 /* FlashTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashTagView.h; sourceTree = "<group>"; };
+		7C9E362C1DEC1A0A001072D5 /* FlashTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashTagView.m; sourceTree = "<group>"; };
 		7C9EEC4D1D2E736100DB803E /* GroupNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupNameView.h; sourceTree = "<group>"; };
 		7C9EEC4E1D2E736100DB803E /* GroupNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupNameView.m; sourceTree = "<group>"; };
 		7CBB69921BE9FFAC005A7BDF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -961,7 +962,6 @@
 			isa = PBXGroup;
 			children = (
 				7C599D181DE4198000C2394E /* flash@2x.png */,
-				7C599D191DE4198000C2394E /* flash@3x.png */,
 				7C81E1B71C7D389200E0E298 /* 00.jpg */,
 				7C81E1B81C7D389200E0E298 /* 1.1.png */,
 				7C81E1B91C7D389200E0E298 /* 1.11.png */,
@@ -1184,6 +1184,8 @@
 				7CC0564F1C32D77600C81468 /* UIRemindView.m */,
 				7C1C25771C5B53E7009B8C6C /* ClickMoreAndMoreCell.h */,
 				7C1C25781C5B53E7009B8C6C /* ClickMoreAndMoreCell.m */,
+				7C9E362B1DEC1A0A001072D5 /* FlashTagView.h */,
+				7C9E362C1DEC1A0A001072D5 /* FlashTagView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1298,7 +1300,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C599D1B1DE4198000C2394E /* flash@3x.png in Resources */,
 				7C81E1D51C7D389200E0E298 /* 1.1.png in Resources */,
 				7C81E1D01C7D389200E0E298 /* 6.jpg in Resources */,
 				7C81E1C71C7D389200E0E298 /* 16.jpg in Resources */,
@@ -1394,6 +1395,7 @@
 				7CBB69CD1BEA0898005A7BDF /* AFURLRequestSerialization.m in Sources */,
 				7C7F0D2E1BE707EE0073CE8C /* MJRefreshConst.m in Sources */,
 				7C7F0D991BE7080F0073CE8C /* UIImageView+HighlightedWebCache.m in Sources */,
+				7C9E362D1DEC1A0A001072D5 /* FlashTagView.m in Sources */,
 				7CFE36D71D1CD2CB00D02D9D /* WaterFallCollectionViewController.m in Sources */,
 				7C43A2F01D2B95A700C54B9F /* GYZSheetView.m in Sources */,
 				7CBB69C81BEA0898005A7BDF /* AFHTTPRequestOperationManager.m in Sources */,

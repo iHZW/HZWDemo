@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "UIView+Create.h"
 #import "GCDCommon.h"
+#import "FlashTagView.h"
 
 //  http://blog.csdn.net/lsy2013/article/details/42965805图片判断类型   pan/  jpg /  jpeg
 
@@ -25,6 +26,8 @@
 @property (nonatomic, strong) UIImageView *imageView1;
 
 @property (nonatomic, strong) UILabel *bgLabel; /**< 变色背景label */
+
+@property (nonatomic, strong) FlashTagView *flashTagView;  /**< 闪烁view */
 
 
 @end
@@ -58,25 +61,85 @@
     [self createUISlider];  /**< 自定义UISlider */
     
     [self createGestureRecognizerTestView]; /**< 手势测试 */
-    [self createFicker]; /**< 添加闪烁view */
-    
-    [self createFickerLabel]; /**<  添加闪烁Label*/
+
+    [self flashTest]; /**< 闪烁测试 */
 }
+
+- (void)flashTest
+{
+    [self createFicker]; /**< 添加闪烁view */
+    [self createFickerLabel]; /**<  添加闪烁Label*/
+    [self createFickerButton]; /**< 闪烁Button */
+}
+
+- (CAAnimationGroup *)getCAAnimationGroup
+{
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"bounds"];
+    animation.values = @[[NSValue valueWithCGRect:CGRectMake(0, 0, 5, 5)], [NSValue valueWithCGRect:CGRectMake(0, 0, 15, 15)]];
+    animation.keyTimes = @[@(0), @(1)];
+    
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    opacity.values = @[@(1.0),@(0.5),@(1.0)];
+    opacity.keyTimes = @[@(0), @(1)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[animation,opacity];
+    group.duration = 1.f;
+    group.repeatCount = 0;
+    group.removedOnCompletion = NO;
+    
+    return group;
+}
+
+- (void)createFickerButton
+{
+    UIButton *flashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [flashBtn setImage:[UIImage imageNamed:@"flash"] forState:UIControlStateNormal];
+    [flashBtn addTarget:self action:@selector(fickerBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [flashBtn setBackgroundColor:[UIColor blueColor]];
+    [self.view addSubview:flashBtn];
+    
+    [flashBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(450);
+        make.left.equalTo(self.view.mas_left).offset(15);
+        make.size.mas_equalTo(CGSizeMake(50, 30));
+    }];
+}
+
+- (void)fickerBtnAction:(UIButton *)sender
+{
+    CALayer *layer = sender.imageView.layer;
+    performBlockDelay(dispatch_get_main_queue(), .3, ^{
+        [layer addAnimation:[self getCAAnimationGroup] forKey:nil];
+    });
+}
+
+- (void)createFlashTagView
+{
+    self.flashTagView = [[FlashTagView alloc] initWithFrame:CGRectZero];
+    self.flashTagView.flashImageName = @"flash";
+    [self.view addSubview:self.flashTagView];
+}
+
 
  /**<  添加闪烁Label*/
 - (void)createFickerLabel
 {
 //    self.bgLabel = [UIView viewForColor:[[UIColor blueColor] colorWithAlphaComponent:0.6] withFrame:CGRectZero];
-    self.bgLabel                        = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.bgLabel.backgroundColor        = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+    self.bgLabel                        = [[UILabel alloc] initWithFrame:CGRectMake(200, 450, 10, 10)];
+    self.bgLabel.backgroundColor        = [UIColorFromRGB(0x4bc3ff) colorWithAlphaComponent:0.4];
     self.bgLabel.userInteractionEnabled = YES;
+    self.bgLabel.layer.cornerRadius = CGRectGetHeight(self.bgLabel.frame) * 0.5;
+    self.bgLabel.clipsToBounds = YES;
     [self.view addSubview:self.bgLabel];
     
-    [self.bgLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(450);
-        make.centerX.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(50, 30));
-    }];
+//    [self.bgLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(450);
+//        make.centerX.equalTo(self.view);
+//        make.size.mas_equalTo(CGSizeMake(5, 5));
+//    }];
+//    
+
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgLabelAction:)];
     [self.bgLabel addGestureRecognizer:tap];
@@ -85,24 +148,42 @@
 
 - (void)bgLabelAction:(id)sender
 {
-    self.bgLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
-    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-    opacity.values = @[@(0.1),@(0.6)];
-//    opacity.keyTimes = @[@(0),@(1)];
-    opacity.duration = 1.0f;
-    opacity.repeatCount = 1;
-    opacity.removedOnCompletion = NO;
-    opacity.delegate = self;
-    
-    CALayer *layer = self.bgLabel.layer;
-    
-    performBlockDelay(dispatch_get_main_queue(), .3, ^{  /**< 延迟.3秒执行 */
-        [layer addAnimation:opacity forKey:@""];
-    });
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//    self.bgLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+//    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+//    opacity.values = @[@(0.1),@(0.6)];
+////    opacity.keyTimes = @[@(0),@(1)];
+//    opacity.duration = 1.0f;
+//    opacity.repeatCount = 1;
+//    opacity.removedOnCompletion = NO;
+//    opacity.delegate = self;
+//    
+//    CALayer *layer = self.bgLabel.layer;
+//    
+//    performBlockDelay(dispatch_get_main_queue(), .3, ^{  /**< 延迟.3秒执行 */
 //        [layer addAnimation:opacity forKey:@""];
 //    });
+    
+//    self.bgLabel.transform              = CGAffineTransformMakeScale(1, 1);
+//
+//    [UIView animateWithDuration:1 animations:^{
+//        self.bgLabel.transform = CGAffineTransformMakeScale(2.2, 2.2);
+//    }completion:^(BOOL finished) {
+//        self.bgLabel.size = CGSizeMake(10, 10);
+//        self.bgLabel.layer.cornerRadius = CGRectGetHeight(self.bgLabel.frame) * 0.5;
+//        self.bgLabel.clipsToBounds = YES;
+//    }];
+    
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    scaleAnimation.toValue = [NSNumber numberWithFloat:3.0];
+    scaleAnimation.autoreverses = NO;
+    scaleAnimation.fillMode = kCAFillModeRemoved;
+    scaleAnimation.removedOnCompletion = NO;
+    scaleAnimation.repeatCount = 0;
+    scaleAnimation.duration = 0.75;
+    
+    [self.bgLabel.layer addAnimation:scaleAnimation forKey:nil];
+    
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
@@ -126,42 +207,52 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapViewAction)];
     [view addGestureRecognizer:tap];
     
+//    self.imageView1 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
+//    [view addSubview:self.imageView1];
+//    
+//    [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(view.mas_left).offset(15);
+//        make.top.mas_equalTo(10);
+//        make.size.mas_equalTo(CGSizeMake(5, 5));
+//    }];
+//    
+//    UIImageView * imageView2 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
+//    [view addSubview:imageView2];
+//    
+//    [imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.imageView1);
+//        make.size.mas_equalTo(CGSizeMake(5, 5));
+//    }];
     
-    self.imageView1 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
-    [view addSubview:self.imageView1];
+    self.flashTagView = [[FlashTagView alloc] initWithFrame:CGRectMake(15, 10, 5, 5)];
+    self.flashTagView.flashImageName = @"flash";
+    [view addSubview:self.flashTagView];
     
-    [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(view.mas_left).offset(15);
-        make.top.mas_equalTo(10);
-        make.size.mas_equalTo(CGSizeMake(5, 5));
-    }];
-    
-    UIImageView * imageView2 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
-    [view addSubview:imageView2];
-    
-    [imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.imageView1);
-        make.size.mas_equalTo(CGSizeMake(5, 5));
-    }];
+//    [self.flashTagView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(view.mas_left).offset(15);
+//        make.top.mas_equalTo(10);
+//        make.size.mas_equalTo(CGSizeMake(5, 5));
+//    }];
     
 }
 
 - (void)tapViewAction
 {
+    [self.flashTagView startFlashTagView];
+    self.flashTagView.centerX += 2;
+    self.flashTagView.centerY += 1;
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"bounds"];
-    animation.values = @[[NSValue valueWithCGRect:CGRectMake(0, 0, 5, 5)], [NSValue valueWithCGRect:CGRectMake(0, 0, 20, 20)], [NSValue valueWithCGRect:CGRectMake(0, 0, 10, 10)]];
-    animation.keyTimes = @[@(0), @(1), @(1)];
-    //    animation.duration = 2.0f;
-    //    animation.repeatCount = 10;
+    animation.values = @[[NSValue valueWithCGRect:CGRectMake(0, 0, 5, 5)], [NSValue valueWithCGRect:CGRectMake(0, 0, 15, 15)]];
+    animation.keyTimes = @[@(0), @(1)];
     
     CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-    opacity.values = @[@1.0,@0.5,@1.0];
-    opacity.keyTimes = @[@(0), @(1), @(1)];
+    opacity.values = @[@(1.0),@(0.5),@(1.0)];
+    opacity.keyTimes = @[@(0), @(1)];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     group.animations = @[animation,opacity];
     group.duration = 1.f;
-    group.repeatCount = 1;
+    group.repeatCount = 0;
     group.removedOnCompletion = NO;
     
     CALayer *layer = self.imageView1.layer;
