@@ -1,20 +1,20 @@
 {
   "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "87DDC82A7E3C3E5F2274C8C6CD28579AB1639DAC+++2DB7586",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
-    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++30AEEE8" : {
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++6263+++30AEEE8" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "87DDC82A7E3C3E5F2274C8C6CD28579AB1639DAC+++402DFD0" : 0,
     "87DDC82A7E3C3E5F2274C8C6CD28579AB1639DAC+++2DB7586" : 0,
-    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++30AEEE8" : 0
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++6263+++30AEEE8" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "58B3ADB5-0F6D-471C-8810-FFCEAC8419E9",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "87DDC82A7E3C3E5F2274C8C6CD28579AB1639DAC+++402DFD0" : "",
     "87DDC82A7E3C3E5F2274C8C6CD28579AB1639DAC+++2DB7586" : "HZWDemo.git\/",
-    "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++30AEEE8" : "HZWDemo.git\/TableViewNew\/TableViewNew\/libraries\/SDWebImage\/"
+    "0f7f7045-7111-b54b-b999-8e077ecf91c6++6263+++30AEEE8" : "HZWDemo.git\/TableViewNew\/TableViewNew\/libraries\/SDWebImage\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "TableViewNew",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -23,7 +23,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/10.17.193.96:3690\/svn\/AyFinancing",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0f7f7045-7111-b54b-b999-8e077ecf91c6++7187+++30AEEE8"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0f7f7045-7111-b54b-b999-8e077ecf91c6++6263+++30AEEE8"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:iHZW\/HZWDemo.git",
