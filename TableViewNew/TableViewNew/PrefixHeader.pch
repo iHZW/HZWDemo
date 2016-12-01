@@ -20,6 +20,7 @@
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
 #define HMAIN   [[UIScreen mainScreen] bounds].size.height
+#define kMainScreenBounds  [UIScreen mainScreen].bounds
 
 /**< 一:出现No previous prototype for function 'areIntsDifferent'的错误？
  解决办法:
