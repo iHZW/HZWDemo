@@ -24,6 +24,7 @@
 #import "URLHTTP.h"
 #import "GYZActionSheet.h"
 #import "IndexTopItem.h"
+#import "XDGestureConfigVC.h"
 
 
 
@@ -620,6 +621,12 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
         URLHTTP *http = [[URLHTTP alloc]init];
         [self.navigationController pushViewController:http animated:YES];
         
+    }else if (indexPath.section == 2 && indexPath.row == 3)
+    {
+        /**< 手势密码界面 */
+        XDGestureConfigVC *ctrl = [[XDGestureConfigVC alloc] init];
+        
+        [self.navigationController pushViewController:ctrl animated:YES];
     }
     
 }

@@ -157,6 +157,9 @@
 		7CC481D81B9C2B75008A08AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC481D61B9C2B75008A08AE /* Main.storyboard */; };
 		7CC481DA1B9C2B75008A08AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC481D91B9C2B75008A08AE /* Images.xcassets */; };
 		7CC481DD1B9C2B75008A08AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC481DB1B9C2B75008A08AE /* LaunchScreen.xib */; };
+		7CC9E28C1E4AEDE7002CEB29 /* XDGestureConfigVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9E2871E4AEDE7002CEB29 /* XDGestureConfigVC.m */; };
+		7CC9E28D1E4AEDE7002CEB29 /* XDGestureLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9E2891E4AEDE7002CEB29 /* XDGestureLoginVC.m */; };
+		7CC9E28E1E4AEDE7002CEB29 /* XDGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9E28B1E4AEDE7002CEB29 /* XDGestureView.m */; };
 		7CD0106A1C5EF220002E38B5 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD010691C5EF220002E38B5 /* CustomButton.m */; };
 		7CDFFD1E1B9DD2F600E7C63A /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFFD1D1B9DD2F600E7C63A /* BookCell.m */; };
 		7CDFFD211B9DD31300E7C63A /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFFD201B9DD31300E7C63A /* BookModel.m */; };
@@ -455,6 +458,12 @@
 		7CC481DC1B9C2B75008A08AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7CC481E71B9C2B76008A08AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CC481E81B9C2B76008A08AE /* TableViewNewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewNewTests.m; sourceTree = "<group>"; };
+		7CC9E2861E4AEDE7002CEB29 /* XDGestureConfigVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDGestureConfigVC.h; sourceTree = "<group>"; };
+		7CC9E2871E4AEDE7002CEB29 /* XDGestureConfigVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDGestureConfigVC.m; sourceTree = "<group>"; };
+		7CC9E2881E4AEDE7002CEB29 /* XDGestureLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDGestureLoginVC.h; sourceTree = "<group>"; };
+		7CC9E2891E4AEDE7002CEB29 /* XDGestureLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDGestureLoginVC.m; sourceTree = "<group>"; };
+		7CC9E28A1E4AEDE7002CEB29 /* XDGestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDGestureView.h; sourceTree = "<group>"; };
+		7CC9E28B1E4AEDE7002CEB29 /* XDGestureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDGestureView.m; sourceTree = "<group>"; };
 		7CD010681C5EF220002E38B5 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		7CD010691C5EF220002E38B5 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		7CDFFD1C1B9DD2F600E7C63A /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookCell.h; path = ../model/BookCell.h; sourceTree = "<group>"; };
@@ -1103,6 +1112,7 @@
 		7CC481CB1B9C2B75008A08AE /* TableViewNew */ = {
 			isa = PBXGroup;
 			children = (
+				7CC9E2851E4AEDE7002CEB29 /* XDGesture */,
 				7C2A44451DD0872000DC5B53 /* PrefixHeader.pch */,
 				7C13CDD91CFB25E000C0CD9B /* Untility */,
 				7C7F0CF11BE707DC0073CE8C /* libraries */,
@@ -1205,6 +1215,19 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		7CC9E2851E4AEDE7002CEB29 /* XDGesture */ = {
+			isa = PBXGroup;
+			children = (
+				7CC9E2861E4AEDE7002CEB29 /* XDGestureConfigVC.h */,
+				7CC9E2871E4AEDE7002CEB29 /* XDGestureConfigVC.m */,
+				7CC9E2881E4AEDE7002CEB29 /* XDGestureLoginVC.h */,
+				7CC9E2891E4AEDE7002CEB29 /* XDGestureLoginVC.m */,
+				7CC9E28A1E4AEDE7002CEB29 /* XDGestureView.h */,
+				7CC9E28B1E4AEDE7002CEB29 /* XDGestureView.m */,
+			);
+			path = XDGesture;
+			sourceTree = "<group>";
+		};
 		7CFE36861D1B873700D02D9D /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1279,6 +1302,7 @@
 				TargetAttributes = {
 					7CC481C81B9C2B75008A08AE = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = L39WXY5YB3;
 					};
 				};
 			};
@@ -1393,6 +1417,7 @@
 				7C96F9E01D531CC400381092 /* MASCompositeConstraint.m in Sources */,
 				7CBB69C91BEA0898005A7BDF /* AFHTTPSessionManager.m in Sources */,
 				7C7F0D301BE707EE0073CE8C /* UIScrollView+MJRefresh.m in Sources */,
+				7CC9E28C1E4AEDE7002CEB29 /* XDGestureConfigVC.m in Sources */,
 				7C0EF9031D732FBA00E4328F /* PASMyUIMenuController.m in Sources */,
 				7CFE36D41D1CD24800D02D9D /* CollectionViewModel.m in Sources */,
 				7C96F9E41D531CC400381092 /* MASViewAttribute.m in Sources */,
@@ -1416,6 +1441,7 @@
 				7C2A44201DD0821D00DC5B53 /* UIButton+Block.m in Sources */,
 				7CBB69D41BEA0898005A7BDF /* UIImageView+AFNetworking.m in Sources */,
 				7C2A44231DD0821D00DC5B53 /* UIImage+ResourcePath.m in Sources */,
+				7CC9E28E1E4AEDE7002CEB29 /* XDGestureView.m in Sources */,
 				7C7F0D971BE7080F0073CE8C /* UIImage+MultiFormat.m in Sources */,
 				7C96F9E91D531CC400381092 /* ViewController+MASAdditions.m in Sources */,
 				7C7F0D241BE707EE0073CE8C /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1463,6 +1489,7 @@
 				7C2A443C1DD0822500DC5B53 /* CMLogManagement.m in Sources */,
 				7CFE36901D1BEDC200D02D9D /* PASMyInfoMationCollectionViewCell.m in Sources */,
 				7C7F0D251BE707EE0073CE8C /* MJRefreshAutoNormalFooter.m in Sources */,
+				7CC9E28D1E4AEDE7002CEB29 /* XDGestureLoginVC.m in Sources */,
 				7C2A44211DD0821D00DC5B53 /* UIImage+Addition.m in Sources */,
 				7CBB69CE1BEA0898005A7BDF /* AFURLResponseSerialization.m in Sources */,
 				7CBC77AD1C0486990089A545 /* ThirdCell.m in Sources */,
@@ -1594,6 +1621,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chunlong Tang (YQF9B9Q2T5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chunlong Tang (YQF9B9Q2T5)";
+				DEVELOPMENT_TEAM = L39WXY5YB3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)//TableViewNew/PrefixHeader.pch";
 				INFOPLIST_FILE = TableViewNew/Info.plist;
@@ -1601,7 +1629,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "753f0fd1-a97b-415c-aacb-ee0b51d43536";
+				PROVISIONING_PROFILE_SPECIFIER = debug_profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1613,6 +1642,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ping'an Securities Co.,Ltd.";
+				DEVELOPMENT_TEAM = 36G5GJWS4P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)//TableViewNew/PrefixHeader.pch";
 				INFOPLIST_FILE = TableViewNew/Info.plist;
@@ -1620,7 +1650,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8b10a807-32b0-480b-8e99-2ad84e5147dc";
+				PROVISIONING_PROFILE_SPECIFIER = iosPingAnProfile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
