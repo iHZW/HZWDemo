@@ -312,6 +312,7 @@
 /**< 长按触发事件 */
 - (void)longPressAction:(UILongPressGestureRecognizer *)sender
 {
+    /**< 在干吗? */
     if (sender.state == UIGestureRecognizerStateBegan)
     {
         self.view.backgroundColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:arc4random()%256/255.0];
