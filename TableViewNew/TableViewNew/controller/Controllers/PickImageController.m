@@ -117,6 +117,7 @@
 #pragma mark   -- 自定义UISlider
 - (void)createUISlider
 {
+    
 //    UISlider *slider = [[UISlider alloc]initWithFrame:CGRectZero];
 //    [self.view addSubview:slider];
     
