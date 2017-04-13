@@ -93,6 +93,7 @@
 
 - (void)createFickerButton
 {
+    /**< 666 */
     UIButton *flashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [flashBtn setImage:[UIImage imageNamed:@"flash"] forState:UIControlStateNormal];
     [flashBtn addTarget:self action:@selector(fickerBtnAction:) forControlEvents:UIControlEventTouchUpInside];
