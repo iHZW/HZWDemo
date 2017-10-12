@@ -42,6 +42,8 @@
     _tbView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tbView];
     
+    _tbView.estimatedSectionHeaderHeight=0;
+    _tbView.estimatedSectionFooterHeight=0;
 }
 
 - (void)createData

@@ -115,4 +115,33 @@ alpha:alphaValue]
 
 #define _LS(key)  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"LaunchScreen"]
 
+
+
+/**< 测试是 */
+#ifndef TEST_VERSION
+
+#define FINISH_TEST
+
+#endif
+
+/**< 
+ Xcode 创建不同的 TARGET  挺好用
+ http://blog.csdn.net/yongyinmg/article/details/23695999
+ */
+
+/**<
+ #ifdef 和 #ifndef 的区别
+ http://blog.csdn.net/st646889325/article/details/53501370
+ */
+
+
+#ifdef DEFAULT_FIRST_OBJECT
+
+#define FIRST_OBJECT_TRUE
+
+#endif
+
+
+
+
 #endif /* PASSDK_h */

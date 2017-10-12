@@ -37,9 +37,22 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self createData];
+    
+    
+    
+#ifndef FINISH_TEST
     [self createView];
+#endif
     
+/**< FIRST_OBJECT_TRUE 为真 执行第一个 ,否则只想第二个 */
+#ifdef FIRST_OBJECT_TRUE
+#define kTESTVALUE       2
+#else
+#define kTESTVALUE       3
+#endif
     
+    NSLog(@"kTESTVALUE = %@",@(kTESTVALUE));
+
 }
 
 - (void)createData
@@ -47,7 +60,6 @@
     self.dataArray = [NSMutableArray array];
     self.beforeArray = [NSArray arrayWithObjects:@"2",@"4",@"1", nil];
     _dataArray = [NSMutableArray arrayWithArray:self.beforeArray];
-    
     
     self.afterArray = [NSArray array];
     self.afterArray = [self arraySort];
