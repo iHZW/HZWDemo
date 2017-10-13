@@ -339,6 +339,7 @@
 		7CF6023B1F907E2200D0C222 /* CMNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF602391F907E2200D0C222 /* CMNotificationCenter.m */; };
 		7CF602471F90809800D0C222 /* NSObject+Customizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF602461F90809700D0C222 /* NSObject+Customizer.m */; };
 		7CF602481F90809800D0C222 /* NSObject+Customizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF602461F90809700D0C222 /* NSObject+Customizer.m */; };
+		7CF6024C1F908CD900D0C222 /* CaptchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6024B1F908CD900D0C222 /* CaptchView.m */; };
 		7CFC14DA1DE3D9940017C831 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */; };
 		7CFE36891D1B87D200D02D9D /* MyInformationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36881D1B87D200D02D9D /* MyInformationCollectionViewController.m */; };
 		7CFE36D41D1CD24800D02D9D /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36D31D1CD24800D02D9D /* CollectionViewModel.m */; };
@@ -663,6 +664,8 @@
 		7CF602391F907E2200D0C222 /* CMNotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMNotificationCenter.m; sourceTree = "<group>"; };
 		7CF602451F90809700D0C222 /* NSObject+Customizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Customizer.h"; sourceTree = "<group>"; };
 		7CF602461F90809700D0C222 /* NSObject+Customizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Customizer.m"; sourceTree = "<group>"; };
+		7CF6024A1F908CD900D0C222 /* CaptchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptchView.h; sourceTree = "<group>"; };
+		7CF6024B1F908CD900D0C222 /* CaptchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptchView.m; sourceTree = "<group>"; };
 		7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		7CFE36871D1B87D200D02D9D /* MyInformationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyInformationCollectionViewController.h; path = ../MyInformationCollectionViewController.h; sourceTree = "<group>"; };
 		7CFE36881D1B87D200D02D9D /* MyInformationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInformationCollectionViewController.m; path = ../MyInformationCollectionViewController.m; sourceTree = "<group>"; };
@@ -1002,6 +1005,7 @@
 		7C7F0CF11BE707DC0073CE8C /* libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7CF602491F908CBB00D0C222 /* CaptchView */,
 				7C96F9C41D531CC300381092 /* Masonry */,
 				7CBB69D81BEA3F75005A7BDF /* JSONKit.h */,
 				7C13CDD11CFB259600C0CD9B /* NJKWebViewProgress */,
@@ -1524,6 +1528,15 @@
 			path = "NSObject+Customizer";
 			sourceTree = "<group>";
 		};
+		7CF602491F908CBB00D0C222 /* CaptchView */ = {
+			isa = PBXGroup;
+			children = (
+				7CF6024A1F908CD900D0C222 /* CaptchView.h */,
+				7CF6024B1F908CD900D0C222 /* CaptchView.m */,
+			);
+			path = CaptchView;
+			sourceTree = "<group>";
+		};
 		7CFE36861D1B873700D02D9D /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1897,6 +1910,7 @@
 				7C7F0D901BE7080F0073CE8C /* SDWebImageDecoder.m in Sources */,
 				7CC481D51B9C2B75008A08AE /* ViewController.m in Sources */,
 				7C7F0D981BE7080F0073CE8C /* UIImage+WebP.m in Sources */,
+				7CF6024C1F908CD900D0C222 /* CaptchView.m in Sources */,
 				7C7F0D8C1BE7080F0073CE8C /* MKAnnotationView+WebCache.m in Sources */,
 				7CDFFD211B9DD31300E7C63A /* BookModel.m in Sources */,
 				7C7F0D231BE707EE0073CE8C /* MJRefreshHeader.m in Sources */,

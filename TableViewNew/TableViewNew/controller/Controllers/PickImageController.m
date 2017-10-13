@@ -12,6 +12,7 @@
 #import "UIView+Create.h"
 #import "GCDCommon.h"
 #import "FlashTagView.h"
+#import "CaptchView.h"
 
 //  http://blog.csdn.net/lsy2013/article/details/42965805图片判断类型   pan/  jpg /  jpeg
 
@@ -28,6 +29,8 @@
 @property (nonatomic, strong) UILabel *bgLabel; /**< 变色背景label */
 
 @property (nonatomic, strong) FlashTagView *flashTagView;  /**< 闪烁view */
+
+@property (nonatomic, strong) CaptchView *captchView; /**< 动态验证码 */
 
 
 @end
@@ -63,8 +66,36 @@
     [self createGestureRecognizerTestView]; /**< 手势测试 */
 
     [self flashTest]; /**< 闪烁测试 */
+    
+    [self createCaptchView]; /**< 动态验证码 */
 }
 
+#pragma mark  --------------- captchView  动态验证码---------------------
+
+- (void)createCaptchView
+{
+    self.captchView = [[CaptchView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.captchView];
+    
+    [self.captchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(500);
+        make.left.mas_equalTo(self.view).offset(15);
+        make.size.mas_equalTo(CGSizeMake(70, 40));
+    }];
+    
+    @pas_weakify_self
+    [self.captchView setClickBlock:^(id capthview) {
+        @pas_strongify_self
+        [self action_clickValidate];
+    }];
+}
+
+- (void)action_clickValidate
+{
+    /**< 在这里编写点击验证码之后需要处理的代码 */
+}
+
+#pragma mark  --------------- 闪烁view ---------------------
 - (void)flashTest
 {
     [self createFicker]; /**< 添加闪烁view */
@@ -263,7 +294,7 @@
     
 }
 
-#pragma mark  --  /**< 手势测试 */
+#pragma mark  --------------- 手势测试 ---------------------
 - (void)createGestureRecognizerTestView
 {
     UIView *guestureView = [UIView viewForColor:UIColorFromRGB(0xe2233e) withFrame:CGRectZero];
@@ -304,7 +335,8 @@
 /**< 轻按触发事件 */
 - (void)tapAction:(UITapGestureRecognizer *)sender
 {
-    self.view.backgroundColor = UIColorFromRGB(0xcccccc);
+    UIColor *armColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:arc4random()%256/255.0];
+    self.view.backgroundColor = armColor;
     NSLog(@"%ld",(long)self.tapIndex);
     self.tapIndex += 1;
 }
@@ -396,11 +428,10 @@
         make.top.mas_equalTo(150);
     }];
     
-    
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
     [indicatorView startAnimating]; // 开始旋转
-    indicatorView.backgroundColor = [UIColor blueColor];
+    indicatorView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:indicatorView];
     
     [indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -410,6 +441,7 @@
     }];
 }
 
+#pragma mark  ------------- 字符串处理 ---------------------
 /**< 字符串处理 */
 - (void)textFieldTestString
 {
@@ -418,11 +450,18 @@
     if (rgn.location != NSNotFound) {
         newString = [newString substringToIndex:rgn.location];
     }
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(50, 400, kMainScreenWidth, 30)];
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textColor = [UIColor redColor];
     textField.text = newString;
     [self.view addSubview:textField];
+    
+    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(400);
+        make.left.equalTo(self.view).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.mas_equalTo(35);
+    }];
 }
 
 
