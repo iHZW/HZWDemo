@@ -32,12 +32,6 @@
 #define HMAIN   [[UIScreen mainScreen] bounds].size.height
 
 
-
-
-
-
-
-
 #define RemindString    @"niuniu"
 
 #define kNotificationKeyName   @"keyName"
