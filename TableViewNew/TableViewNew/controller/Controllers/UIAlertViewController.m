@@ -47,7 +47,7 @@
 - (void)createImageUI
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(50, 80, 100, 20);
+    button.frame = CGRectMake(50, 80 + (IS_IPHONE_X ? 20 : 0), 100, 20);
     [button setTitle:@"点击" forState:UIControlStateNormal];
     [button setBackgroundColor:[UIColor redColor]];
     [button addTarget:self action:@selector(clickCome:) forControlEvents:UIControlEventTouchUpInside];

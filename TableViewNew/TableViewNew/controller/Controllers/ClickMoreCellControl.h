@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClickMoreCellControl : UITableViewController
+@interface ClickMoreCellControl : UIViewController
 
 
 @end

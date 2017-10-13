@@ -109,12 +109,37 @@ alpha:alphaValue]
 
 #define kSysStatusBarHeight		MIN([UIApplication sharedApplication].statusBarFrame.size.width, [UIApplication sharedApplication].statusBarFrame.size.height)		// 系统状态栏高度
 
+
+//IPhone5适配项
+#define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )568) < DBL_EPSILON )
+//IPhone4适配项
+#define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )480) < DBL_EPSILON )
+//IPhone6适配项
+#define IS_IPHONE_6 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )667) < DBL_EPSILON )
+// IPhone6P适配项
+#define IS_IPHONE_6P (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )736) < DBL_EPSILON )
+// IPhoneX适配项
+#define IS_IPHONE_X (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )812) < DBL_EPSILON )
+
+
+// IPhoneX 竖屏安全区域顶部空白
+#define kPORTRAIT_SAFE_AREA_TOP_SPACE 44
+// IPhoneX 竖屏安全区域底部空白
+#define kPORTRAIT_SAFE_AREA_BOTTOM_SPACE 34
+// IPhoneX 横屏安全区域左部空白
+#define kLANDSCAPE_SAFE_AREA_LEFT_SPACE 44
+// IPhoneX 横屏安全区域右部空白
+#define kLANDSCAPE_SAFE_AREA_RIGHT_SPACE 44
+// IPhoneX 横屏安全区域底部空白
+#define kLANDSCAPE_SAFE_AREA_BOTTOM_SPACE 21
+
+
+
 #ifndef dimof
 #define dimof(a)    (sizeof(a) / sizeof(a[0]))
 #endif
 
 #define _LS(key)  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"LaunchScreen"]
-
 
 
 /**< 测试是 */

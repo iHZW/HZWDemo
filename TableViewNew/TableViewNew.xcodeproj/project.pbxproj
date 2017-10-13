@@ -326,6 +326,12 @@
 		7CD0106A1C5EF220002E38B5 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD010691C5EF220002E38B5 /* CustomButton.m */; };
 		7CDFFD1E1B9DD2F600E7C63A /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFFD1D1B9DD2F600E7C63A /* BookCell.m */; };
 		7CDFFD211B9DD31300E7C63A /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFFD201B9DD31300E7C63A /* BookModel.m */; };
+		7CF602161F90590E00D0C222 /* NSTimer+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF602151F90590E00D0C222 /* NSTimer+Util.m */; };
+		7CF602171F90590E00D0C222 /* NSTimer+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF602151F90590E00D0C222 /* NSTimer+Util.m */; };
+		7CF6021B1F905A2F00D0C222 /* UILabel+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6021A1F905A2F00D0C222 /* UILabel+Util.m */; };
+		7CF6021C1F905A2F00D0C222 /* UILabel+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6021A1F905A2F00D0C222 /* UILabel+Util.m */; };
+		7CF602201F90627F00D0C222 /* NSAttributedString+CustomAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6021F1F90627F00D0C222 /* NSAttributedString+CustomAttributed.m */; };
+		7CF602211F90627F00D0C222 /* NSAttributedString+CustomAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6021F1F90627F00D0C222 /* NSAttributedString+CustomAttributed.m */; };
 		7CFC14DA1DE3D9940017C831 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */; };
 		7CFE36891D1B87D200D02D9D /* MyInformationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36881D1B87D200D02D9D /* MyInformationCollectionViewController.m */; };
 		7CFE36901D1BEDC200D02D9D /* PASMyInfoMationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE368F1D1BEDC200D02D9D /* PASMyInfoMationCollectionViewCell.m */; };
@@ -636,6 +642,12 @@
 		7CDFFD1D1B9DD2F600E7C63A /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookCell.m; path = ../model/BookCell.m; sourceTree = "<group>"; };
 		7CDFFD1F1B9DD31300E7C63A /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		7CDFFD201B9DD31300E7C63A /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+		7CF602141F90590E00D0C222 /* NSTimer+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Util.h"; sourceTree = "<group>"; };
+		7CF602151F90590E00D0C222 /* NSTimer+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Util.m"; sourceTree = "<group>"; };
+		7CF602191F905A2F00D0C222 /* UILabel+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Util.h"; sourceTree = "<group>"; };
+		7CF6021A1F905A2F00D0C222 /* UILabel+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Util.m"; sourceTree = "<group>"; };
+		7CF6021E1F90627F00D0C222 /* NSAttributedString+CustomAttributed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+CustomAttributed.h"; sourceTree = "<group>"; };
+		7CF6021F1F90627F00D0C222 /* NSAttributedString+CustomAttributed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+CustomAttributed.m"; sourceTree = "<group>"; };
 		7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		7CFE36871D1B87D200D02D9D /* MyInformationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyInformationCollectionViewController.h; path = ../MyInformationCollectionViewController.h; sourceTree = "<group>"; };
 		7CFE36881D1B87D200D02D9D /* MyInformationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInformationCollectionViewController.m; path = ../MyInformationCollectionViewController.m; sourceTree = "<group>"; };
@@ -791,6 +803,9 @@
 		7C2A44011DD0818C00DC5B53 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				7CF6021D1F90624400D0C222 /* NSAttributedString+CustomAttributed */,
+				7CF602181F905A2000D0C222 /* UILabel+Util */,
+				7CF602131F90590E00D0C222 /* NSTimer+Util */,
 				7C2A44031DD0821D00DC5B53 /* UIButton+Block */,
 				7C2A44061DD0821D00DC5B53 /* UIImage */,
 				7C2A44111DD0821D00DC5B53 /* UIView+Create */,
@@ -1413,6 +1428,33 @@
 			path = XDGesture;
 			sourceTree = "<group>";
 		};
+		7CF602131F90590E00D0C222 /* NSTimer+Util */ = {
+			isa = PBXGroup;
+			children = (
+				7CF602141F90590E00D0C222 /* NSTimer+Util.h */,
+				7CF602151F90590E00D0C222 /* NSTimer+Util.m */,
+			);
+			path = "NSTimer+Util";
+			sourceTree = "<group>";
+		};
+		7CF602181F905A2000D0C222 /* UILabel+Util */ = {
+			isa = PBXGroup;
+			children = (
+				7CF602191F905A2F00D0C222 /* UILabel+Util.h */,
+				7CF6021A1F905A2F00D0C222 /* UILabel+Util.m */,
+			);
+			path = "UILabel+Util";
+			sourceTree = "<group>";
+		};
+		7CF6021D1F90624400D0C222 /* NSAttributedString+CustomAttributed */ = {
+			isa = PBXGroup;
+			children = (
+				7CF6021E1F90627F00D0C222 /* NSAttributedString+CustomAttributed.h */,
+				7CF6021F1F90627F00D0C222 /* NSAttributedString+CustomAttributed.m */,
+			);
+			path = "NSAttributedString+CustomAttributed";
+			sourceTree = "<group>";
+		};
 		7CFE36861D1B873700D02D9D /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1668,6 +1710,7 @@
 				7CBD67241F61226400CDB912 /* MyImagePickerController.m in Sources */,
 				7CBD67251F61226400CDB912 /* MASCompositeConstraint.m in Sources */,
 				7CBD67261F61226400CDB912 /* AFHTTPSessionManager.m in Sources */,
+				7CF602171F90590E00D0C222 /* NSTimer+Util.m in Sources */,
 				7CBD67271F61226400CDB912 /* UIScrollView+MJRefresh.m in Sources */,
 				7CBD67281F61226400CDB912 /* XDGestureConfigVC.m in Sources */,
 				7CBD67291F61226400CDB912 /* PASMyUIMenuController.m in Sources */,
@@ -1675,6 +1718,7 @@
 				7CBD672B1F61226400CDB912 /* MASViewAttribute.m in Sources */,
 				7CBD672C1F61226400CDB912 /* MJRefreshBackFooter.m in Sources */,
 				7CBD672D1F61226400CDB912 /* AFURLRequestSerialization.m in Sources */,
+				7CF602211F90627F00D0C222 /* NSAttributedString+CustomAttributed.m in Sources */,
 				7CBD672E1F61226400CDB912 /* MJRefreshConst.m in Sources */,
 				7CBD672F1F61226400CDB912 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7CBD67301F61226400CDB912 /* FlashTagView.m in Sources */,
@@ -1744,6 +1788,7 @@
 				7CBD67701F61226400CDB912 /* XDGestureLoginVC.m in Sources */,
 				7CBD67711F61226400CDB912 /* UIImage+Addition.m in Sources */,
 				7CBD67721F61226400CDB912 /* AFURLResponseSerialization.m in Sources */,
+				7CF6021C1F905A2F00D0C222 /* UILabel+Util.m in Sources */,
 				7CBD67731F61226400CDB912 /* ThirdCell.m in Sources */,
 				7CBD67741F61226400CDB912 /* UIView+WebCacheOperation.m in Sources */,
 				7CBD67751F61226400CDB912 /* UIAlertViewController.m in Sources */,
@@ -1798,6 +1843,7 @@
 				7C0EF9021D732FBA00E4328F /* MyImagePickerController.m in Sources */,
 				7C96F9E01D531CC400381092 /* MASCompositeConstraint.m in Sources */,
 				7CBB69C91BEA0898005A7BDF /* AFHTTPSessionManager.m in Sources */,
+				7CF602161F90590E00D0C222 /* NSTimer+Util.m in Sources */,
 				7C7F0D301BE707EE0073CE8C /* UIScrollView+MJRefresh.m in Sources */,
 				7CC9E28C1E4AEDE7002CEB29 /* XDGestureConfigVC.m in Sources */,
 				7C0EF9031D732FBA00E4328F /* PASMyUIMenuController.m in Sources */,
@@ -1805,6 +1851,7 @@
 				7C96F9E41D531CC400381092 /* MASViewAttribute.m in Sources */,
 				7C7F0D201BE707EE0073CE8C /* MJRefreshBackFooter.m in Sources */,
 				7CBB69CD1BEA0898005A7BDF /* AFURLRequestSerialization.m in Sources */,
+				7CF602201F90627F00D0C222 /* NSAttributedString+CustomAttributed.m in Sources */,
 				7C7F0D2E1BE707EE0073CE8C /* MJRefreshConst.m in Sources */,
 				7C7F0D991BE7080F0073CE8C /* UIImageView+HighlightedWebCache.m in Sources */,
 				7C9E362D1DEC1A0A001072D5 /* FlashTagView.m in Sources */,
@@ -1874,6 +1921,7 @@
 				7CC9E28D1E4AEDE7002CEB29 /* XDGestureLoginVC.m in Sources */,
 				7C2A44211DD0821D00DC5B53 /* UIImage+Addition.m in Sources */,
 				7CBB69CE1BEA0898005A7BDF /* AFURLResponseSerialization.m in Sources */,
+				7CF6021B1F905A2F00D0C222 /* UILabel+Util.m in Sources */,
 				7CBC77AD1C0486990089A545 /* ThirdCell.m in Sources */,
 				7C7F0D9B1BE7080F0073CE8C /* UIView+WebCacheOperation.m in Sources */,
 				7C0EF90B1D732FBA00E4328F /* UIAlertViewController.m in Sources */,

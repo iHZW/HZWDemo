@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BookModel.h"
+@class CustomButton;
 
 @interface ClickMoreAndMoreCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *ageLabel;
-@property (nonatomic, strong) UIButton *orderBtn; /**< 下单按钮 */
+//@property (nonatomic, strong) UIButton *orderBtn; /**< 下单按钮 */
+@property (nonatomic, strong) CustomButton *orderBtn;
 
 
 - (void)configWithArray:(BookModel *)model;

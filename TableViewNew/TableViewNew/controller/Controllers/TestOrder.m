@@ -47,6 +47,12 @@
     self.tbView.dataSource = self;
     [self.view addSubview:self.tbView];
     
+//#ifdef __IPHONE_11_0
+//    if ([self.tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+//        self.tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    }
+//#endif
+    
 }
 
 - (void)createData

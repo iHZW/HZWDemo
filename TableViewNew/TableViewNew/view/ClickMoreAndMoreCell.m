@@ -7,10 +7,12 @@
 //
 
 #import "ClickMoreAndMoreCell.h"
+#import "CustomButton.h"
 
 @implementation ClickMoreAndMoreCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 
@@ -27,6 +29,7 @@
 //        [self.orderBtn setTitle:@"下单" forState:UIControlStateNormal];
 //        [self.orderBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 //        [self.contentView addSubview:self.orderBtn];
+        
         
         self.ageLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 50, 100, 30)];
         self.ageLabel.backgroundColor = [UIColor redColor];

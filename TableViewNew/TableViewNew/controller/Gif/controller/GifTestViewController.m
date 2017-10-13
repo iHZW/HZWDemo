@@ -19,11 +19,12 @@
 @property (nonatomic, strong) UIWebView *loadGifWebView;
 @property (nonatomic, strong)UIActivityIndicatorView *indicatorView;
 
+@property (nonatomic, strong) GifView *gifView;
+
 @end
 
 
 @implementation GifTestViewController
-
 
 #pragma mark  初始化 (懒加载)
 - (UIWebView *)loadGifWebView
@@ -62,7 +63,13 @@
     // Do any additional setup after loading the view.
 }
 
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.gifView stopGif];
+    
+}
 
 #pragma mark  - 加载gif方法一:
 - (void)loadeGifView
@@ -152,13 +159,12 @@
 {
     NSString *pathString = [[NSBundle mainBundle]pathForResource:@"1" ofType:@"gif"];
     NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"2" ofType:@"gif"]];
-    GifView *gifView = nil;
     
 //   gifView = [[GifView alloc] initWithFrame:CGRectMake(0, 64+2*ViewHeight, WMAIN, ViewHeight) filePath:pathString];
-    gifView = [[GifView alloc]initWithFrame:CGRectMake(0, 64+2*ViewHeight, WMAIN, ViewHeight) data:gifData];
+    self.gifView = [[GifView alloc]initWithFrame:CGRectMake(0, 64+2*ViewHeight, WMAIN, ViewHeight) data:gifData];
     
-    gifView.tag = 2016;
-    [self.view addSubview:gifView];
+    self.gifView.tag = 2016;
+    [self.view addSubview:self.gifView];
 }
 
 

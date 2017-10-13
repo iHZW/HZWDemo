@@ -11,10 +11,13 @@
 #import "BookModel.h"
 #import "CustomButton.h"
 
+static NSString *kCellID = @"CellID";
+//#define kCellID   @"kCellId"
+
 @interface ClickMoreCellControl ()<UITableViewDataSource,
 UITableViewDelegate>
 {
-    UITableView *_tableView;
+//    UITableView *_tableView;
 }
 @property (nonatomic, strong) UITableView *tbView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -28,7 +31,7 @@ UITableViewDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self createData];
     [self createUI];
@@ -48,17 +51,28 @@ UITableViewDelegate>
 
 - (void)createUI
 {
-    self.tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height) style:UITableViewStylePlain];
+    self.tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
     self.tbView.backgroundColor = [UIColor clearColor];
     self.tbView.delegate = self;
     self.tbView.dataSource = self;
-    [self.view addSubview:self.tbView];
     
+//    self.tbView.estimatedSectionFooterHeight = 0;
+//    self.tbView.estimatedSectionHeaderHeight = 0;
+//    self.tbView.estimatedRowHeight = 0;
+    [self.view addSubview:self.tbView];
+    [self.tbView registerClass:[ClickMoreAndMoreCell class] forCellReuseIdentifier:kCellID];
+    
+//#ifdef __IPHONE_11_0
+//    if ([self.tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+//        self.tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    }
+//#endif
+    
+
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressGesture:)];
     [self.tbView addGestureRecognizer:longPress];
 
 }
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -88,31 +102,20 @@ UITableViewDelegate>
     return 45;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"CellID";
-    ClickMoreAndMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        cell = [[ClickMoreAndMoreCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-    }
-    else{
-        for (UIView *view in [cell.contentView subviews])
-        {
-            [view removeFromSuperview];
-        }
-    }
+
+    ClickMoreAndMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
     
     if (indexPath.row == self.selectIndex.row && self.selectIndex != nil) {
-        if (self.isOpen == YES) {
-            cell.ageLabel.hidden = NO;
-        }else{
-            cell.ageLabel.hidden = YES;
-        }
+        cell.ageLabel.hidden = self.isOpen == YES ? NO : YES;
     }else{
         cell.ageLabel.hidden = YES;
     }
     
+//    cell.orderBtn.indexPath = indexPath;
+//    [cell.orderBtn addTarget:self action:@selector(clickOrder:) forControlEvents:UIControlEventTouchUpInside];
+
     CustomButton *orderBtn = [CustomButton buttonWithType:UIButtonTypeCustom];
     orderBtn.frame = CGRectMake(200, 0, 100, 45);
     [orderBtn setTitle:@"下单" forState:UIControlStateNormal];
@@ -134,12 +137,13 @@ UITableViewDelegate>
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     if (self.selectIndex.row == indexPath.row && self.selectIndex != nil) {
         self.isOpen = !self.isOpen;
+        self.selectIndex = nil;
     }else{
         indexPaths = [NSArray arrayWithObjects:indexPath,self.selectIndex, nil];
         self.isOpen = YES;
+        self.selectIndex = indexPath;
     }
-    self.selectIndex = indexPath;
-    [self.tbView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+    [self.tbView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 

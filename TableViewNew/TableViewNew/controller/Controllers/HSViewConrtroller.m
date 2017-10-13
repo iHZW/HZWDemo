@@ -30,6 +30,14 @@
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
 #define HMAIN   [[UIScreen mainScreen] bounds].size.height
+
+
+
+
+
+
+
+
 #define RemindString    @"niuniu"
 
 #define kNotificationKeyName   @"keyName"
@@ -89,11 +97,11 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
 //
 //    [self createPlainData];
 //    [self createPlainUI];
-
+    self.title = @"无敌666";
     [self createGroupData];
     [self createGroupTableView];
     [HSViewConrtroller shareInstance].passName = @"无敌666";
@@ -354,6 +362,13 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     _tbView.dataSource = self;
     _tbView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_tbView];
+    
+    //让adjustContentInset值不受SafeAreaInset值的影响。
+#ifdef __IPHONE_11_0
+    if ([_tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        _tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+#endif
 
     _tbView.scrollsToTop = YES;
     
@@ -457,11 +472,9 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 }
 
 
-
-
 - (void)createGroupTableView
 {
-    _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, WMAIN, HMAIN-64) style:UITableViewStylePlain];
+    _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64 + (IS_IPHONE_X ? 20 : 0), WMAIN, HMAIN-84) style:UITableViewStylePlain];
     _tbView.delegate = self;
     _tbView.dataSource = self;
     _tbView.separatorStyle = UITableViewCellSeparatorStyleNone;//去掉分割线
@@ -469,6 +482,12 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     [self.view addSubview:_tbView];
 //    _tbView.tableHeaderView = [self getHeadView];
     _tbView.tableHeaderView = [self getIndexItemView];
+    
+#ifdef __IPHONE_11_0
+    if ([_tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        _tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+#endif
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(WMAIN-50, HMAIN-50, 30, 30);
