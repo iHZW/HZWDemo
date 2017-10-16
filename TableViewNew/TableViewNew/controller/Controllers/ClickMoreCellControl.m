@@ -10,6 +10,7 @@
 #import "ClickMoreAndMoreCell.h"
 #import "BookModel.h"
 #import "CustomButton.h"
+#import <objc/runtime.h>
 
 static NSString *kCellID = @"CellID";
 //#define kCellID   @"kCellId"
@@ -36,6 +37,67 @@ UITableViewDelegate>
     [self createData];
     [self createUI];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+}
+
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+    [super willMoveToParentViewController:parent];
+    
+}
+
+/**< 完全pop成功后回调方法
+ 
+ 这个方法可以监听右滑返回
+ */
+
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    [super didMoveToParentViewController:parent];
+    if (!parent) {
+        NSLog(@"pop success");
+        
+        [self testMethod];
+    }
+}
+
+- (void)testMethod
+{
+    /**< runtime  存储一个值
+     objc_setAssociatedObject(id _Nonnull object, const void * _Nonnull key,
+     id _Nullable value, objc_AssociationPolicy policy);
+     
+     (id _Nonnull object,  值需要存在那个对象里
+     const void * _Nonnull key, 保存值的Key
+     id _Nullable value, 需要保存的值
+     objc_AssociationPolicy policy 变量的属性  OBJC_ASSOCIATION_RETAIN_NONATOMIC
+     )
+     */
+    objc_setAssociatedObject(self, @"mySelf", self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    /**<
+     objc_getAssociatedObject(id _Nonnull object, const void * _Nonnull key)
+     
+     (id _Nonnull object,  从哪个对象获取值
+     const void * _Nonnull key  获取值的Key
+     )
+     */
+    
+    UIViewController *controller = objc_getAssociatedObject(self, @"mySelf");
+    objc_removeAssociatedObjects(controller);
+}
+
 
 
 - (void)createData

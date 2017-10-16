@@ -25,6 +25,7 @@
 #import "GYZActionSheet.h"
 #import "IndexTopItem.h"
 #import "XDGestureConfigVC.h"
+#import "ThirdDetailViewController.h"
 
 
 
@@ -640,6 +641,11 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
         XDGestureConfigVC *ctrl = [[XDGestureConfigVC alloc] init];
         
         [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    else
+    {
+        ThirdDetailViewController *detailCtrl = [[ThirdDetailViewController alloc]init];
+        [self.navigationController pushViewController:detailCtrl animated:YES];
     }
     
 }

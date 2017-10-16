@@ -23,9 +23,6 @@
 @property (nonatomic, strong) UILabel *contentLabel; /**< 显示label内容 */
 
 
-
-
-
 @end
 
 
