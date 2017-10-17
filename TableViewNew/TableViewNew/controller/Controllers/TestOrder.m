@@ -166,9 +166,9 @@
     }
     self.selectPath = indexPath;
     [self.tbView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-    CGSize upSize = CGSizeMake(0, indexPath.row * 45) ;
-    CGRect rect = CGRectMake(0, upSize.height, WMAIN, 100);
-    [self.tbView scrollRectToVisible:rect animated:YES];
+//    CGSize upSize = CGSizeMake(0, indexPath.row * 45) ;
+//    CGRect rect = CGRectMake(0, upSize.height, WMAIN, 100);
+//    [self.tbView scrollRectToVisible:rect animated:NO];
 
 }
 

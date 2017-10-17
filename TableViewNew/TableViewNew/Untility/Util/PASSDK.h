@@ -92,6 +92,9 @@ green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0x0000FF))/255.0 \
 alpha:alphaValue]
 
+/**< 适配长度 */
+#define PASFactor(x) [PASCommonUtil getFinalScreenValue:x]
+
 #define UIColorFromHexString(hexString) [UIColor colorFromHexString:hexString]
 #define UIColorFromHexAlphaString(hexString, a) [UIColor colorFromHexString:hexString alpha:a]
 #define UIColorFromHexStr(hexString) [UIColor colorFromHexString:hexString]

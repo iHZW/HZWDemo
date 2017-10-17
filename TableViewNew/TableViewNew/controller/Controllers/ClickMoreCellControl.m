@@ -34,6 +34,7 @@ UITableViewDelegate>
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.selectIndex = nil;
     [self createData];
     [self createUI];
 }
@@ -154,14 +155,23 @@ UITableViewDelegate>
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat height = 45;
     if (indexPath.row == self.selectIndex.row && self.selectIndex != nil ) {
+
+//        ClickMoreAndMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
+//
+//        height = [cell getCellHeight];
         if (self.isOpen == YES) {
-            return 100;
+            return 80;
         }else{
             return 45;
         }
+//        BookModel *model = self.dataArray[indexPath.row];
+//        if (model.cellHeight) {
+//            height = model.cellHeight;
+//        }
     }
-    return 45;
+    return height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -169,11 +179,8 @@ UITableViewDelegate>
 
     ClickMoreAndMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
     
-    if (indexPath.row == self.selectIndex.row && self.selectIndex != nil) {
-        cell.ageLabel.hidden = self.isOpen == YES ? NO : YES;
-    }else{
-        cell.ageLabel.hidden = YES;
-    }
+    cell.isSelect = self.selectIndex && self.selectIndex.row == indexPath.row ? YES : NO ;
+    
     
 //    cell.orderBtn.indexPath = indexPath;
 //    [cell.orderBtn addTarget:self action:@selector(clickOrder:) forControlEvents:UIControlEventTouchUpInside];
@@ -205,7 +212,9 @@ UITableViewDelegate>
         self.isOpen = YES;
         self.selectIndex = indexPath;
     }
+//    [self.tbView reloadData];
     [self.tbView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+
 }
 
 

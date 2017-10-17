@@ -14,6 +14,7 @@
 @property (nonatomic,copy) NSString *age; /**< 年龄 */
 @property (nonatomic, copy) NSString *content; /**< 文本 */
 
+@property (nonatomic, assign) CGFloat cellHeight; /**< cell的高度 */
 
 //按照名字升序
 - (NSComparisonResult)sortNameAscend:(BookModel *)model;
