@@ -53,7 +53,10 @@
     
     UISwitch *mySwitch = [[UISwitch alloc]initWithFrame:CGRectMake(100, 200, 0, 0 )];
 //    [mySwitch setOn:YES animated:YES];
-    [mySwitch setEnabled:NO];
+    [mySwitch addTarget:self action:@selector(switchState:) forControlEvents:UIControlEventTouchUpInside];
+    BOOL siwtchState = [[PASCommonUtil getStringWithKey:SwitchStateKey] isEqualToString:kSwitchOpen] ? YES : NO;
+    [mySwitch setOn:siwtchState animated:NO];
+
     [self.view addSubview:mySwitch];
 
    BOOL boll = [self validateNumber:@"niuniunij"];
@@ -69,6 +72,18 @@
     
     [self createCaptchView]; /**< 动态验证码 */
 }
+
+/**< 切换开关状态 */
+- (void)switchState:(UISwitch *)sender
+{
+    if (sender.on) {
+        [PASCommonUtil setObject:kSwitchOpen forKey:SwitchStateKey];
+    }else{
+        [PASCommonUtil setObject:kSwitchClose forKey:SwitchStateKey];
+    }
+}
+
+
 
 #pragma mark  --------------- captchView  动态验证码---------------------
 

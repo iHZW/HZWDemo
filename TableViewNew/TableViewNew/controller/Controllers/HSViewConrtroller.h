@@ -12,6 +12,10 @@
 
 #define UIColorFromRGBA(rgbaValue) [UIColor colorWithRed:((float)((rgbaValue & 0xFF0000) >> 24))/255.0 green:((float)((rgbaValue & 0xFF00) >> 16))/255.0 blue:((float)((rgbaValue & 0xFF00) >> 8))/255.0 alpha:((float)(rgbaValue & 0xFF))/100.0]
 
+#define SwitchStateKey    @"SwitchStateKey"
+#define kSwitchOpen       @"kSwitchOpen"
+#define kSwitchClose      @"kSwitchClose"
+
 typedef void(^HsViewBlock)(BOOL isSuccess);
 
 

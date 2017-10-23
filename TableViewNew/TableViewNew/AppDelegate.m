@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "HSViewConrtroller.h"
 #import "BackGroundView.h"
+#import "PASCommonUtil.h"
 
 #define kWidth     60
 
@@ -25,10 +26,13 @@
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
     
+    UIViewController *tempCtrl = nil;
+
+//    ViewController *viewCtrl = [[ViewController alloc] init];
     HSViewConrtroller *ctrl = [[HSViewConrtroller alloc]init];
-    UINavigationController *navCtrl = [[UINavigationController alloc]initWithRootViewController:ctrl];
+    tempCtrl = ctrl;
+    UINavigationController *navCtrl = [[UINavigationController alloc]initWithRootViewController:tempCtrl];
     self.window.rootViewController = navCtrl;
-    
     [self.window makeKeyAndVisible];
     
     /**< 添加一个全屏的吸附屏幕边缘的按钮 */
@@ -64,6 +68,7 @@
         }else{
             adjustX = kWidth/2;
         }
+        
         /**< 计算偏移y坐标 */
         if (centerY < kWidth/2) {
             adjustY = kWidth/2;

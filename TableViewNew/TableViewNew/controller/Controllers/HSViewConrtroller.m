@@ -26,7 +26,7 @@
 #import "IndexTopItem.h"
 #import "XDGestureConfigVC.h"
 #import "ThirdDetailViewController.h"
-
+#import "ViewController.h"
 
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
@@ -91,6 +91,15 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /**< 判断打开了验证指纹识别功能  进入指纹识别界面 */
+    NSString *switchName = [PASCommonUtil getStringWithKey:SwitchStateKey];
+    if ([switchName isEqualToString:kSwitchOpen]) {
+        ViewController *ctrl = [[ViewController alloc] init];
+        [self presentViewController:ctrl animated:YES completion:nil];
+    }
+    
+    
     // Do any additional setup after loading the view.
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 //
