@@ -27,6 +27,7 @@
 #import "XDGestureConfigVC.h"
 #import "ThirdDetailViewController.h"
 #import "ViewController.h"
+#import "TestDrawViewController.h"
 
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
@@ -649,6 +650,11 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
         /**< 手势密码界面 */
         XDGestureConfigVC *ctrl = [[XDGestureConfigVC alloc] init];
         
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    else if (indexPath.section == 2 && indexPath.row == 4)
+    {
+        TestDrawViewController *ctrl = [[TestDrawViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
     else

@@ -88,10 +88,11 @@
 
 
 #pragma mark  禁止横屏(实现方法)
-- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
+/**< 这个是整个APP所有的界面都不支持横屏 */
+//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+//{
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /**< 将要进入后台 */

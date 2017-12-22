@@ -44,6 +44,10 @@
 		7C2A443F1DD0822500DC5B53 /* DataFormatterFunc+RegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A44341DD0822500DC5B53 /* DataFormatterFunc+RegularExpression.m */; };
 		7C2A44401DD0822500DC5B53 /* DataFormatterFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A44361DD0822500DC5B53 /* DataFormatterFunc.m */; };
 		7C2A44411DD0822500DC5B53 /* DateFormatterFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A44391DD0822500DC5B53 /* DateFormatterFunc.m */; };
+		7C2EBBB11FEA65B600FEA7BB /* TestDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2EBBB01FEA65B600FEA7BB /* TestDrawViewController.m */; };
+		7C2EBBB21FEA65B600FEA7BB /* TestDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2EBBB01FEA65B600FEA7BB /* TestDrawViewController.m */; };
+		7C2EBBB51FEA667D00FEA7BB /* TestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2EBBB41FEA667D00FEA7BB /* TestDrawView.m */; };
+		7C2EBBB61FEA667D00FEA7BB /* TestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2EBBB41FEA667D00FEA7BB /* TestDrawView.m */; };
 		7C43A2EE1D2B95A700C54B9F /* GYZActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2E81D2B95A700C54B9F /* GYZActionSheet.m */; };
 		7C43A2EF1D2B95A700C54B9F /* GYZSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2EB1D2B95A700C54B9F /* GYZSheetCell.m */; };
 		7C43A2F01D2B95A700C54B9F /* GYZSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2ED1D2B95A700C54B9F /* GYZSheetView.m */; };
@@ -455,6 +459,10 @@
 		7C2A443B1DD0822500DC5B53 /* SingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonTemplate.h; sourceTree = "<group>"; };
 		7C2A44431DD082B300DC5B53 /* UIImageCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageCategory.h; sourceTree = "<group>"; };
 		7C2A44451DD0872000DC5B53 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7C2EBBAF1FEA65B600FEA7BB /* TestDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDrawViewController.h; sourceTree = "<group>"; };
+		7C2EBBB01FEA65B600FEA7BB /* TestDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDrawViewController.m; sourceTree = "<group>"; };
+		7C2EBBB31FEA667D00FEA7BB /* TestDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDrawView.h; sourceTree = "<group>"; };
+		7C2EBBB41FEA667D00FEA7BB /* TestDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDrawView.m; sourceTree = "<group>"; };
 		7C43A2E71D2B95A700C54B9F /* GYZActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZActionSheet.h; sourceTree = "<group>"; };
 		7C43A2E81D2B95A700C54B9F /* GYZActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZActionSheet.m; sourceTree = "<group>"; };
 		7C43A2E91D2B95A700C54B9F /* GYZCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCommon.h; sourceTree = "<group>"; };
@@ -824,6 +832,8 @@
 				7C0EF8FB1D732FBA00E4328F /* ThirdViewController.m */,
 				7C0EF8FC1D732FBA00E4328F /* UIAlertViewController.h */,
 				7C0EF8FD1D732FBA00E4328F /* UIAlertViewController.m */,
+				7C2EBBAF1FEA65B600FEA7BB /* TestDrawViewController.h */,
+				7C2EBBB01FEA65B600FEA7BB /* TestDrawViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1477,6 +1487,8 @@
 				7C9E362C1DEC1A0A001072D5 /* FlashTagView.m */,
 				7C9E363B1DF0166B001072D5 /* BackGroundView.h */,
 				7C9E363C1DF0166B001072D5 /* BackGroundView.m */,
+				7C2EBBB31FEA667D00FEA7BB /* TestDrawView.h */,
+				7C2EBBB41FEA667D00FEA7BB /* TestDrawView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1948,6 +1960,7 @@
 				7CBD67091F61226400CDB912 /* PickImageController.m in Sources */,
 				7CBD670A1F61226400CDB912 /* MyInformationCollectionViewController.m in Sources */,
 				7CBD670C1F61226400CDB912 /* TestWebView.m in Sources */,
+				7C2EBBB21FEA65B600FEA7BB /* TestDrawViewController.m in Sources */,
 				7CBD670D1F61226400CDB912 /* View+MASAdditions.m in Sources */,
 				7CF602A61F949A6600D0C222 /* MJRefreshBackNormalFooter.m in Sources */,
 				7CBD670F1F61226400CDB912 /* UIAlertView+AFNetworking.m in Sources */,
@@ -1961,6 +1974,7 @@
 				7CBD67151F61226400CDB912 /* AFNetworkReachabilityManager.m in Sources */,
 				7CBD67161F61226400CDB912 /* SDWebImageManager.m in Sources */,
 				7CBD67171F61226400CDB912 /* GYZActionSheet.m in Sources */,
+				7C2EBBB61FEA667D00FEA7BB /* TestDrawView.m in Sources */,
 				7CF602A81F949A6B00D0C222 /* MJRefreshGifHeader.m in Sources */,
 				7CBD67191F61226400CDB912 /* ClickMoreAndMoreCell.m in Sources */,
 				7CF602A01F949A5200D0C222 /* MJRefreshFooter.m in Sources */,
@@ -2098,6 +2112,7 @@
 				7CF602941F90A26500D0C222 /* UIScrollView+MJExtension.m in Sources */,
 				7CFE36891D1B87D200D02D9D /* MyInformationCollectionViewController.m in Sources */,
 				7C0EF9071D732FBA00E4328F /* TestWebView.m in Sources */,
+				7C2EBBB11FEA65B600FEA7BB /* TestDrawViewController.m in Sources */,
 				7C96F9E81D531CC400381092 /* View+MASAdditions.m in Sources */,
 				7CBB69D21BEA0898005A7BDF /* UIAlertView+AFNetworking.m in Sources */,
 				7C0EF9081D732FBA00E4328F /* TestWebView+ErrorPageView.m in Sources */,
@@ -2111,6 +2126,7 @@
 				7C43A2EE1D2B95A700C54B9F /* GYZActionSheet.m in Sources */,
 				7C1C25791C5B53E7009B8C6C /* ClickMoreAndMoreCell.m in Sources */,
 				7CF602931F90A26500D0C222 /* MJRefreshConst.m in Sources */,
+				7C2EBBB51FEA667D00FEA7BB /* TestDrawView.m in Sources */,
 				7CF6028E1F90A26500D0C222 /* MJRefreshBackStateFooter.m in Sources */,
 				7C7F0D901BE7080F0073CE8C /* SDWebImageDecoder.m in Sources */,
 				7C83A6991F95924A00BEE051 /* PINMemoryCache.m in Sources */,
