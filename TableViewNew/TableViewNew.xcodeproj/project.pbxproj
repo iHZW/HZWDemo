@@ -2286,7 +2286,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.PAMobileStockTrail4321;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7442645e-4bcf-4dcf-8d8a-bcdc3db553f3";
 				PROVISIONING_PROFILE_SPECIFIER = debug_profile;
@@ -2309,7 +2309,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.PAMobileStockTrail4321;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "35a7b020-746c-424a-b8e6-9752d2db1776";
 				PROVISIONING_PROFILE_SPECIFIER = iosPingAnProfile;

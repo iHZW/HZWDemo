@@ -8,7 +8,8 @@
 
 #import "ThirdDetailViewController.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import <MediaPlayer/MediaPlayer.h>
+#import <MediaToolbox/MediaToolbox.h>
 
 typedef  NS_ENUM(NSInteger , SelectType){
     /**< 拍照 */
@@ -46,6 +47,11 @@ UINavigationControllerDelegate>
 @property (nonatomic,strong) AVCaptureDevice * captureDevice;
 @property (nonatomic, assign) BOOL isOpen; //判断是否开启
 
+
+@property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
+@property (nonatomic, strong) NSString *movieUrl; /**< 视频地址 */
+
+
 @end
 
 
@@ -62,6 +68,8 @@ UINavigationControllerDelegate>
 
     [self createData];
     
+    /**< 视频测试 */
+    [self createMovieView];
 #ifndef FINISH_TEST
     [self createView];
 #endif
@@ -131,6 +139,36 @@ UINavigationControllerDelegate>
     [self.view addSubview:self.contentLabel];
 }
 
+
+
+- (void)createMovieView
+{
+//    self.movieUrl = @"http://baidu.iqiyi.com/kan/aBCE3?fr=v.baidu.com/4";
+//    NSURL *url = [NSURL fileURLWithPath:self.movieUrl];
+//    NSString *urlString = @"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+    NSString *urlString = @"http://v7.pstatp.com/4f0d692b1f438810ac4ff9ec030fce13/5a434793/video/m/220f01538132b8548488fd9fe13c85db95411537491000018a4e62627b6/";
+    NSURL* url = [NSURL URLWithString:urlString];
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    [self.view addSubview:self.moviePlayer.view];
+//    self.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;// 不需要进度条
+    self.moviePlayer.view.frame = CGRectMake(10, 350, kMainScreenWidth - 20, 300);
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(movieFinishedCallback:)
+//                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+//                                               object:self.moviePlayer ];
+    [self.moviePlayer prepareToPlay];
+//    [self.navigationController presentMoviePlayerViewControllerAnimated:self.moviePlayer];
+
+}
+
+- (void) movieFinishedCallback:(NSNotification*) aNotification
+{
+    MPMoviePlayerController *player = [aNotification object];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+    [player stop];
+//    [self.navigationController dismissMoviePlayerViewControllerAnimated];
+}
 
 - (void)createAlreatSheet
 {
