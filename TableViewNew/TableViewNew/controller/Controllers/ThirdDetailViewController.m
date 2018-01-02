@@ -143,7 +143,6 @@ UINavigationControllerDelegate>
 
 - (void)createMovieView
 {
-    
 //    self.movieUrl = @"http://baidu.iqiyi.com/kan/aBCE3?fr=v.baidu.com/4";
 //    NSURL *url = [NSURL fileURLWithPath:self.movieUrl];
 //    NSString *urlString = @"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"

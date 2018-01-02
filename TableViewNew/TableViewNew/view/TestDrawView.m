@@ -108,7 +108,29 @@
 #pragma mark  --右移
 - (void)moveRightWithPoint:(CGPoint)point
 {
+    CGFloat minX = CGRectGetMinX(self.mainView.frame);
+    CGFloat maxX = point.x;
+    CGFloat midY = point.y;
     
+    if (minX + self.itemWidth > maxX) {
+        maxX = minX + self.itemWidth;
+    }
+//    else if (maxX > CGRectGetMaxX(self.frame)){
+//        maxX = CGRectGetMaxX(self.frame);
+//    }
+    
+    if (midY < self.rightImageView.height/2) {
+        midY = self.rightImageView.height/2;
+    }
+    
+    if (midY > self.mainView.height - self.rightImageView.height/2) {
+        midY = self.mainView.height - self.rightImageView.height/2;
+    }
+    
+    maxX = MIN(CGRectGetWidth(self.frame), maxX);
+    
+    self.mainView.frame  =CGRectMake(minX, -1, maxX - minX, self.height + 2);
+    self.rightImageView.center = CGPointMake(maxX, midY);
 }
 
 - (BOOL)canResetTagViewWithLeftPoint:(CGPoint)point {

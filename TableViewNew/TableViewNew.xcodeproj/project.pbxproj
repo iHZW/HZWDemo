@@ -29,6 +29,8 @@
 		7C13CDD61CFB259600C0CD9B /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C13CDD31CFB259600C0CD9B /* NJKWebViewProgress.m */; };
 		7C13CDD71CFB259600C0CD9B /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C13CDD51CFB259600C0CD9B /* NJKWebViewProgressView.m */; };
 		7C1C25791C5B53E7009B8C6C /* ClickMoreAndMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C25781C5B53E7009B8C6C /* ClickMoreAndMoreCell.m */; };
+		7C2823FA1FF6438400A4920A /* NewOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2823F91FF6438400A4920A /* NewOrderView.m */; };
+		7C2823FB1FF6438C00A4920A /* NewOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2823F91FF6438400A4920A /* NewOrderView.m */; };
 		7C2A44201DD0821D00DC5B53 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A44051DD0821D00DC5B53 /* UIButton+Block.m */; };
 		7C2A44211DD0821D00DC5B53 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A44091DD0821D00DC5B53 /* UIImage+Addition.m */; };
 		7C2A44221DD0821D00DC5B53 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A440C1DD0821D00DC5B53 /* UIImage+Resize.m */; };
@@ -423,6 +425,8 @@
 		7C13CDD51CFB259600C0CD9B /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
 		7C1C25771C5B53E7009B8C6C /* ClickMoreAndMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickMoreAndMoreCell.h; sourceTree = "<group>"; };
 		7C1C25781C5B53E7009B8C6C /* ClickMoreAndMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClickMoreAndMoreCell.m; sourceTree = "<group>"; };
+		7C2823F81FF6438400A4920A /* NewOrderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewOrderView.h; sourceTree = "<group>"; };
+		7C2823F91FF6438400A4920A /* NewOrderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewOrderView.m; sourceTree = "<group>"; };
 		7C2A43B31DD07A6100DC5B53 /* PASSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASSDK.h; sourceTree = "<group>"; };
 		7C2A44041DD0821D00DC5B53 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
 		7C2A44051DD0821D00DC5B53 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
@@ -1489,6 +1493,8 @@
 				7C9E363C1DF0166B001072D5 /* BackGroundView.m */,
 				7C2EBBB31FEA667D00FEA7BB /* TestDrawView.h */,
 				7C2EBBB41FEA667D00FEA7BB /* TestDrawView.m */,
+				7C2823F81FF6438400A4920A /* NewOrderView.h */,
+				7C2823F91FF6438400A4920A /* NewOrderView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2042,6 +2048,7 @@
 				7CBD674E1F61226400CDB912 /* SDWebImagePrefetcher.m in Sources */,
 				7CBD67501F61226400CDB912 /* MASLayoutConstraint.m in Sources */,
 				7CBD67511F61226400CDB912 /* GCDCommon.m in Sources */,
+				7C2823FB1FF6438C00A4920A /* NewOrderView.m in Sources */,
 				7CF6029D1F949A4800D0C222 /* MJRefreshAutoFooter.m in Sources */,
 				7CF602A21F949A5A00D0C222 /* MJRefreshAutoGifFooter.m in Sources */,
 				7CBD67521F61226400CDB912 /* SDWebImageCompat.m in Sources */,
@@ -2194,6 +2201,7 @@
 				7C7F0D941BE7080F0073CE8C /* SDWebImagePrefetcher.m in Sources */,
 				7C96F9E31D531CC400381092 /* MASLayoutConstraint.m in Sources */,
 				7C9E362A1DEC1523001072D5 /* GCDCommon.m in Sources */,
+				7C2823FA1FF6438400A4920A /* NewOrderView.m in Sources */,
 				7C7F0D8F1BE7080F0073CE8C /* SDWebImageCompat.m in Sources */,
 				7C0EF9051D732FBA00E4328F /* SJAvatarBrowser.m in Sources */,
 				7C0EF9091D732FBA00E4328F /* ThirdDetailViewController.m in Sources */,

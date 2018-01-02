@@ -111,6 +111,8 @@ alpha:alphaValue]
 #define kCustomKeyBoardHeight 216     // 大智慧自定义键盘高度 
 
 #define kSysStatusBarHeight		MIN([UIApplication sharedApplication].statusBarFrame.size.width, [UIApplication sharedApplication].statusBarFrame.size.height)		// 系统状态栏高度
+#define kNavToolBarHeight        44        // 系统导航栏高度
+#define kToolBarHeight            49        // 底部工具栏
 
 
 //IPhone5适配项
