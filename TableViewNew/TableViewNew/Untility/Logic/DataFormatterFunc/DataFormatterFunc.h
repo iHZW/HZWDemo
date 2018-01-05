@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define PASArrayAtIndex(array,i) [DataFormatterFunc checkArray:array index:i] //数组中获取index值防止crash
+
 #define TransToString(s)  [DataFormatterFunc validStringValue:s]
 
 @interface DataFormatterFunc : NSObject
@@ -91,6 +93,15 @@
  *  @return 非空数组对象
  */
 + (NSArray *)validArrayValue:(NSArray *)array;
+
+/**
+ 防止数组越界
+ 
+ @param array 数组对象
+ @param index 下标
+ @return
+ */
++ (id)checkArray:(NSArray *)array index:(NSUInteger)index;
 
 /**
  *  将JSON对象序列化二进制数据
@@ -236,5 +247,32 @@
  *  @return 市场类型
  */
 + (NSString *)marketType:(NSInteger)stockType;
+
+/**
+ 解决float 除法精度问题  A/B
+ 
+ @param value A
+ @param decimal B
+ @return 结果
+ */
++ (float)decimalNumberForFloat:(float)value decimal:(float)decimal;
+
+/**
+ 将字典转化为get请求url字符串
+ 
+ @param dict
+ @return
+ */
++ (NSString *)parseDictionaryToUrlStr:(NSDictionary *)dict;
+
+/**
+ 乘法
+ */
++ (NSString *)decimalNumberWithMultiplyingBy:(NSString *)decimal1 by:(NSString *)decimal2;
+/**
+ 加法
+ */
++ (NSString *)decimalNumberWithAddBy:(NSString *)decimal1 by:(NSString *)decimal2;
+
 
 @end
