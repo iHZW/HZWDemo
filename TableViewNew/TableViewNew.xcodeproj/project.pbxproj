@@ -50,6 +50,22 @@
 		7C2EBBB21FEA65B600FEA7BB /* TestDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2EBBB01FEA65B600FEA7BB /* TestDrawViewController.m */; };
 		7C2EBBB51FEA667D00FEA7BB /* TestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2EBBB41FEA667D00FEA7BB /* TestDrawView.m */; };
 		7C2EBBB61FEA667D00FEA7BB /* TestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2EBBB41FEA667D00FEA7BB /* TestDrawView.m */; };
+		7C387A4F200310D5005AC033 /* HZWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A4E200310D5005AC033 /* HZWTabBarController.m */; };
+		7C387A50200310DB005AC033 /* HZWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A4E200310D5005AC033 /* HZWTabBarController.m */; };
+		7C387A5C200314B3005AC033 /* CWDrawerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A53200314B3005AC033 /* CWDrawerTransition.m */; };
+		7C387A5D200314B3005AC033 /* CWInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A55200314B3005AC033 /* CWInteractiveTransition.m */; };
+		7C387A5E200314B3005AC033 /* CWLateralSlideAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A57200314B3005AC033 /* CWLateralSlideAnimator.m */; };
+		7C387A5F200314B3005AC033 /* CWLateralSlideConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A59200314B3005AC033 /* CWLateralSlideConfiguration.m */; };
+		7C387A60200314B3005AC033 /* UIViewController+CWLateralSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A5B200314B3005AC033 /* UIViewController+CWLateralSlide.m */; };
+		7C387A67200344D1005AC033 /* UIViewController+TestCategary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A66200344D1005AC033 /* UIViewController+TestCategary.m */; };
+		7C387A68200344D1005AC033 /* UIViewController+TestCategary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A66200344D1005AC033 /* UIViewController+TestCategary.m */; };
+		7C387A6920034738005AC033 /* UIViewController+CWLateralSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A5B200314B3005AC033 /* UIViewController+CWLateralSlide.m */; };
+		7C387A6A20034773005AC033 /* CWDrawerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A53200314B3005AC033 /* CWDrawerTransition.m */; };
+		7C387A6B20034775005AC033 /* CWInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A55200314B3005AC033 /* CWInteractiveTransition.m */; };
+		7C387A6C20034778005AC033 /* CWLateralSlideAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A57200314B3005AC033 /* CWLateralSlideAnimator.m */; };
+		7C387A6D2003477B005AC033 /* CWLateralSlideConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A59200314B3005AC033 /* CWLateralSlideConfiguration.m */; };
+		7C387A70200348AF005AC033 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A6F200348AF005AC033 /* LeftViewController.m */; };
+		7C387A71200348AF005AC033 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C387A6F200348AF005AC033 /* LeftViewController.m */; };
 		7C43A2EE1D2B95A700C54B9F /* GYZActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2E81D2B95A700C54B9F /* GYZActionSheet.m */; };
 		7C43A2EF1D2B95A700C54B9F /* GYZSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2EB1D2B95A700C54B9F /* GYZSheetCell.m */; };
 		7C43A2F01D2B95A700C54B9F /* GYZSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2ED1D2B95A700C54B9F /* GYZSheetView.m */; };
@@ -467,6 +483,22 @@
 		7C2EBBB01FEA65B600FEA7BB /* TestDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDrawViewController.m; sourceTree = "<group>"; };
 		7C2EBBB31FEA667D00FEA7BB /* TestDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDrawView.h; sourceTree = "<group>"; };
 		7C2EBBB41FEA667D00FEA7BB /* TestDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDrawView.m; sourceTree = "<group>"; };
+		7C387A4D200310D5005AC033 /* HZWTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZWTabBarController.h; sourceTree = "<group>"; };
+		7C387A4E200310D5005AC033 /* HZWTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZWTabBarController.m; sourceTree = "<group>"; };
+		7C387A52200314B3005AC033 /* CWDrawerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDrawerTransition.h; sourceTree = "<group>"; };
+		7C387A53200314B3005AC033 /* CWDrawerTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWDrawerTransition.m; sourceTree = "<group>"; };
+		7C387A54200314B3005AC033 /* CWInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInteractiveTransition.h; sourceTree = "<group>"; };
+		7C387A55200314B3005AC033 /* CWInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWInteractiveTransition.m; sourceTree = "<group>"; };
+		7C387A56200314B3005AC033 /* CWLateralSlideAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLateralSlideAnimator.h; sourceTree = "<group>"; };
+		7C387A57200314B3005AC033 /* CWLateralSlideAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLateralSlideAnimator.m; sourceTree = "<group>"; };
+		7C387A58200314B3005AC033 /* CWLateralSlideConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLateralSlideConfiguration.h; sourceTree = "<group>"; };
+		7C387A59200314B3005AC033 /* CWLateralSlideConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLateralSlideConfiguration.m; sourceTree = "<group>"; };
+		7C387A5A200314B3005AC033 /* UIViewController+CWLateralSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWLateralSlide.h"; sourceTree = "<group>"; };
+		7C387A5B200314B3005AC033 /* UIViewController+CWLateralSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWLateralSlide.m"; sourceTree = "<group>"; };
+		7C387A65200344D1005AC033 /* UIViewController+TestCategary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TestCategary.h"; sourceTree = "<group>"; };
+		7C387A66200344D1005AC033 /* UIViewController+TestCategary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TestCategary.m"; sourceTree = "<group>"; };
+		7C387A6E200348AF005AC033 /* LeftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		7C387A6F200348AF005AC033 /* LeftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		7C43A2E71D2B95A700C54B9F /* GYZActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZActionSheet.h; sourceTree = "<group>"; };
 		7C43A2E81D2B95A700C54B9F /* GYZActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYZActionSheet.m; sourceTree = "<group>"; };
 		7C43A2E91D2B95A700C54B9F /* GYZCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCommon.h; sourceTree = "<group>"; };
@@ -810,6 +842,10 @@
 		7C0EF8DE1D732EA900E4328F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C387A6E200348AF005AC033 /* LeftViewController.h */,
+				7C387A6F200348AF005AC033 /* LeftViewController.m */,
+				7C387A4D200310D5005AC033 /* HZWTabBarController.h */,
+				7C387A4E200310D5005AC033 /* HZWTabBarController.m */,
 				7C0EF8E51D732FBA00E4328F /* HSViewConrtroller.h */,
 				7C0EF8E61D732FBA00E4328F /* HSViewConrtroller.m */,
 				7C0EF8E11D732FBA00E4328F /* ClickMoreCellControl.h */,
@@ -882,6 +918,7 @@
 		7C13CDD91CFB25E000C0CD9B /* Untility */ = {
 			isa = PBXGroup;
 			children = (
+				7C387A51200314B3005AC033 /* CWLateralSlide */,
 				7C83A6591F94BE9700BEE051 /* Util */,
 				7C9E36271DEC1523001072D5 /* GCDCommon */,
 				7C2A44011DD0818C00DC5B53 /* Category */,
@@ -1060,6 +1097,25 @@
 				7C2A443B1DD0822500DC5B53 /* SingletonTemplate.h */,
 			);
 			path = SingletionTemplate;
+			sourceTree = "<group>";
+		};
+		7C387A51200314B3005AC033 /* CWLateralSlide */ = {
+			isa = PBXGroup;
+			children = (
+				7C387A52200314B3005AC033 /* CWDrawerTransition.h */,
+				7C387A53200314B3005AC033 /* CWDrawerTransition.m */,
+				7C387A54200314B3005AC033 /* CWInteractiveTransition.h */,
+				7C387A55200314B3005AC033 /* CWInteractiveTransition.m */,
+				7C387A56200314B3005AC033 /* CWLateralSlideAnimator.h */,
+				7C387A57200314B3005AC033 /* CWLateralSlideAnimator.m */,
+				7C387A58200314B3005AC033 /* CWLateralSlideConfiguration.h */,
+				7C387A59200314B3005AC033 /* CWLateralSlideConfiguration.m */,
+				7C387A5A200314B3005AC033 /* UIViewController+CWLateralSlide.h */,
+				7C387A5B200314B3005AC033 /* UIViewController+CWLateralSlide.m */,
+				7C387A65200344D1005AC033 /* UIViewController+TestCategary.h */,
+				7C387A66200344D1005AC033 /* UIViewController+TestCategary.m */,
+			);
+			path = CWLateralSlide;
 			sourceTree = "<group>";
 		};
 		7C43A2E61D2B95A700C54B9F /* GYZActionSheet */ = {
@@ -1399,16 +1455,16 @@
 		7CC481CB1B9C2B75008A08AE /* TableViewNew */ = {
 			isa = PBXGroup;
 			children = (
+				7CC481D01B9C2B75008A08AE /* AppDelegate.h */,
+				7CC481D11B9C2B75008A08AE /* AppDelegate.m */,
+				7CC481D31B9C2B75008A08AE /* ViewController.h */,
+				7CC481D41B9C2B75008A08AE /* ViewController.m */,
 				7CF602981F90A4FC00D0C222 /* ThemeDefine */,
 				7CF602271F906B9700D0C222 /* PASBaseFramework */,
 				7CC9E2851E4AEDE7002CEB29 /* XDGesture */,
 				7C2A44451DD0872000DC5B53 /* PrefixHeader.pch */,
 				7C13CDD91CFB25E000C0CD9B /* Untility */,
 				7C7F0CF11BE707DC0073CE8C /* libraries */,
-				7CC481D01B9C2B75008A08AE /* AppDelegate.h */,
-				7CC481D11B9C2B75008A08AE /* AppDelegate.m */,
-				7CC481D31B9C2B75008A08AE /* ViewController.h */,
-				7CC481D41B9C2B75008A08AE /* ViewController.m */,
 				7CC481FC1B9C370B008A08AE /* images */,
 				7CC481F21B9C3259008A08AE /* controller */,
 				7CC481F31B9C3259008A08AE /* model */,
@@ -1952,6 +2008,7 @@
 			files = (
 				7C83A68D1F9591ED00BEE051 /* PASDataCache.m in Sources */,
 				7C83A69B1F95925400BEE051 /* PINDiskCache.m in Sources */,
+				7C387A6D2003477B005AC033 /* CWLateralSlideConfiguration.m in Sources */,
 				7C83A65D1F94C3FA00BEE051 /* PASCommonUtil.m in Sources */,
 				7CBD66FF1F61226400CDB912 /* NSArray+MASAdditions.m in Sources */,
 				7CBD67001F61226400CDB912 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -1996,6 +2053,7 @@
 				7CF602AC1F949A7800D0C222 /* UIScrollView+MJExtension.m in Sources */,
 				7CBD67231F61226400CDB912 /* UIView+Frame.m in Sources */,
 				7CBD67241F61226400CDB912 /* MyImagePickerController.m in Sources */,
+				7C387A6C20034778005AC033 /* CWLateralSlideAnimator.m in Sources */,
 				7CF602A11F949A5600D0C222 /* MJRefreshHeader.m in Sources */,
 				7CBD67251F61226400CDB912 /* MASCompositeConstraint.m in Sources */,
 				7CBD67261F61226400CDB912 /* AFHTTPSessionManager.m in Sources */,
@@ -2005,6 +2063,7 @@
 				7CBD672A1F61226400CDB912 /* CollectionViewModel.m in Sources */,
 				7CBD672B1F61226400CDB912 /* MASViewAttribute.m in Sources */,
 				7CBD672D1F61226400CDB912 /* AFURLRequestSerialization.m in Sources */,
+				7C387A6A20034773005AC033 /* CWDrawerTransition.m in Sources */,
 				7CF602211F90627F00D0C222 /* NSAttributedString+CustomAttributed.m in Sources */,
 				7CF602A31F949A5D00D0C222 /* MJRefreshAutoNormalFooter.m in Sources */,
 				7C83A6821F958E3D00BEE051 /* JSONModel+networking.m in Sources */,
@@ -2025,11 +2084,14 @@
 				7CBD673B1F61226400CDB912 /* AppDelegate.m in Sources */,
 				7CBD673C1F61226400CDB912 /* UIImageView+WebCache.m in Sources */,
 				7CBD673D1F61226400CDB912 /* UIButton+Block.m in Sources */,
+				7C387A6920034738005AC033 /* UIViewController+CWLateralSlide.m in Sources */,
 				7CBD673E1F61226400CDB912 /* UIImageView+AFNetworking.m in Sources */,
 				7CBD673F1F61226400CDB912 /* UIImage+ResourcePath.m in Sources */,
 				7CBD67401F61226400CDB912 /* XDGestureView.m in Sources */,
+				7C387A68200344D1005AC033 /* UIViewController+TestCategary.m in Sources */,
 				7CBD67411F61226400CDB912 /* UIImage+MultiFormat.m in Sources */,
 				7CF6029F1F949A4D00D0C222 /* MJRefreshComponent.m in Sources */,
+				7C387A6B20034775005AC033 /* CWInteractiveTransition.m in Sources */,
 				7CF602351F907D8000D0C222 /* CMTableViewCell.m in Sources */,
 				7CBD67421F61226400CDB912 /* ViewController+MASAdditions.m in Sources */,
 				7CBD67441F61226400CDB912 /* DetialViewController.m in Sources */,
@@ -2070,6 +2132,7 @@
 				7CBD67601F61226400CDB912 /* DataFormatterFunc.m in Sources */,
 				7CBD67611F61226400CDB912 /* BookCell.m in Sources */,
 				7CBD67641F61226400CDB912 /* UIRefreshControl+AFNetworking.m in Sources */,
+				7C387A50200310DB005AC033 /* HZWTabBarController.m in Sources */,
 				7CBD67661F61226400CDB912 /* UITextNewField.m in Sources */,
 				7CBD67671F61226400CDB912 /* BackGroundView.m in Sources */,
 				7CF602AD1F949A7B00D0C222 /* UIScrollView+MJRefresh.m in Sources */,
@@ -2094,6 +2157,7 @@
 				7CF602AB1F949A7600D0C222 /* MJRefreshConst.m in Sources */,
 				7C83A6811F958E3A00BEE051 /* JSONHTTPClient.m in Sources */,
 				7CBD67771F61226400CDB912 /* IndexTopItem.m in Sources */,
+				7C387A71200348AF005AC033 /* LeftViewController.m in Sources */,
 				7CBD67781F61226400CDB912 /* main.m in Sources */,
 				7CBD67791F61226400CDB912 /* SDImageCache.m in Sources */,
 			);
@@ -2106,6 +2170,7 @@
 				7C96F9E61D531CC400381092 /* NSArray+MASAdditions.m in Sources */,
 				7CF602891F90A26500D0C222 /* MJRefreshAutoGifFooter.m in Sources */,
 				7CBB69D01BEA0898005A7BDF /* AFNetworkActivityIndicatorManager.m in Sources */,
+				7C387A5F200314B3005AC033 /* CWLateralSlideConfiguration.m in Sources */,
 				7C0EF9061D732FBA00E4328F /* TestOrder.m in Sources */,
 				7CBB69DA1BEA3F75005A7BDF /* JSONKit.m in Sources */,
 				7C0EF8FE1D732FBA00E4328F /* ClickMoreCellControl.m in Sources */,
@@ -2127,7 +2192,9 @@
 				7C83A67C1F94C5D900BEE051 /* JSONValueTransformer.m in Sources */,
 				7C2A443F1DD0822500DC5B53 /* DataFormatterFunc+RegularExpression.m in Sources */,
 				7C83A6761F94C5D900BEE051 /* JSONModelClassProperty.m in Sources */,
+				7C387A67200344D1005AC033 /* UIViewController+TestCategary.m in Sources */,
 				7C96F9E71D531CC400381092 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				7C387A5C200314B3005AC033 /* CWDrawerTransition.m in Sources */,
 				7CBB69CA1BEA0898005A7BDF /* AFNetworkReachabilityManager.m in Sources */,
 				7C7F0D931BE7080F0073CE8C /* SDWebImageManager.m in Sources */,
 				7C43A2EE1D2B95A700C54B9F /* GYZActionSheet.m in Sources */,
@@ -2153,6 +2220,7 @@
 				7CF602861F90A26500D0C222 /* MJRefreshComponent.m in Sources */,
 				7CF602161F90590E00D0C222 /* NSTimer+Util.m in Sources */,
 				7CC9E28C1E4AEDE7002CEB29 /* XDGestureConfigVC.m in Sources */,
+				7C387A60200314B3005AC033 /* UIViewController+CWLateralSlide.m in Sources */,
 				7C0EF9031D732FBA00E4328F /* PASMyUIMenuController.m in Sources */,
 				7C83A65C1F94BEBC00BEE051 /* PASCommonUtil.m in Sources */,
 				7CFE36D41D1CD24800D02D9D /* CollectionViewModel.m in Sources */,
@@ -2181,6 +2249,7 @@
 				7C2A44201DD0821D00DC5B53 /* UIButton+Block.m in Sources */,
 				7CBB69D41BEA0898005A7BDF /* UIImageView+AFNetworking.m in Sources */,
 				7C2A44231DD0821D00DC5B53 /* UIImage+ResourcePath.m in Sources */,
+				7C387A5D200314B3005AC033 /* CWInteractiveTransition.m in Sources */,
 				7CC9E28E1E4AEDE7002CEB29 /* XDGestureView.m in Sources */,
 				7C7F0D971BE7080F0073CE8C /* UIImage+MultiFormat.m in Sources */,
 				7CF602341F907D8000D0C222 /* CMTableViewCell.m in Sources */,
@@ -2223,6 +2292,7 @@
 				7CDFFD1E1B9DD2F600E7C63A /* BookCell.m in Sources */,
 				7CBB69D61BEA0898005A7BDF /* UIRefreshControl+AFNetworking.m in Sources */,
 				7C0EF9101D73B9D500E4328F /* UITextNewField.m in Sources */,
+				7C387A4F200310D5005AC033 /* HZWTabBarController.m in Sources */,
 				7CF6028A1F90A26500D0C222 /* MJRefreshAutoNormalFooter.m in Sources */,
 				7C9E363D1DF0166B001072D5 /* BackGroundView.m in Sources */,
 				7CF602901F90A26500D0C222 /* MJRefreshNormalHeader.m in Sources */,
@@ -2236,6 +2306,7 @@
 				7CC9E28D1E4AEDE7002CEB29 /* XDGestureLoginVC.m in Sources */,
 				7CF602511F90A09A00D0C222 /* PASBaseTableView.m in Sources */,
 				7C2A44211DD0821D00DC5B53 /* UIImage+Addition.m in Sources */,
+				7C387A5E200314B3005AC033 /* CWLateralSlideAnimator.m in Sources */,
 				7CBB69CE1BEA0898005A7BDF /* AFURLResponseSerialization.m in Sources */,
 				7CF6021B1F905A2F00D0C222 /* UILabel+Util.m in Sources */,
 				7CF602911F90A26500D0C222 /* MJRefreshStateHeader.m in Sources */,
@@ -2247,6 +2318,7 @@
 				7C83A6791F94C5D900BEE051 /* JSONHTTPClient.m in Sources */,
 				7C0EF9131D73BA3A00E4328F /* IndexTopItem.m in Sources */,
 				7CC481CF1B9C2B75008A08AE /* main.m in Sources */,
+				7C387A70200348AF005AC033 /* LeftViewController.m in Sources */,
 				7C83A6971F95924A00BEE051 /* PINCache.m in Sources */,
 				7C7F0D8E1BE7080F0073CE8C /* SDImageCache.m in Sources */,
 			);

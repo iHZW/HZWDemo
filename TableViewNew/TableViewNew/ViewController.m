@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "HSViewConrtroller.h"
-
+#import "UIViewController+CWLateralSlide.h"
 
 #define kVerifySuccess      @"指纹验证成功"
 
@@ -36,7 +36,9 @@
 //    self.lacontext.touchIDAuthenticationAllowableReuseDuration = 3;
     
     [self createLAContext];
+    
 }
+
 
 - (void)createUI
 {

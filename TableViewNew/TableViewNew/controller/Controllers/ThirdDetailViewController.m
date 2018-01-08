@@ -88,6 +88,27 @@ UINavigationControllerDelegate>
 
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    CGRect rect = self.view.frame;
+    
+    switch (_drawerType) {
+        case DrawerDefaultLeft:
+            [self.view.superview sendSubviewToBack:self.view];
+            break;
+        case DrawerTypeMaskLeft:
+            rect.size.width = CGRectGetWidth(self.view.frame) * 0.75;
+            break;
+        default:
+            break;
+    }
+    
+    self.view.frame = rect;
+}
+
+
 - (void)createData
 {
     self.dataArray = [NSMutableArray array];
@@ -367,6 +388,7 @@ UINavigationControllerDelegate>
     }
     return _captureDevice;
 }
+
 
 
 

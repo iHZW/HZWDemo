@@ -28,6 +28,8 @@
 #import "ThirdDetailViewController.h"
 #import "ViewController.h"
 #import "TestDrawViewController.h"
+#import "UIViewController+TestCategary.h"
+#import "LeftViewController.h"
 
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
@@ -93,6 +95,7 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    [self cw_registerShowIntractiveWithEdgeGesture];
     /**< 判断打开了验证指纹识别功能  进入指纹识别界面 */
     NSString *switchName = [PASCommonUtil getStringWithKey:SwitchStateKey];
     if ([switchName isEqualToString:kSwitchOpen]) {
@@ -100,13 +103,14 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
         [self presentViewController:ctrl animated:YES completion:nil];
     }
     
-    
+    [self createNav];
+
     // Do any additional setup after loading the view.
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 //
 //    [self createPlainData];
 //    [self createPlainUI];
-    self.title = @"无敌666";
+//    self.title = @"无敌666";
     [self createGroupData];
     [self createGroupTableView];
     [HSViewConrtroller shareInstance].passName = @"无敌666";
@@ -115,6 +119,54 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyShowRefreshInfo:) name:RemindString object:nil];
 
 }
+
+/**< 创建导航 */
+- (void)createNav
+{
+   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(leftClick)];
+    
+//    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 3)];
+//    [btn setTitle:@"左侧抽屉" forState:UIControlStateNormal];
+//    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(leftClick) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+//    [self.navigationItem setLeftBarButtonItem:barItem];
+}
+
+/**< 注册手势 */
+- (void)cw_registerShowIntractiveWithEdgeGesture
+{
+    // 注册手势驱动
+    __weak typeof(self)weakSelf = self;
+    [self cw_registerShowIntractiveWithEdgeGesture:NO transitionDirectionAutoBlock:^(CWDrawerTransitionDirection direction) {
+        //NSLog(@"direction = %ld", direction);
+        if (direction == CWDrawerTransitionDirectionLeft) { // 左侧滑出
+            [weakSelf leftClick];
+        } else if (direction == CWDrawerTransitionDirectionRight) { // 右侧滑出
+            [weakSelf rightClick];
+        }
+    }];
+}
+
+- (void)leftClick
+{
+    [self testViewCategary:@"💯"];
+    // 自己随心所欲创建的一个控制器
+    LeftViewController *vc = [[LeftViewController alloc] init];
+    
+    // 这个代码与框架无关，与demo相关，因为有兄弟在侧滑出来的界面，使用present到另一个界面返回的时候会有异常，这里提供各个场景的解决方式，需要在侧滑的界面present的同学可以借鉴一下！处理方式在leftViewController的viewDidAppear:方法内
+    vc.drawerType = DrawerDefaultLeft;
+    
+    // 调用这个方法
+    [self cw_showDrawerViewController:vc animationType:CWDrawerAnimationTypeDefault configuration:nil];
+}
+
+
+- (void)rightClick
+{
+    
+}
+
 
 - (void)notifyShowRefreshInfo:(NSNotificationCenter *)notificationCenter
 {
@@ -321,7 +373,6 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 
 
 #pragma mark   actionSheetView调用方法
-
 /**
  *  actionSheetView
  *
@@ -330,6 +381,14 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 - (void)loadPopSheetWith
 {
     NSArray *titleArray = @[@"1",@"2",@"3"];
+    /**<
+     ///默认样式
+     GYZSheetStyleDefault = 0,
+     ///像微信样式
+     GYZSheetStyleWeiChat,
+     ///TableView样式(无取消按钮)
+     GYZSheetStyleTable,
+     */
     GYZActionSheet *actionSheet = [[GYZActionSheet alloc] initSheetWithTitle:nil style:GYZSheetStyleTable itemTitles:titleArray];
     actionSheet.cellTextStyle = NSTextStyleCenter;
     actionSheet.itemTextColor = [UIColor blackColor];
@@ -564,6 +623,7 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     if (nil == cell) {
         cell = [[BookCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
     }
+    [cell.rightBtn addTarget:self action:@selector(clickAddAction:) forControlEvents:UIControlEventTouchUpInside];
 //    else
 //    {
 //        for (UIView *v in [cell.contentView subviews]) {
@@ -579,13 +639,17 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     return cell;
 }
 
+/**< actionSheet  弹出样式 */
+- (void)clickAddAction:(UIButton *)sender
+{
+    [self loadPopSheetWith];
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_tbView deselectRowAtIndexPath:indexPath animated:NO];
-    
-//    [self loadPopSheetWith];
-    
+        
     [[NSNotificationCenter defaultCenter] postNotificationName:RemindString object:nil];
     
     if (indexPath.section == 0 && indexPath.row == 0)

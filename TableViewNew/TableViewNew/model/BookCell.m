@@ -28,7 +28,7 @@
         _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _rightBtn.frame = CGRectMake(WMAIN - 60 , 10, 40, 40);
         [_rightBtn setImage:[UIImage imageNamed:@"1.1"] forState:UIControlStateNormal];
-        [_rightBtn addTarget:self action:@selector(clickRightBtn:) forControlEvents:UIControlEventTouchUpInside];
+//        [_rightBtn addTarget:self action:@selector(clickRightBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_rightBtn];
         
         

@@ -11,6 +11,7 @@
 #import "HSViewConrtroller.h"
 #import "BackGroundView.h"
 #import "PASCommonUtil.h"
+#import "HZWTabBarController.h"
 
 #define kWidth     60
 
@@ -26,14 +27,22 @@
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
     
-    UIViewController *tempCtrl = nil;
+//    UIViewController *tempCtrl = nil;
 
 //    ViewController *viewCtrl = [[ViewController alloc] init];
-    HSViewConrtroller *ctrl = [[HSViewConrtroller alloc]init];
-    tempCtrl = ctrl;
-    UINavigationController *navCtrl = [[UINavigationController alloc]initWithRootViewController:tempCtrl];
-    self.window.rootViewController = navCtrl;
+//    HSViewConrtroller *ctrl = [[HSViewConrtroller alloc]init];
+//    tempCtrl = ctrl;
+//    UINavigationController *navCtrl = [[UINavigationController alloc]initWithRootViewController:tempCtrl];
+//    self.window.rootViewController = navCtrl;
+    
+    self.window.rootViewController = [[HZWTabBarController alloc] init];
+    
     [self.window makeKeyAndVisible];
+    
+    
+    
+    
+    
     
     /**< 添加一个全屏的吸附屏幕边缘的按钮 */
     UIButton *circleBtn = [UIButton buttonWithType:UIButtonTypeCustom];

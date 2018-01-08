@@ -24,6 +24,9 @@
 //    UIButton *_leftBtn;
 }
 
+@property (nonatomic, strong) UIButton *rightBtn;
+
+
 /**
  *  传递参数
  *
