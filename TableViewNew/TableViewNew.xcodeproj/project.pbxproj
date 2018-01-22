@@ -1249,6 +1249,7 @@
 				TargetAttributes = {
 					7CC481C81B9C2B75008A08AE = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = L39WXY5YB3;
 					};
 				};
 			};
@@ -1558,8 +1559,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chunlong Tang (YQF9B9Q2T5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chunlong Tang (YQF9B9Q2T5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 张 少来 (XE9Z97P568)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 张 少来 (XE9Z97P568)";
+				DEVELOPMENT_TEAM = L39WXY5YB3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)//TableViewNew/PrefixHeader.pch";
 				INFOPLIST_FILE = TableViewNew/Info.plist;
@@ -1567,7 +1569,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "65adf84c-8a9b-4835-add2-eeba7ba5f6f5";
+				PROVISIONING_PROFILE_SPECIFIER = debug_profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1579,6 +1582,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ping'an Securities Co.,Ltd.";
+				DEVELOPMENT_TEAM = 36G5GJWS4P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)//TableViewNew/PrefixHeader.pch";
 				INFOPLIST_FILE = TableViewNew/Info.plist;
@@ -1586,7 +1590,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "35a7b020-746c-424a-b8e6-9752d2db1776";
+				PROVISIONING_PROFILE_SPECIFIER = iosPingAnProfile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
