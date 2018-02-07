@@ -95,7 +95,7 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self cw_registerShowIntractiveWithEdgeGesture];
+    [self cw_registerShowIntractiveWithEdgeGesture];
     /**< 判断打开了验证指纹识别功能  进入指纹识别界面 */
     NSString *switchName = [PASCommonUtil getStringWithKey:SwitchStateKey];
     if ([switchName isEqualToString:kSwitchOpen]) {
@@ -119,6 +119,12 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyShowRefreshInfo:) name:RemindString object:nil];
 
 }
+
+
+
+
+
+
 
 /**< 创建导航 */
 - (void)createNav

@@ -13,6 +13,7 @@
 #import "GCDCommon.h"
 #import "FlashTagView.h"
 #import "CaptchView.h"
+#import "MyLabel.h"
 
 //  http://blog.csdn.net/lsy2013/article/details/42965805图片判断类型   pan/  jpg /  jpeg
 
@@ -31,6 +32,8 @@
 @property (nonatomic, strong) FlashTagView *flashTagView;  /**< 闪烁view */
 
 @property (nonatomic, strong) CaptchView *captchView; /**< 动态验证码 */
+
+@property (nonatomic, strong) MyLabel *myLabel; /**< 置底的label */
 
 
 @end
@@ -71,6 +74,9 @@
     [self flashTest]; /**< 闪烁测试 */
     
     [self createCaptchView]; /**< 动态验证码 */
+    
+    [self createSelfhoold]; /**< 置底的label */
+    
 }
 
 /**< 切换开关状态 */
@@ -81,6 +87,32 @@
     }else{
         [PASCommonUtil setObject:kSwitchClose forKey:SwitchStateKey];
     }
+}
+
+- (MyLabel *)myLabel
+{
+    if (!_myLabel) {
+        _myLabel = [[MyLabel alloc] initWithFrame:CGRectZero];
+        _myLabel.backgroundColor = [UIColor whiteColor];
+        _myLabel.textAlignment = NSTextAlignmentCenter;
+        _myLabel.verticalAlignment = VerticalAlignmentBottom;
+        _myLabel.text = @"火箭发射";
+        _myLabel.font = PASFont(14);
+    }
+    return _myLabel;
+}
+
+
+- (void)createSelfhoold
+{
+    [self.view addSubview:self.myLabel];
+    [self.myLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.captchView.mas_bottom).offset(30);
+        make.left.equalTo(self.captchView);
+        make.right.equalTo(self.view.mas_right).offset(-15);
+        make.height.mas_equalTo(60);
+    }];
+    
 }
 
 

@@ -29,6 +29,10 @@
 		7C13CDD61CFB259600C0CD9B /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C13CDD31CFB259600C0CD9B /* NJKWebViewProgress.m */; };
 		7C13CDD71CFB259600C0CD9B /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C13CDD51CFB259600C0CD9B /* NJKWebViewProgressView.m */; };
 		7C1C25791C5B53E7009B8C6C /* ClickMoreAndMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C25781C5B53E7009B8C6C /* ClickMoreAndMoreCell.m */; };
+		7C22239D201625C90076EAB1 /* MyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C22239C201625C90076EAB1 /* MyLabel.m */; };
+		7C22239E201625C90076EAB1 /* MyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C22239C201625C90076EAB1 /* MyLabel.m */; };
+		7C2223B72021B6CA0076EAB1 /* ZJImageMagnification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2223B62021B6C70076EAB1 /* ZJImageMagnification.m */; };
+		7C2223B82021B6CA0076EAB1 /* ZJImageMagnification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2223B62021B6C70076EAB1 /* ZJImageMagnification.m */; };
 		7C2823FA1FF6438400A4920A /* NewOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2823F91FF6438400A4920A /* NewOrderView.m */; };
 		7C2823FB1FF6438C00A4920A /* NewOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2823F91FF6438400A4920A /* NewOrderView.m */; };
 		7C2A44201DD0821D00DC5B53 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A44051DD0821D00DC5B53 /* UIButton+Block.m */; };
@@ -441,6 +445,10 @@
 		7C13CDD51CFB259600C0CD9B /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
 		7C1C25771C5B53E7009B8C6C /* ClickMoreAndMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickMoreAndMoreCell.h; sourceTree = "<group>"; };
 		7C1C25781C5B53E7009B8C6C /* ClickMoreAndMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClickMoreAndMoreCell.m; sourceTree = "<group>"; };
+		7C22239B201625C90076EAB1 /* MyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLabel.h; sourceTree = "<group>"; };
+		7C22239C201625C90076EAB1 /* MyLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLabel.m; sourceTree = "<group>"; };
+		7C2223B52021B6C70076EAB1 /* ZJImageMagnification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJImageMagnification.h; sourceTree = "<group>"; };
+		7C2223B62021B6C70076EAB1 /* ZJImageMagnification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJImageMagnification.m; sourceTree = "<group>"; };
 		7C2823F81FF6438400A4920A /* NewOrderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewOrderView.h; sourceTree = "<group>"; };
 		7C2823F91FF6438400A4920A /* NewOrderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewOrderView.m; sourceTree = "<group>"; };
 		7C2A43B31DD07A6100DC5B53 /* PASSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASSDK.h; sourceTree = "<group>"; };
@@ -927,6 +935,15 @@
 			path = Untility;
 			sourceTree = "<group>";
 		};
+		7C2223B42021B6C70076EAB1 /* ZoomImage */ = {
+			isa = PBXGroup;
+			children = (
+				7C2223B52021B6C70076EAB1 /* ZJImageMagnification.h */,
+				7C2223B62021B6C70076EAB1 /* ZJImageMagnification.m */,
+			);
+			path = ZoomImage;
+			sourceTree = "<group>";
+		};
 		7C2A44011DD0818C00DC5B53 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -1236,6 +1253,7 @@
 		7C83A6591F94BE9700BEE051 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				7C2223B42021B6C70076EAB1 /* ZoomImage */,
 				7C83A68A1F95915000BEE051 /* PASDataCache.h */,
 				7C83A68B1F95915000BEE051 /* PASDataCache.m */,
 				7C83A6891F95915000BEE051 /* PASDefine.h */,
@@ -1244,6 +1262,8 @@
 				7C83A65A1F94BEBC00BEE051 /* PASCommonUtil.m */,
 				7C2A44431DD082B300DC5B53 /* UIImageCategory.h */,
 				7C2A43B31DD07A6100DC5B53 /* PASSDK.h */,
+				7C22239B201625C90076EAB1 /* MyLabel.h */,
+				7C22239C201625C90076EAB1 /* MyLabel.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -2023,6 +2043,7 @@
 				7CBD67091F61226400CDB912 /* PickImageController.m in Sources */,
 				7CBD670A1F61226400CDB912 /* MyInformationCollectionViewController.m in Sources */,
 				7CBD670C1F61226400CDB912 /* TestWebView.m in Sources */,
+				7C2223B82021B6CA0076EAB1 /* ZJImageMagnification.m in Sources */,
 				7C2EBBB21FEA65B600FEA7BB /* TestDrawViewController.m in Sources */,
 				7CBD670D1F61226400CDB912 /* View+MASAdditions.m in Sources */,
 				7CF602A61F949A6600D0C222 /* MJRefreshBackNormalFooter.m in Sources */,
@@ -2066,6 +2087,7 @@
 				7C387A6A20034773005AC033 /* CWDrawerTransition.m in Sources */,
 				7CF602211F90627F00D0C222 /* NSAttributedString+CustomAttributed.m in Sources */,
 				7CF602A31F949A5D00D0C222 /* MJRefreshAutoNormalFooter.m in Sources */,
+				7C22239E201625C90076EAB1 /* MyLabel.m in Sources */,
 				7C83A6821F958E3D00BEE051 /* JSONModel+networking.m in Sources */,
 				7CBD672F1F61226400CDB912 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7CBD67301F61226400CDB912 /* FlashTagView.m in Sources */,
@@ -2184,6 +2206,7 @@
 				7CF602941F90A26500D0C222 /* UIScrollView+MJExtension.m in Sources */,
 				7CFE36891D1B87D200D02D9D /* MyInformationCollectionViewController.m in Sources */,
 				7C0EF9071D732FBA00E4328F /* TestWebView.m in Sources */,
+				7C2223B72021B6CA0076EAB1 /* ZJImageMagnification.m in Sources */,
 				7C2EBBB11FEA65B600FEA7BB /* TestDrawViewController.m in Sources */,
 				7C96F9E81D531CC400381092 /* View+MASAdditions.m in Sources */,
 				7CBB69D21BEA0898005A7BDF /* UIAlertView+AFNetworking.m in Sources */,
@@ -2227,6 +2250,7 @@
 				7C96F9E41D531CC400381092 /* MASViewAttribute.m in Sources */,
 				7CBB69CD1BEA0898005A7BDF /* AFURLRequestSerialization.m in Sources */,
 				7CF602201F90627F00D0C222 /* NSAttributedString+CustomAttributed.m in Sources */,
+				7C22239D201625C90076EAB1 /* MyLabel.m in Sources */,
 				7C7F0D991BE7080F0073CE8C /* UIImageView+HighlightedWebCache.m in Sources */,
 				7C83A67A1F94C5D900BEE051 /* JSONModel+networking.m in Sources */,
 				7C9E362D1DEC1A0A001072D5 /* FlashTagView.m in Sources */,
