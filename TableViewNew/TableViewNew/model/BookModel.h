@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BookModel : NSObject
+@interface BookModel : NSObject <NSCoding>
 
 @property (nonatomic,copy) NSString *name; /**< 书名 */
 @property (nonatomic,copy) NSString *age; /**< 年龄 */

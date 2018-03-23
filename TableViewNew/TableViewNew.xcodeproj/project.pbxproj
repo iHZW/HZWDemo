@@ -75,6 +75,21 @@
 		7C43A2F01D2B95A700C54B9F /* GYZSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2ED1D2B95A700C54B9F /* GYZSheetView.m */; };
 		7C43E3561D1FEB7000EE1EBF /* MyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43E3551D1FEB7000EE1EBF /* MyFlowLayout.m */; };
 		7C43E3591D1FEBCC00EE1EBF /* WaterFallViewController_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43E3581D1FEBCC00EE1EBF /* WaterFallViewController_2.m */; };
+		7C488D6E202AE95D00EEDD72 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D63202AE95D00EEDD72 /* FMDatabaseQueue.m */; };
+		7C488D6F202AE95D00EEDD72 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D63202AE95D00EEDD72 /* FMDatabaseQueue.m */; };
+		7C488D70202AE95D00EEDD72 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D66202AE95D00EEDD72 /* FMDatabaseAdditions.m */; };
+		7C488D71202AE95D00EEDD72 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D66202AE95D00EEDD72 /* FMDatabaseAdditions.m */; };
+		7C488D72202AE95D00EEDD72 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D67202AE95D00EEDD72 /* FMDatabase.m */; };
+		7C488D73202AE95D00EEDD72 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D67202AE95D00EEDD72 /* FMDatabase.m */; };
+		7C488D74202AE95D00EEDD72 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D6B202AE95D00EEDD72 /* FMDatabasePool.m */; };
+		7C488D75202AE95D00EEDD72 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D6B202AE95D00EEDD72 /* FMDatabasePool.m */; };
+		7C488D76202AE95D00EEDD72 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D6C202AE95D00EEDD72 /* FMResultSet.m */; };
+		7C488D77202AE95D00EEDD72 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D6C202AE95D00EEDD72 /* FMResultSet.m */; };
+		7C488D78202AE95D00EEDD72 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C488D6D202AE95D00EEDD72 /* Info.plist */; };
+		7C488D79202AE95D00EEDD72 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C488D6D202AE95D00EEDD72 /* Info.plist */; };
+		7C488D95202AEB1500EEDD72 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C488D94202AEB0400EEDD72 /* libsqlite3.0.tbd */; };
+		7C488D99202AECC600EEDD72 /* MyBookDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D98202AECC600EEDD72 /* MyBookDBManager.m */; };
+		7C488D9A202AECC600EEDD72 /* MyBookDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D98202AECC600EEDD72 /* MyBookDBManager.m */; };
 		7C599D1A1DE4198000C2394E /* flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C599D181DE4198000C2394E /* flash@2x.png */; };
 		7C7F0CE61BE644EC0073CE8C /* URLHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0CE51BE644EC0073CE8C /* URLHTTP.m */; };
 		7C7F0D8C1BE7080F0073CE8C /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0D6C1BE7080F0073CE8C /* MKAnnotationView+WebCache.m */; };
@@ -518,6 +533,22 @@
 		7C43E3551D1FEB7000EE1EBF /* MyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlowLayout.m; sourceTree = "<group>"; };
 		7C43E3571D1FEBCC00EE1EBF /* WaterFallViewController_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallViewController_2.h; sourceTree = "<group>"; };
 		7C43E3581D1FEBCC00EE1EBF /* WaterFallViewController_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallViewController_2.m; sourceTree = "<group>"; };
+		7C488D62202AE95D00EEDD72 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		7C488D63202AE95D00EEDD72 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		7C488D64202AE95D00EEDD72 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		7C488D65202AE95D00EEDD72 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		7C488D66202AE95D00EEDD72 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		7C488D67202AE95D00EEDD72 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		7C488D68202AE95D00EEDD72 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		7C488D69202AE95D00EEDD72 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		7C488D6A202AE95D00EEDD72 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		7C488D6B202AE95D00EEDD72 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		7C488D6C202AE95D00EEDD72 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		7C488D6D202AE95D00EEDD72 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C488D94202AEB0400EEDD72 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		7C488D97202AECC600EEDD72 /* MyBookDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyBookDBManager.h; sourceTree = "<group>"; };
+		7C488D98202AECC600EEDD72 /* MyBookDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBookDBManager.m; sourceTree = "<group>"; };
+		7C488D9C202AED5300EEDD72 /* SingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonTemplate.h; sourceTree = "<group>"; };
 		7C599D181DE4198000C2394E /* flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@2x.png"; sourceTree = "<group>"; };
 		7C7F0CE41BE644EC0073CE8C /* URLHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHTTP.h; sourceTree = "<group>"; };
 		7C7F0CE51BE644EC0073CE8C /* URLHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHTTP.m; sourceTree = "<group>"; };
@@ -804,6 +835,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C488D95202AEB1500EEDD72 /* libsqlite3.0.tbd in Frameworks */,
 				7CFC14DA1DE3D9940017C831 /* JavaScriptCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -850,6 +882,7 @@
 		7C0EF8DE1D732EA900E4328F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C488D96202AEC7F00EEDD72 /* MyBookDBManager */,
 				7C387A6E200348AF005AC033 /* LeftViewController.h */,
 				7C387A6F200348AF005AC033 /* LeftViewController.m */,
 				7C387A4D200310D5005AC033 /* HZWTabBarController.h */,
@@ -926,6 +959,7 @@
 		7C13CDD91CFB25E000C0CD9B /* Untility */ = {
 			isa = PBXGroup;
 			children = (
+				7C488D9B202AED5300EEDD72 /* SingletionTemplate */,
 				7C387A51200314B3005AC033 /* CWLateralSlide */,
 				7C83A6591F94BE9700BEE051 /* Util */,
 				7C9E36271DEC1523001072D5 /* GCDCommon */,
@@ -1149,9 +1183,62 @@
 			path = GYZActionSheet;
 			sourceTree = "<group>";
 		};
+		7C488D34202AE84B00EEDD72 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				7C488D61202AE95D00EEDD72 /* fmdb */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		7C488D61202AE95D00EEDD72 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				7C488D62202AE95D00EEDD72 /* FMDatabase.h */,
+				7C488D67202AE95D00EEDD72 /* FMDatabase.m */,
+				7C488D66202AE95D00EEDD72 /* FMDatabaseAdditions.m */,
+				7C488D6A202AE95D00EEDD72 /* FMDatabaseAdditions.h */,
+				7C488D68202AE95D00EEDD72 /* FMDatabaseQueue.h */,
+				7C488D63202AE95D00EEDD72 /* FMDatabaseQueue.m */,
+				7C488D65202AE95D00EEDD72 /* FMDatabasePool.h */,
+				7C488D6B202AE95D00EEDD72 /* FMDatabasePool.m */,
+				7C488D69202AE95D00EEDD72 /* FMDB.h */,
+				7C488D64202AE95D00EEDD72 /* FMResultSet.h */,
+				7C488D6C202AE95D00EEDD72 /* FMResultSet.m */,
+				7C488D6D202AE95D00EEDD72 /* Info.plist */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		7C488D93202AEB0300EEDD72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C488D94202AEB0400EEDD72 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C488D96202AEC7F00EEDD72 /* MyBookDBManager */ = {
+			isa = PBXGroup;
+			children = (
+				7C488D97202AECC600EEDD72 /* MyBookDBManager.h */,
+				7C488D98202AECC600EEDD72 /* MyBookDBManager.m */,
+			);
+			path = MyBookDBManager;
+			sourceTree = "<group>";
+		};
+		7C488D9B202AED5300EEDD72 /* SingletionTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				7C488D9C202AED5300EEDD72 /* SingletonTemplate.h */,
+			);
+			path = SingletionTemplate;
+			sourceTree = "<group>";
+		};
 		7C7F0CF11BE707DC0073CE8C /* libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7C488D34202AE84B00EEDD72 /* FMDB */,
 				7C83A68E1F95924900BEE051 /* PINCache */,
 				7C83A65F1F94C5D900BEE051 /* JsonModel */,
 				7CF602531F90A26500D0C222 /* MJRefresh */,
@@ -1460,6 +1547,7 @@
 				7CC481E51B9C2B76008A08AE /* TableViewNewTests */,
 				7CBD66F71F60F3BA00CDB912 /* TableViewNew123 */,
 				7CC481CA1B9C2B75008A08AE /* Products */,
+				7C488D93202AEB0300EEDD72 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1958,6 +2046,7 @@
 				7CBD67971F61226400CDB912 /* LaunchScreen.xib in Resources */,
 				7CBD67981F61226400CDB912 /* list_ico.png in Resources */,
 				7CBD67991F61226400CDB912 /* 13.jpg in Resources */,
+				7C488D79202AE95D00EEDD72 /* Info.plist in Resources */,
 				7CBD679A1F61226400CDB912 /* 1.jpg in Resources */,
 				7CBD679B1F61226400CDB912 /* Images.xcassets in Resources */,
 				7CBD679D1F61226400CDB912 /* 11.jpg in Resources */,
@@ -1982,6 +2071,7 @@
 				7CC481D81B9C2B75008A08AE /* Main.storyboard in Resources */,
 				7C81E1D71C7D389200E0E298 /* 11.1.png in Resources */,
 				7C81E1D91C7D389200E0E298 /* header.png in Resources */,
+				7C488D78202AE95D00EEDD72 /* Info.plist in Resources */,
 				7C81E1C11C7D389200E0E298 /* 10.jpg in Resources */,
 				7C81E1C51C7D389200E0E298 /* 14.jpg in Resources */,
 				7C81E1CB1C7D389200E0E298 /* 2.jpg in Resources */,
@@ -2045,6 +2135,7 @@
 				7CBD670C1F61226400CDB912 /* TestWebView.m in Sources */,
 				7C2223B82021B6CA0076EAB1 /* ZJImageMagnification.m in Sources */,
 				7C2EBBB21FEA65B600FEA7BB /* TestDrawViewController.m in Sources */,
+				7C488D71202AE95D00EEDD72 /* FMDatabaseAdditions.m in Sources */,
 				7CBD670D1F61226400CDB912 /* View+MASAdditions.m in Sources */,
 				7CF602A61F949A6600D0C222 /* MJRefreshBackNormalFooter.m in Sources */,
 				7CBD670F1F61226400CDB912 /* UIAlertView+AFNetworking.m in Sources */,
@@ -2102,13 +2193,16 @@
 				7CF602A91F949A6F00D0C222 /* MJRefreshNormalHeader.m in Sources */,
 				7CBD67371F61226400CDB912 /* URLHTTP.m in Sources */,
 				7CBD67391F61226400CDB912 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				7C488D75202AE95D00EEDD72 /* FMDatabasePool.m in Sources */,
 				7CBD673A1F61226400CDB912 /* MyFlowLayout.m in Sources */,
+				7C488D73202AE95D00EEDD72 /* FMDatabase.m in Sources */,
 				7CBD673B1F61226400CDB912 /* AppDelegate.m in Sources */,
 				7CBD673C1F61226400CDB912 /* UIImageView+WebCache.m in Sources */,
 				7CBD673D1F61226400CDB912 /* UIButton+Block.m in Sources */,
 				7C387A6920034738005AC033 /* UIViewController+CWLateralSlide.m in Sources */,
 				7CBD673E1F61226400CDB912 /* UIImageView+AFNetworking.m in Sources */,
 				7CBD673F1F61226400CDB912 /* UIImage+ResourcePath.m in Sources */,
+				7C488D77202AE95D00EEDD72 /* FMResultSet.m in Sources */,
 				7CBD67401F61226400CDB912 /* XDGestureView.m in Sources */,
 				7C387A68200344D1005AC033 /* UIViewController+TestCategary.m in Sources */,
 				7CBD67411F61226400CDB912 /* UIImage+MultiFormat.m in Sources */,
@@ -2126,6 +2220,7 @@
 				7CBD67491F61226400CDB912 /* UIButton+WebCache.m in Sources */,
 				7CBD674A1F61226400CDB912 /* MASConstraint.m in Sources */,
 				7CF602AA1F949A7100D0C222 /* MJRefreshStateHeader.m in Sources */,
+				7C488D9A202AECC600EEDD72 /* MyBookDBManager.m in Sources */,
 				7CBD674B1F61226400CDB912 /* GYZSheetCell.m in Sources */,
 				7CBD674C1F61226400CDB912 /* AFURLConnectionOperation.m in Sources */,
 				7CBD674D1F61226400CDB912 /* AFSecurityPolicy.m in Sources */,
@@ -2181,6 +2276,7 @@
 				7CBD67771F61226400CDB912 /* IndexTopItem.m in Sources */,
 				7C387A71200348AF005AC033 /* LeftViewController.m in Sources */,
 				7CBD67781F61226400CDB912 /* main.m in Sources */,
+				7C488D6F202AE95D00EEDD72 /* FMDatabaseQueue.m in Sources */,
 				7CBD67791F61226400CDB912 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2208,6 +2304,7 @@
 				7C0EF9071D732FBA00E4328F /* TestWebView.m in Sources */,
 				7C2223B72021B6CA0076EAB1 /* ZJImageMagnification.m in Sources */,
 				7C2EBBB11FEA65B600FEA7BB /* TestDrawViewController.m in Sources */,
+				7C488D70202AE95D00EEDD72 /* FMDatabaseAdditions.m in Sources */,
 				7C96F9E81D531CC400381092 /* View+MASAdditions.m in Sources */,
 				7CBB69D21BEA0898005A7BDF /* UIAlertView+AFNetworking.m in Sources */,
 				7C0EF9081D732FBA00E4328F /* TestWebView+ErrorPageView.m in Sources */,
@@ -2265,13 +2362,16 @@
 				7C7F0D8D1BE7080F0073CE8C /* NSData+ImageContentType.m in Sources */,
 				7C7F0CE61BE644EC0073CE8C /* URLHTTP.m in Sources */,
 				7CF6028F1F90A26500D0C222 /* MJRefreshGifHeader.m in Sources */,
+				7C488D74202AE95D00EEDD72 /* FMDatabasePool.m in Sources */,
 				7CBB69D11BEA0898005A7BDF /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				7C488D72202AE95D00EEDD72 /* FMDatabase.m in Sources */,
 				7C43E3561D1FEB7000EE1EBF /* MyFlowLayout.m in Sources */,
 				7CC481D21B9C2B75008A08AE /* AppDelegate.m in Sources */,
 				7CF602851F90A26500D0C222 /* MJRefreshBackFooter.m in Sources */,
 				7C7F0D9A1BE7080F0073CE8C /* UIImageView+WebCache.m in Sources */,
 				7C2A44201DD0821D00DC5B53 /* UIButton+Block.m in Sources */,
 				7CBB69D41BEA0898005A7BDF /* UIImageView+AFNetworking.m in Sources */,
+				7C488D76202AE95D00EEDD72 /* FMResultSet.m in Sources */,
 				7C2A44231DD0821D00DC5B53 /* UIImage+ResourcePath.m in Sources */,
 				7C387A5D200314B3005AC033 /* CWInteractiveTransition.m in Sources */,
 				7CC9E28E1E4AEDE7002CEB29 /* XDGestureView.m in Sources */,
@@ -2289,6 +2389,7 @@
 				7C96F9E11D531CC400381092 /* MASConstraint.m in Sources */,
 				7C43A2EF1D2B95A700C54B9F /* GYZSheetCell.m in Sources */,
 				7CF6028C1F90A26500D0C222 /* MJRefreshBackGifFooter.m in Sources */,
+				7C488D99202AECC600EEDD72 /* MyBookDBManager.m in Sources */,
 				7CBB69CC1BEA0898005A7BDF /* AFURLConnectionOperation.m in Sources */,
 				7CBB69CB1BEA0898005A7BDF /* AFSecurityPolicy.m in Sources */,
 				7C7F0D941BE7080F0073CE8C /* SDWebImagePrefetcher.m in Sources */,
@@ -2344,6 +2445,7 @@
 				7CC481CF1B9C2B75008A08AE /* main.m in Sources */,
 				7C387A70200348AF005AC033 /* LeftViewController.m in Sources */,
 				7C83A6971F95924A00BEE051 /* PINCache.m in Sources */,
+				7C488D6E202AE95D00EEDD72 /* FMDatabaseQueue.m in Sources */,
 				7C7F0D8E1BE7080F0073CE8C /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

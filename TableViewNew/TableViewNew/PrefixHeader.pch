@@ -21,6 +21,9 @@
 
 #import "Masonry.h"
 
+/**< 这个是创建单利的宏 */
+#import "SingletonTemplate.h"
+
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

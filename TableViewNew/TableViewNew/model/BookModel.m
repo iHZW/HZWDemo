@@ -16,6 +16,27 @@
 //}
 
 
+/**< 归档 */
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.age forKey:@"age"];
+    [aCoder encodeObject:self.content forKey:@"content"];
+    [aCoder encodeObject:[NSNumber numberWithFloat:self.cellHeight] forKey:@"cellHeight"];
+}
+
+/**< 解归档 */
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if ([super init]) {
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.age = [aDecoder decodeObjectForKey:@"age"];
+        self.content = [aDecoder decodeObjectForKey:@"content"];
+        self.cellHeight = [[aDecoder decodeObjectForKey:@"cellHeight"] floatValue];
+    }
+    return self;
+}
+
 - (NSComparisonResult)sortNameAscend:(BookModel *)model
 {
     return [@(self.name.intValue) compare:@(model.name.intValue)];
