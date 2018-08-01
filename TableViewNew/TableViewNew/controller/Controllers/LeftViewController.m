@@ -21,6 +21,32 @@
 
 @implementation LeftViewController
 
+
++ (LeftViewController *)shareInstance
+{
+    static LeftViewController *leftCtrl = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        leftCtrl = [[LeftViewController alloc] init];
+    });
+    
+    return leftCtrl;
+}
+
+//+ (LeftViewController *)shareInstance
+//{
+//    static LeftViewController *leftCtrl = nil;
+//    @synchronized (self) {
+         // 这个方法相比较而言效率比较低
+//        if (!leftCtrl) {
+//            leftCtrl = [[LeftViewController alloc] init];
+//        }
+//    }
+//    return leftCtrl;
+//}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];

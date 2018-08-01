@@ -163,6 +163,8 @@
 		7C83A69A1F95925100BEE051 /* PINCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C83A6911F95924900BEE051 /* PINCache.m */; };
 		7C83A69B1F95925400BEE051 /* PINDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C83A6941F95924900BEE051 /* PINDiskCache.m */; };
 		7C83A69C1F95925600BEE051 /* PINMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C83A6961F95924900BEE051 /* PINMemoryCache.m */; };
+		7C93C4FE2064F99100151369 /* CommonNewFileFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C4FD2064F99100151369 /* CommonNewFileFunc.m */; };
+		7C93C4FF2064F99100151369 /* CommonNewFileFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C4FD2064F99100151369 /* CommonNewFileFunc.m */; };
 		7C96F9DF1D531CC400381092 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C96F9C51D531CC300381092 /* Info.plist */; };
 		7C96F9E01D531CC400381092 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96F9C71D531CC300381092 /* MASCompositeConstraint.m */; };
 		7C96F9E11D531CC400381092 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96F9CA1D531CC300381092 /* MASConstraint.m */; };
@@ -645,6 +647,8 @@
 		7C83A6941F95924900BEE051 /* PINDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PINDiskCache.m; sourceTree = "<group>"; };
 		7C83A6951F95924900BEE051 /* PINMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINMemoryCache.h; sourceTree = "<group>"; };
 		7C83A6961F95924900BEE051 /* PINMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PINMemoryCache.m; sourceTree = "<group>"; };
+		7C93C4FC2064F99100151369 /* CommonNewFileFunc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonNewFileFunc.h; sourceTree = "<group>"; };
+		7C93C4FD2064F99100151369 /* CommonNewFileFunc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonNewFileFunc.m; sourceTree = "<group>"; };
 		7C96F9C51D531CC300381092 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C96F9C61D531CC300381092 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		7C96F9C71D531CC300381092 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -1115,6 +1119,8 @@
 			children = (
 				7C2A442D1DD0822500DC5B53 /* CommonFileFunc.h */,
 				7C2A442E1DD0822500DC5B53 /* CommonFileFunc.m */,
+				7C93C4FC2064F99100151369 /* CommonNewFileFunc.h */,
+				7C93C4FD2064F99100151369 /* CommonNewFileFunc.m */,
 			);
 			path = CommonFileFunc;
 			sourceTree = "<group>";
@@ -2187,6 +2193,7 @@
 				7CF602481F90809800D0C222 /* NSObject+Customizer.m in Sources */,
 				7CBD67331F61226400CDB912 /* AFHTTPRequestOperationManager.m in Sources */,
 				7CBD67341F61226400CDB912 /* MASViewConstraint.m in Sources */,
+				7C93C4FF2064F99100151369 /* CommonNewFileFunc.m in Sources */,
 				7CF602A71F949A6800D0C222 /* MJRefreshBackStateFooter.m in Sources */,
 				7CBD67351F61226400CDB912 /* UIView+Create.m in Sources */,
 				7CBD67361F61226400CDB912 /* NSData+ImageContentType.m in Sources */,
@@ -2356,6 +2363,7 @@
 				7C43A2F01D2B95A700C54B9F /* GYZSheetView.m in Sources */,
 				7CF602471F90809800D0C222 /* NSObject+Customizer.m in Sources */,
 				7CBB69C81BEA0898005A7BDF /* AFHTTPRequestOperationManager.m in Sources */,
+				7C93C4FE2064F99100151369 /* CommonNewFileFunc.m in Sources */,
 				7C83A68C1F95915000BEE051 /* PASDataCache.m in Sources */,
 				7C96F9E51D531CC400381092 /* MASViewConstraint.m in Sources */,
 				7C2A44261DD0821D00DC5B53 /* UIView+Create.m in Sources */,

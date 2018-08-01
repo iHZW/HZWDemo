@@ -9,6 +9,8 @@
 #import "TestDrawViewController.h"
 #import "TestDrawView.h"
 #import "NewOrderView.h"
+#import <objc/runtime.h>
+
 
 static NSString *titles0[] = {@"one",@"two",@"three",@"four"};
 static NSString *titles1[] = {@"A",@"B",@"C",@"D"};
@@ -33,6 +35,11 @@ static NSString *titles1[] = {@"A",@"B",@"C",@"D"};
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    [self testRunTime];
+    
+    
     self.title = @"区间统计";
     self.view.backgroundColor = [UIColor grayColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -49,6 +56,31 @@ static NSString *titles1[] = {@"A",@"B",@"C",@"D"};
 //
     
     // Do any additional setup after loading the view.
+}
+
+
+- (void)testRunTime
+{
+    /**< 创建新类 objc_allocateClassPair */
+    Class newClass = objc_allocateClassPair([UIView class] , "TestNewView" , 0);
+    /**< 为新类增加新的方法  class_addMethod */
+    class_addMethod(newClass, @selector(loveView), (IMP)loveFunction, 0);
+    /**< 为新类添加属性 */
+    objc_property_attribute_t type = {"T" , "@\"NSString\""};
+    objc_property_attribute_t ownership = {"C" , ""};
+        
+}
+
+void loveFunction(id self , SEL _cmd)
+{
+    NSLog(@"输出这个方法");
+    NSLog(@"这里输出isa 指针指向的Class 使用%@",object_getClass([NSObject class]));
+    NSLog(@"输出这个对象%@",[NSObject class]);
+}
+
+- (void)loveView
+{
+    NSLog(@"测试runtime创建的新类 方法调用");
 }
 
 
@@ -71,12 +103,19 @@ static NSString *titles1[] = {@"A",@"B",@"C",@"D"};
         NewOrderView *tempOrderView = [[NewOrderView alloc] initWithFrame:CGRectMake(0, kBetweenSpace+(kOrderViewHeight + kBetweenSpace)*i, CGRectGetWidth(self.mainScrollView.frame), kOrderViewHeight)];
         tempOrderView.nameLabel.text = titles0[i];
         tempOrderView.textView.text = [NSString stringWithFormat:@"就是嗨 == 就你嗨 == %@",titles0[i]];
+//        [tempOrderView.clickBtn addTarget:self action:@selector(clickBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        tempOrderView.imageUrl = @"http://img5.duitang.com/uploads/item/201206/06/20120606174422_LZSeE.thumb.700_0.jpeg";
         [self.textArray addObject:tempOrderView.textView];
         [self.mainScrollView addSubview:tempOrderView];
     }
     
     [self updateMainScrollViewContentSize];
 }
+
+//- (void)clickBtnAction:(UIButton *)sender
+//{
+//
+//}
 
 - (void)updateMainScrollViewContentSize
 {

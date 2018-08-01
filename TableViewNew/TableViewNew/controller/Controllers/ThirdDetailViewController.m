@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <MediaToolbox/MediaToolbox.h>
+#import <objc/runtime.h>
 
 typedef  NS_ENUM(NSInteger , SelectType){
     /**< 拍照 */
@@ -51,6 +52,8 @@ UINavigationControllerDelegate>
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, strong) NSString *movieUrl; /**< 视频地址 */
 
+@property (nonatomic, strong) NSMutableDictionary *classTitleDict; /**< 存储类名 */
+
 
 @end
 
@@ -65,7 +68,7 @@ UINavigationControllerDelegate>
     titleArray = @[@"拍照",@"打电话",@"发短信",@"闪光灯"];
     selectArray = @[@"select1",@"select2",@"select3",@"select4"];
     self.isOpen = NO;
-
+    self.classTitleDict = [NSMutableArray array];
     [self createData];
     
     /**< 视频测试 */
@@ -87,6 +90,109 @@ UINavigationControllerDelegate>
     [self createAlreatSheet];
 
 }
+
+
+#pragma mark  -- 获取所有的类名
+/**< 获取所有子类 */
+-(void)getSubclass
+{
+    int numClasses;
+    Class *classes = NULL;
+    numClasses = objc_getClassList(NULL,0);
+    
+    if (numClasses >0 )
+    {
+        classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
+        numClasses = objc_getClassList(classes, numClasses);
+        for (int i = 0; i < numClasses; i++) {
+            
+            if (class_getSuperclass(classes[i]) == [UIViewController class]){
+                Class tempClass = classes[i];
+                UIViewController *tempVc = (UIViewController *)[[tempClass alloc] init];
+                tempVc.view;
+                NSString *tempString = [NSString stringWithFormat:@"%@", classes[i]];
+                NSString *keyString = tempVc.title.length > 0 ? tempVc.title : [NSString stringWithFormat:@"%@",@(i)];
+                [self.classTitleDict setObject:keyString forKey:tempString];
+                //                NSLog(@"%@===%@===>%@",classes[i], NSStringFromClass(classes[i]),[tempVc title]);
+                //                array addObject:<#(nonnull id)#>
+            }
+        }
+        NSLog(@"classString==%@",self.classTitleDict);
+        
+        //        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"ClassAndTitleList" ofType:@"plist"];
+        //        NSMutableArray *array = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+        ////        NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        //        [array addObject:[NSDictionary dictionaryWithObject:self.classTitleDict forKey:@"11111"]];
+        //        BOOL ifSave = [[array copy] writeToFile:plistPath atomically:YES];
+        
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TestDataTitleList" ofType:@"plist"];
+        NSString *floderPath = [self getDocumentFilePath:@"TestDataTitlePath"];
+        NSString *fileName = @"TestDataTitleList.plist";
+        NSString *filePath = nil;
+        NSFileManager *myFile = [NSFileManager defaultManager];
+        BOOL isDir;
+        BOOL isExist = [myFile fileExistsAtPath:@"TestDataTitleList" isDirectory:&isDir];
+        BOOL bRet = YES;
+        if (!isExist) {
+            bRet = [myFile createDirectoryAtPath:floderPath withIntermediateDirectories:YES attributes:nil error:nil];
+            if (bRet) {
+                filePath = [NSString stringWithFormat:@"%@/%@",floderPath,fileName];
+            }
+        }else{
+            filePath = [NSString stringWithFormat:@"%@/%@",floderPath,fileName];
+        }
+        
+        NSArray *tempArray = [NSArray array];
+        [tempArray writeToFile:filePath atomically:YES];
+        
+        
+//        NSString *folderPath    = [CommonFileFunc getDocumentFilePath:@"UserService"];
+//
+//        NSString * filename = [CommonFileFunc getDocumentFilePath:@"ClassAndTitleList12312.plist"];
+//        filename = [CommonFileFunc getLibraryCachesFilePath:@"ClassAndTitleList12312.plist"];
+//        filename = [CommonFileFunc getFilePathInDirector:folderPath fileName:@"ClassAndTitleList12312.plist"];
+//        [self.classTitleDict writeToFile:filename atomically:YES];
+//        NSDictionary *dictTwo = [NSDictionary dictionaryWithContentsOfFile:filename];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentDirectory = [paths objectAtIndex:0];//[paths firstObject];
+        NSString *pathString = [NSString stringWithFormat:@"%@/%@",documentDirectory,fileName];
+        
+        free(classes);
+    }
+}
+
+- (NSString *)getDocumentFilePath:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filepath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, fileName];
+    return filepath;
+}
+
+//+ (NSString *)getFilePathInDirector:(NSString *)directorPath fileName:(NSString *)fileName
+//{
+//    NSString *filePath = nil;
+//    NSFileManager *myFile = [NSFileManager defaultManager];
+//    BOOL isDir;
+//    BOOL isExist = [myFile fileExistsAtPath:directorPath isDirectory:&isDir];
+//    BOOL bRet = YES;
+//
+//    if (!isExist)
+//    {
+//        bRet = [myFile createDirectoryAtPath:directorPath withIntermediateDirectories:YES attributes:nil error:nil];
+//        if (bRet)
+//        {
+//            filePath = [NSString stringWithFormat:@"%@/%@", directorPath, fileName];
+//        }
+//    }
+//    else
+//    {
+//        filePath = [NSString stringWithFormat:@"%@/%@", directorPath, fileName];
+//    }
+//
+//    return filePath;
+//}
+
 
 
 - (void)viewDidAppear:(BOOL)animated {

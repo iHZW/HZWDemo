@@ -14,4 +14,8 @@
 
 @property (nonatomic, strong) UITextView *textView;
 
+@property (nonatomic, strong) UIButton *clickBtn;
+
+@property (nonatomic, strong) NSString *imageUrl;
+
 @end

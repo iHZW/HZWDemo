@@ -13,4 +13,8 @@
 
 @property (nonatomic, assign) DrawerType drawerType;
 
+
++ (LeftViewController *)shareInstance;
+
+
 @end
