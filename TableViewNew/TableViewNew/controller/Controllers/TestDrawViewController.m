@@ -67,8 +67,44 @@ static NSString *titles1[] = {@"A",@"B",@"C",@"D"};
     class_addMethod(newClass, @selector(loveView), (IMP)loveFunction, 0);
     /**< 为新类添加属性 */
     objc_property_attribute_t type = {"T" , "@\"NSString\""};
-    objc_property_attribute_t ownership = {"C" , ""};
-        
+    objc_property_attribute_t ownership = {"C" , ""}; //C = copy
+    objc_property_attribute_t backingivar = {"V","_provateName"};
+    objc_property_attribute_t attrs[] = {type , ownership , backingivar};
+    class_addProperty([newClass class], "name", attrs, 3);
+    
+    objc_setAssociatedObject(self, "MyTestView", @"TestValue", OBJC_ASSOCIATION_COPY_NONATOMIC);
+    
+//    class_add
+    
+    /**< 注册类 */
+    objc_registerClassPair(newClass);
+    
+    id newClassObjc = [[newClass alloc] init];
+    [newClassObjc performSelector:@selector(loveView)];
+    
+    /**< class_copyIvarList 获取变量名列表 */
+    unsigned int ivarsCnt;
+    /**< 获取成员变量列表  ivarsCnt 为类成员变量 */
+    Ivar *ivars = class_copyIvarList([UIView class], &ivarsCnt);
+    /**< 遍历成员变量列表 , 其中每个变量都是Ivar类型的结构体 */
+    for (const Ivar *p = ivars; p<ivars+ivarsCnt; ++p) {
+        Ivar const ivar = *p;
+        NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+        NSLog(@"这里输出变量名 = %@",key);
+    }
+    
+    /**< class_copyMethodList  获取方法列表 */
+    u_int count;
+    Method *methods = class_copyMethodList([newClassObjc class], &count);
+    for (NSInteger i=0; i<count; i++) {
+        SEL name = method_getName(methods[i]);
+        NSString *strName = [NSString stringWithCString:sel_getName(name) encoding:NSUTF8StringEncoding];
+        if ([strName isEqualToString:@"loveView"]) {
+            [self performSelectorOnMainThread:@selector(loveView) withObject:nil waitUntilDone:YES];
+        }
+        NSLog(@"这里输出方法名 = %@",strName);
+    }
+    
 }
 
 void loveFunction(id self , SEL _cmd)

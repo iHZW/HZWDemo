@@ -434,7 +434,10 @@
     NSInteger index = [self testSearchForHalf:self.sortArray searchNumber:34];
     NSLog(@"index = %@",@(index));
     
-    NSLog(@"二分查找下标为 = %@",@([self getSearchArray:self.sortArray searchObj:69]));
+//    @([self getSearchArray:self.sortArray searchObj:69])
+    
+    NSLog(@"二分查找下标为 = %@",@([self testSearchForHalf:self.sortArray searchNumber:69]));
+
 }
 
 
@@ -707,9 +710,9 @@
                 index = mid;
                 break;
             }else if (searchNumber > num){
-                height--;
-            }else if (searchNumber < num){
                 low++;
+            }else if (searchNumber < num){
+                height++;
             }
         }
     }
@@ -717,7 +720,7 @@
     return index;
 }
 
-
+/**< 二分查找法 */
 - (NSInteger)getSearchArray:(NSMutableArray *)array searchObj:(NSInteger)searchObj
 {
     NSInteger index = -1;
@@ -740,6 +743,32 @@
     }
     return index;
 }
+
+/**< 有序的数组找到某个值在数组中的位置 找不到就返回-1*/
+- (NSInteger)getHalfSearchArray:(NSMutableArray *)array searchObj:(NSInteger)searchObj
+{
+    NSInteger index = -1;
+    
+    NSInteger low = 0;
+    NSInteger height = array.count - 1;
+    
+    while (low <= height) {
+        NSInteger mid = low + (height - low)/2;
+        NSInteger midValue = [array[mid] integerValue];
+        
+        if (midValue == searchObj) {
+            index = mid;
+            break;
+        }else if (midValue > searchObj){
+            height -= 1;
+        }else{
+            low += 1;
+        }
+    }
+    return index;
+}
+
+
 
 
 /**< 求两个数的最大公约数 */

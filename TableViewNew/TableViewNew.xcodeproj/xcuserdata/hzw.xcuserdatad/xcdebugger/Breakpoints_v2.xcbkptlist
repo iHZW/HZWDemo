@@ -163,22 +163,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TableViewNew/controller/Controllers/ClickMoreCellControl.m"
-            timestampString = "529901710.309544"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "TableViewNew/view/TestDrawView.m"
             timestampString = "536234784.233828"
             startingColumnNumber = "9223372036854775807"
@@ -211,13 +195,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TableViewNew/view/NewOrderView.m"
-            timestampString = "554806729.420213"
+            filePath = "TableViewNew/controller/Controllers/ThirdDetailViewController.m"
+            timestampString = "555469771.4621609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "437"
-            endingLineNumber = "437"
-            landmarkName = "-clickAction:"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-getSubclass"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -228,12 +212,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TableViewNew/view/NewOrderView.m"
-            timestampString = "554806729.420365"
+            timestampString = "555469771.46236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "741"
-            endingLineNumber = "741"
-            landmarkName = "-getSearchArray:searchObj:"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
+            landmarkName = "-clickAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

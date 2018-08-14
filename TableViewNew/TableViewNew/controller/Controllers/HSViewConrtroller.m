@@ -30,6 +30,7 @@
 #import "TestDrawViewController.h"
 #import "UIViewController+TestCategary.h"
 #import "LeftViewController.h"
+#import "TestBasicsViewController.h"
 
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
@@ -726,6 +727,11 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     {
         TestDrawViewController *ctrl = [[TestDrawViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    else if (indexPath.section == 3 && indexPath.row == 0)
+    {
+        TestBasicsViewController *basics = [[TestBasicsViewController alloc] init];
+        [self.navigationController pushViewController:basics animated:YES];
     }
     else
     {

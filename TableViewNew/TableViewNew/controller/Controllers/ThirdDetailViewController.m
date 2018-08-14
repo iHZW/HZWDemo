@@ -68,7 +68,6 @@ UINavigationControllerDelegate>
     titleArray = @[@"拍照",@"打电话",@"发短信",@"闪光灯"];
     selectArray = @[@"select1",@"select2",@"select3",@"select4"];
     self.isOpen = NO;
-    self.classTitleDict = [NSMutableArray array];
     [self createData];
     
     /**< 视频测试 */
@@ -89,6 +88,17 @@ UINavigationControllerDelegate>
     /**< 添加app调用系统功能的方法 */
     [self createAlreatSheet];
 
+/**< 获取某个类的所有子类 */
+//    [self getSubclass];
+}
+
+
+- (NSMutableDictionary *)classTitleDict
+{
+    if (!_classTitleDict) {
+        _classTitleDict = [NSMutableDictionary dictionary];
+    }
+    return _classTitleDict;
 }
 
 
@@ -109,10 +119,11 @@ UINavigationControllerDelegate>
             if (class_getSuperclass(classes[i]) == [UIViewController class]){
                 Class tempClass = classes[i];
                 UIViewController *tempVc = (UIViewController *)[[tempClass alloc] init];
-                tempVc.view;
+                UIView *tempView = tempVc.view;
                 NSString *tempString = [NSString stringWithFormat:@"%@", classes[i]];
+                tempString = tempString.length > 0 ? tempString : @"";
                 NSString *keyString = tempVc.title.length > 0 ? tempVc.title : [NSString stringWithFormat:@"%@",@(i)];
-                [self.classTitleDict setObject:keyString forKey:tempString];
+                [self.classTitleDict setObject:tempString forKey:keyString];
                 //                NSLog(@"%@===%@===>%@",classes[i], NSStringFromClass(classes[i]),[tempVc title]);
                 //                array addObject:<#(nonnull id)#>
             }
@@ -142,7 +153,10 @@ UINavigationControllerDelegate>
             filePath = [NSString stringWithFormat:@"%@/%@",floderPath,fileName];
         }
         
+        filePath = filePath.length > 0 ? filePath : @"";
+        
         NSArray *tempArray = [NSArray array];
+        
         [tempArray writeToFile:filePath atomically:YES];
         
         

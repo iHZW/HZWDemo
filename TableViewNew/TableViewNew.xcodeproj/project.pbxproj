@@ -90,6 +90,7 @@
 		7C488D95202AEB1500EEDD72 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C488D94202AEB0400EEDD72 /* libsqlite3.0.tbd */; };
 		7C488D99202AECC600EEDD72 /* MyBookDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D98202AECC600EEDD72 /* MyBookDBManager.m */; };
 		7C488D9A202AECC600EEDD72 /* MyBookDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D98202AECC600EEDD72 /* MyBookDBManager.m */; };
+		7C5261D72119902D00D2319E /* TestBasicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5261D62119902D00D2319E /* TestBasicsViewController.m */; };
 		7C599D1A1DE4198000C2394E /* flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C599D181DE4198000C2394E /* flash@2x.png */; };
 		7C7F0CE61BE644EC0073CE8C /* URLHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0CE51BE644EC0073CE8C /* URLHTTP.m */; };
 		7C7F0D8C1BE7080F0073CE8C /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F0D6C1BE7080F0073CE8C /* MKAnnotationView+WebCache.m */; };
@@ -551,6 +552,8 @@
 		7C488D97202AECC600EEDD72 /* MyBookDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyBookDBManager.h; sourceTree = "<group>"; };
 		7C488D98202AECC600EEDD72 /* MyBookDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBookDBManager.m; sourceTree = "<group>"; };
 		7C488D9C202AED5300EEDD72 /* SingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonTemplate.h; sourceTree = "<group>"; };
+		7C5261D52119902D00D2319E /* TestBasicsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBasicsViewController.h; sourceTree = "<group>"; };
+		7C5261D62119902D00D2319E /* TestBasicsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBasicsViewController.m; sourceTree = "<group>"; };
 		7C599D181DE4198000C2394E /* flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@2x.png"; sourceTree = "<group>"; };
 		7C7F0CE41BE644EC0073CE8C /* URLHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHTTP.h; sourceTree = "<group>"; };
 		7C7F0CE51BE644EC0073CE8C /* URLHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHTTP.m; sourceTree = "<group>"; };
@@ -919,6 +922,8 @@
 				7C0EF8FD1D732FBA00E4328F /* UIAlertViewController.m */,
 				7C2EBBAF1FEA65B600FEA7BB /* TestDrawViewController.h */,
 				7C2EBBB01FEA65B600FEA7BB /* TestDrawViewController.m */,
+				7C5261D52119902D00D2319E /* TestBasicsViewController.h */,
+				7C5261D62119902D00D2319E /* TestBasicsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2437,6 +2442,7 @@
 				7C83A6751F94C5D900BEE051 /* JSONModel.m in Sources */,
 				7C2A443C1DD0822500DC5B53 /* CMLogManagement.m in Sources */,
 				7CC9E28D1E4AEDE7002CEB29 /* XDGestureLoginVC.m in Sources */,
+				7C5261D72119902D00D2319E /* TestBasicsViewController.m in Sources */,
 				7CF602511F90A09A00D0C222 /* PASBaseTableView.m in Sources */,
 				7C2A44211DD0821D00DC5B53 /* UIImage+Addition.m in Sources */,
 				7C387A5E200314B3005AC033 /* CWLateralSlideAnimator.m in Sources */,
