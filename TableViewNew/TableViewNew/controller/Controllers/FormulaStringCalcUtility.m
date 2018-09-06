@@ -40,7 +40,7 @@
     NSString *result = @"0";
     char symbol = '+';
     
-    int len = formula.length;
+    int len = (int)formula.length;
     int numStartPoint = 0;
     for (int i = 0; i < len; i++) {
         char c = [formula characterAtIndex:i];
@@ -79,7 +79,7 @@
 // 获取字符串中的后置数字
 + (NSString *)lastNumberWithString:(NSString *)str {
     int numStartPoint = 0;
-    for (int i = str.length - 1; i >= 0; i--) {
+    for (int i = (int)str.length - 1; i >= 0; i--) {
         char c = [str characterAtIndex:i];
         if ((c < '0' || c > '9') && c != '.') {
             numStartPoint = i + 1;
@@ -91,7 +91,7 @@
 
 // 获取字符串中的前置数字
 + (NSString *)firstNumberWithString:(NSString *)str {
-    int numEndPoint = str.length;
+    int numEndPoint = (int)str.length;
     for (int i = 0; i < str.length; i++) {
         char c = [str characterAtIndex:i];
         if ((c < '0' || c > '9') && c != '.') {
@@ -111,7 +111,7 @@
         return [self calcSimpleFormula:formula];
     }
     // 进行乘除运算
-    int index = mulRange.length > 0 ? mulRange.location : divRange.location;
+    int index = mulRange.length > 0 ? (int)mulRange.location : (int)divRange.location;
     // 计算左边表达式
     NSString *left = [formula substringWithRange:NSMakeRange(0, index)];
     NSString *num1 = [self lastNumberWithString:left];
