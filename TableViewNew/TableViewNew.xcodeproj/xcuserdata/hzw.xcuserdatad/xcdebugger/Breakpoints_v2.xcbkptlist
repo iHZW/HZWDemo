@@ -196,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TableViewNew/controller/Controllers/ThirdDetailViewController.m"
-            timestampString = "555469771.4621609"
+            timestampString = "556472499.913087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TableViewNew/view/NewOrderView.m"
-            timestampString = "555469771.46236"
+            timestampString = "556472499.913244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "439"
-            endingLineNumber = "439"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
             landmarkName = "-clickAction:"
             landmarkType = "7">
          </BreakpointContent>

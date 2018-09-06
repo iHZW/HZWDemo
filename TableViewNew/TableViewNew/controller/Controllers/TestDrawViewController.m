@@ -37,7 +37,7 @@ static NSString *titles1[] = {@"A",@"B",@"C",@"D"};
     [super viewDidLoad];
     
     
-    [self testRunTime];
+//    [self testRunTime];
     
     
     self.title = @"区间统计";
@@ -145,8 +145,38 @@ void loveFunction(id self , SEL _cmd)
         [self.mainScrollView addSubview:tempOrderView];
     }
     
+    
+    
+//    UIView *testHitView = [UIView viewForColor:[UIColor greenColor] withFrame:CGRectZero];
+//    [self.mainScrollView addSubview:testHitView];
+//
+//    [testHitView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.equalTo(self.mainScrollView);
+//        make.top.mas_equalTo(500);
+//        make.height.mas_equalTo(100);
+//    }];
+//
+//
+//    UIButton *hitBtn = [UIButton buttonWithFrame:CGRectZero target:self action:@selector(clickHit:) bgImage:nil tag:123123 block:nil];
+//    hitBtn.backgroundColor = [UIColor purpleColor];
+//    [testHitView addSubview:hitBtn];
+//
+//    [hitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.bottom.equalTo(testHitView);
+//        make.size.mas_equalTo(CGSizeMake(50, 50));
+//    }];
     [self updateMainScrollViewContentSize];
+
+    
 }
+
+- (void)clickHit:(id)sender
+{
+    NSLog(@"hitClick-----YES");
+}
+
+
+
 
 //- (void)clickBtnAction:(UIButton *)sender
 //{

@@ -304,6 +304,10 @@
     [self.clickBtn bringSubviewToFront:self];
     [self addSubview:self.imageView];
     
+    UIView *tempView = [UIView viewForColor:[UIColor redColor] withFrame:CGRectZero];
+    tempView.alpha = .5;
+    [self addSubview:tempView];
+    
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
@@ -330,6 +334,12 @@
 //        make.top.equalTo(self.mas_top).offset(-10);
 //        make.size.mas_equalTo(CGSizeMake(50, 50));
 //    }];
+    
+    [tempView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.clickBtn.mas_right).offset(-20);
+        make.top.bottom.equalTo(self);
+        make.width.mas_equalTo(50);
+    }];
     
     
 }
@@ -377,6 +387,7 @@
 {
     if (!_imageView) {
         _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _imageView.userInteractionEnabled = YES;
     }
     return _imageView;
 }
@@ -400,7 +411,9 @@
 }
 
 
-- (void)clickAction:(UIButton *)sender
+
+
+- (void)clickAction:(id)sender
 {
     NSLog(@"clickActionBtn");
     
@@ -466,45 +479,100 @@
     self.imageView.image = [UIImage imageWithData:imageData];
 }
 
-
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
-    //判断当前控制器能否接收事件
-    if (self.userInteractionEnabled == NO ||
-        self.hidden == YES ||
-        self.alpha < .01) {
-        return nil;
-    }
-    
-    //判断点在不在当前控制器
-    if (![self pointInside:point withEvent:event]) {
-        return nil;
-    }
-    
-//    NSInteger count = self.subviews.count;
+#pragma mark  hitTest 底层实现
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    /**< 如果交互未打开，或者透明度小于0.05 或者 视图被隐藏 */
+//    if ((self.userInteractionEnabled = NO ||
+//         self.alpha < 0.05 ||
+//         self.hidden == YES))
+//    {
+//        return nil;
+//    }
 //
-//    for (NSInteger i=count-1; i>0; i--) {
+//    /**< 如果 touch 的point 在 self 的bounds 内 */
+//    if (![self pointInside:point withEvent:event]) {
+//        return nil;
+//    }
 //
-//        UIView *childView = self.subviews[i];
-//
-//        CGPoint childPoint = [self convertPoint:point toView:childView];
-//
-//        UIView *fitView = [self hitTest:childPoint withEvent:event];
-//
-//        if (fitView) {
+//    int count = (int)self.subviews.count;
+//    for (int i = count - 1; i >= 0; i--) {
+//        /**< 取出每一个子控件 */
+//        UIView *chileV =  self.subviews[i];
+//        /**< 把当前的点转换成子控件坐标系上的点. */
+//        CGPoint childP = [self convertPoint:point toView:chileV];
+//        UIView *fitView = [chileV hitTest:childP withEvent:event];
+//        /**< 判断有没有找到最适合的View */
+//        if(fitView){
 //            return fitView;
 //        }
 //    }
-    
-    CGPoint btnPoint = [self convertPoint:point toView:self.clickBtn];
-    if ([self.clickBtn pointInside:btnPoint withEvent:event]) {
+//    /**< 没有找到比它自己更适合的View.那么它自己就是最适合的View */
+//    return self;
+//}
+
+
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    //判断当前控制器能否接收事件
+//    if (self.userInteractionEnabled == NO ||
+//        self.hidden == YES ||
+//        self.alpha < .01) {
+//        return nil;
+//    }
+//
+//    //判断点在不在当前控制器
+//    if (![self pointInside:point withEvent:event]) {
+//        return nil;
+//    }
+//
+////    NSInteger count = self.subviews.count;
+////
+////    for (NSInteger i=count-1; i>0; i--) {
+////
+////        UIView *childView = self.subviews[i];
+////
+////        CGPoint childPoint = [self convertPoint:point toView:childView];
+////
+////        UIView *fitView = [self hitTest:childPoint withEvent:event];
+////
+////        if (fitView) {
+////            return fitView;
+////        }
+////    }
+//
+//    CGPoint btnPoint = [self convertPoint:point toView:self.clickBtn];
+//    if ([self.clickBtn pointInside:btnPoint withEvent:event]) {
+//        return self.clickBtn;
+//    }
+//
+//    return [super hitTest:point withEvent:event];
+//
+////    return self;
+//}
+
+/**< 解决需要处理点击事件的view被其他视图遮挡 */
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    CGPoint clickPoint = [self convertPoint:point toView:self.clickBtn];
+//    if ([self.clickBtn pointInside:clickPoint withEvent:event]) {
+//        return self.clickBtn;
+//    }else{
+//        return [super hitTest:point withEvent:event];
+//    }
+//}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    if ([self pointInside:point withEvent:event]) {
         return self.clickBtn;
     }
-    
-    return [super hitTest:point withEvent:event];
-    
-//    return self;
+    else
+    {
+        return [super hitTest:point withEvent:event];
+    }
 }
+
 
 #pragma mark  -- 冒泡排序
 - (void)testMPSort{
