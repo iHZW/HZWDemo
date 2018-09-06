@@ -42,8 +42,6 @@
     
     
     
-    
-    
     /**< 添加一个全屏的吸附屏幕边缘的按钮 */
     UIButton *circleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     circleBtn.frame = CGRectMake(100, 100, kWidth, kWidth);
