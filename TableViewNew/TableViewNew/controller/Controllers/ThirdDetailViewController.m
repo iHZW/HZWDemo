@@ -30,8 +30,7 @@ static  NSArray *selectArray = nil;
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate>
 {
-    
-
+//    NSString *_testString;
 }
 
 @property (nonatomic, strong) UITextField *textFieldA;
@@ -54,11 +53,34 @@ UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *classTitleDict; /**< 存储类名 */
 
+@property (nonatomic, copy) NSString *testString; /**< 测试自动合成 */
+
+@property (nonatomic, strong) NSMutableArray *testArray;
+
 
 @end
 
 
 @implementation ThirdDetailViewController
+
+@synthesize testString = _testString;
+
+- (NSString *)testString
+{
+    return _testString;
+}
+
+- (void)setTestString:(NSString *)testString
+{
+    _testString = [testString copy];
+}
+
+
+- (void)setTestArray:(NSMutableArray *)testArray
+{
+    _testArray = testArray;
+}
+
 
 - (void)viewDidLoad
 {

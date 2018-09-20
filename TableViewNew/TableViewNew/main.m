@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+//#import "ThirdViewController.h"
+
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
+        
+//        ThirdViewController *test = [[ThirdViewController alloc] init];
+//        [test performSelector:(@selector(iOS程序犭袁))];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
