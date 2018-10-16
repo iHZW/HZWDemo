@@ -1,9 +1,12 @@
 platform :ios, '9.0'
 
-target "TableViewNew" do 
+target 'TableViewNew' do
 
 pod 'YYModel'
 pod 'MBProgressHUD'
 pod 'SDWebImage'
+pod 'MLeaksFinder','>=1.0.0'
+pod 'FBRetainCycleDetector'
+
 
 end

@@ -167,6 +167,9 @@
 		7C9E362D1DEC1A0A001072D5 /* FlashTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E362C1DEC1A0A001072D5 /* FlashTagView.m */; };
 		7C9E363D1DF0166B001072D5 /* BackGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E363C1DF0166B001072D5 /* BackGroundView.m */; };
 		7C9EEC4F1D2E736100DB803E /* GroupNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9EEC4E1D2E736100DB803E /* GroupNameView.m */; };
+		7CA26B01217572DF00801417 /* libMyFirstA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA26B00217572DE00801417 /* libMyFirstA.a */; };
+		7CA26B14217586D300801417 /* MyFirstA.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA26B12217586D200801417 /* MyFirstA.h */; };
+		7CA26B15217586D300801417 /* TextObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CA26B13217586D300801417 /* TextObject.h */; };
 		7CBB69DA1BEA3F75005A7BDF /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB69D91BEA3F75005A7BDF /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7CBC77AD1C0486990089A545 /* ThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBC77AC1C0486990089A545 /* ThirdCell.m */; };
 		7CBD66F01F60F02100CDB912 /* TableViewNew-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD66EE1F60F02100CDB912 /* TableViewNew-Info.plist */; };
@@ -373,6 +376,19 @@
 		7CFE36D71D1CD2CB00D02D9D /* WaterFallCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36D61D1CD2CB00D02D9D /* WaterFallCollectionViewController.m */; };
 		F6C4B2939E3AD09E3C43A12F /* libPods-TableViewNew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D93EA70A82C23BEDF5C3E8 /* libPods-TableViewNew.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7CA26B102175817400801417 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7C0E35B81D1009C200059B89 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
@@ -610,6 +626,9 @@
 		7C9E363C1DF0166B001072D5 /* BackGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackGroundView.m; sourceTree = "<group>"; };
 		7C9EEC4D1D2E736100DB803E /* GroupNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupNameView.h; sourceTree = "<group>"; };
 		7C9EEC4E1D2E736100DB803E /* GroupNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupNameView.m; sourceTree = "<group>"; };
+		7CA26B00217572DE00801417 /* libMyFirstA.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMyFirstA.a; sourceTree = "<group>"; };
+		7CA26B12217586D200801417 /* MyFirstA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFirstA.h; sourceTree = "<group>"; };
+		7CA26B13217586D300801417 /* TextObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextObject.h; sourceTree = "<group>"; };
 		7CBB69921BE9FFAC005A7BDF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		7CBB69941BEA00B7005A7BDF /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		7CBB69961BEA00E6005A7BDF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -771,6 +790,7 @@
 			files = (
 				7C488D95202AEB1500EEDD72 /* libsqlite3.0.tbd in Frameworks */,
 				7CFC14DA1DE3D9940017C831 /* JavaScriptCore.framework in Frameworks */,
+				7CA26B01217572DF00801417 /* libMyFirstA.a in Frameworks */,
 				F6C4B2939E3AD09E3C43A12F /* libPods-TableViewNew.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1386,6 +1406,25 @@
 			path = GCDCommon;
 			sourceTree = "<group>";
 		};
+		7CA26AFF217572DE00801417 /* MyFirst */ = {
+			isa = PBXGroup;
+			children = (
+				7CA26B11217586D200801417 /* include */,
+				7CA26B00217572DE00801417 /* libMyFirstA.a */,
+			);
+			name = MyFirst;
+			path = TableViewNew/MyFirst;
+			sourceTree = "<group>";
+		};
+		7CA26B11217586D200801417 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				7CA26B12217586D200801417 /* MyFirstA.h */,
+				7CA26B13217586D300801417 /* TextObject.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		7CBD66F71F60F3BA00CDB912 /* TableViewNew123 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1397,6 +1436,7 @@
 		7CC481C01B9C2B75008A08AE = {
 			isa = PBXGroup;
 			children = (
+				7CA26AFF217572DE00801417 /* MyFirst */,
 				7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */,
 				7CBB69981BEA0160005A7BDF /* libiconv.tbd */,
 				7CBB69961BEA00E6005A7BDF /* libsqlite3.tbd */,
@@ -1861,6 +1901,18 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		7CA26B022175778000801417 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CA26B15217586D300801417 /* TextObject.h in Headers */,
+				7CA26B14217586D300801417 /* MyFirstA.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		7CBD66FD1F61226400CDB912 /* TableViewNewTest */ = {
 			isa = PBXNativeTarget;
@@ -1887,6 +1939,8 @@
 				7CC481C51B9C2B75008A08AE /* Sources */,
 				7CC481C61B9C2B75008A08AE /* Frameworks */,
 				7CC481C71B9C2B75008A08AE /* Resources */,
+				7CA26B022175778000801417 /* Headers */,
+				7CA26B102175817400801417 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -2530,6 +2584,11 @@
 				INFOPLIST_FILE = "TableViewNew/TableViewNew-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TableViewNew/TestA",
+					"$(PROJECT_DIR)/TableViewNew/MyFirst",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2553,6 +2612,11 @@
 				INFOPLIST_FILE = "TableViewNew/TableViewNew-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TableViewNew/TestA",
+					"$(PROJECT_DIR)/TableViewNew/MyFirst",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
 				PRODUCT_NAME = "$(TARGET_NAME)";

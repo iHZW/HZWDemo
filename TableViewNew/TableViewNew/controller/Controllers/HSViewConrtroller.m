@@ -31,6 +31,8 @@
 #import "UIViewController+TestCategary.h"
 #import "LeftViewController.h"
 #import "TestBasicsViewController.h"
+#import "TextObject.h"
+#import "MyFirstA.h"
 
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
@@ -432,6 +434,9 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     _tbView.delegate = self;
     _tbView.dataSource = self;
     _tbView.backgroundColor = [UIColor clearColor];
+    _tbView.estimatedRowHeight = 0;
+    _tbView.estimatedSectionHeaderHeight = 0;
+    _tbView.estimatedSectionFooterHeight = 0;
     [self.view addSubview:_tbView];
     
     //让adjustContentInset值不受SafeAreaInset值的影响。
@@ -545,11 +550,14 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 
 - (void)createGroupTableView
 {
-    _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64 + (IS_IPHONE_X ? 20 : 0), WMAIN, HMAIN-84) style:UITableViewStylePlain];
+    _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0 + (IS_IPHONE_X ? 20 : 0), WMAIN, HMAIN-20) style:UITableViewStylePlain];
     _tbView.delegate = self;
     _tbView.dataSource = self;
     _tbView.separatorStyle = UITableViewCellSeparatorStyleNone;//去掉分割线
     _tbView.backgroundColor = [UIColor whiteColor];
+    _tbView.estimatedRowHeight = 0;
+    _tbView.estimatedSectionHeaderHeight = 0;
+    _tbView.estimatedSectionFooterHeight = 0;
     [self.view addSubview:_tbView];
 //    _tbView.tableHeaderView = [self getHeadView];
     _tbView.tableHeaderView = [self getIndexItemView];
@@ -661,7 +669,8 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-        [self selectImage];
+        [TextObject logMethodName];
+        //        [self selectImage];
     }else if(indexPath.section == 0 && indexPath.row == 1)
     {
 #pragma mark  Block调用
