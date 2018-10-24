@@ -85,7 +85,6 @@
 		7C488D75202AE95D00EEDD72 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D6B202AE95D00EEDD72 /* FMDatabasePool.m */; };
 		7C488D76202AE95D00EEDD72 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D6C202AE95D00EEDD72 /* FMResultSet.m */; };
 		7C488D77202AE95D00EEDD72 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D6C202AE95D00EEDD72 /* FMResultSet.m */; };
-		7C488D78202AE95D00EEDD72 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C488D6D202AE95D00EEDD72 /* Info.plist */; };
 		7C488D79202AE95D00EEDD72 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C488D6D202AE95D00EEDD72 /* Info.plist */; };
 		7C488D95202AEB1500EEDD72 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C488D94202AEB0400EEDD72 /* libsqlite3.0.tbd */; };
 		7C488D99202AECC600EEDD72 /* MyBookDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D98202AECC600EEDD72 /* MyBookDBManager.m */; };
@@ -120,7 +119,6 @@
 		7C81E1D51C7D389200E0E298 /* 1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1B81C7D389200E0E298 /* 1.1.png */; };
 		7C81E1D61C7D389200E0E298 /* 1.11.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1B91C7D389200E0E298 /* 1.11.png */; };
 		7C81E1D71C7D389200E0E298 /* 11.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1BA1C7D389200E0E298 /* 11.1.png */; };
-		7C81E1D81C7D389200E0E298 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1BB1C7D389200E0E298 /* 4.jpg */; };
 		7C81E1D91C7D389200E0E298 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1BC1C7D389200E0E298 /* header.png */; };
 		7C81E1DA1C7D389200E0E298 /* list_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1BD1C7D389200E0E298 /* list_ico.png */; };
 		7C81E1DB1C7D389200E0E298 /* list_ico_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1BE1C7D389200E0E298 /* list_ico_d.png */; };
@@ -152,7 +150,6 @@
 		7C83A69C1F95925600BEE051 /* PINMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C83A6961F95924900BEE051 /* PINMemoryCache.m */; };
 		7C93C4FE2064F99100151369 /* CommonNewFileFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C4FD2064F99100151369 /* CommonNewFileFunc.m */; };
 		7C93C4FF2064F99100151369 /* CommonNewFileFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C4FD2064F99100151369 /* CommonNewFileFunc.m */; };
-		7C96F9DF1D531CC400381092 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C96F9C51D531CC300381092 /* Info.plist */; };
 		7C96F9E01D531CC400381092 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96F9C71D531CC300381092 /* MASCompositeConstraint.m */; };
 		7C96F9E11D531CC400381092 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96F9CA1D531CC300381092 /* MASConstraint.m */; };
 		7C96F9E21D531CC400381092 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C96F9CC1D531CC400381092 /* MASConstraintMaker.m */; };
@@ -287,6 +284,9 @@
 		7CC3D0DE21805F0F0034F458 /* YBRectConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC3D0D821805F0E0034F458 /* YBRectConst.h */; };
 		7CC3D0DF21805F0F0034F458 /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0D921805F0E0034F458 /* YBPopupMenu.m */; };
 		7CC3D0E021805F0F0034F458 /* YBPopupMenuPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC3D0DA21805F0E0034F458 /* YBPopupMenuPath.h */; };
+		7CC3D0E1218067670034F458 /* YBRectConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0D621805F0E0034F458 /* YBRectConst.m */; };
+		7CC3D0E22180676E0034F458 /* YBPopupMenuPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0D721805F0E0034F458 /* YBPopupMenuPath.m */; };
+		7CC3D0E3218067720034F458 /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0D921805F0E0034F458 /* YBPopupMenu.m */; };
 		7CC481CF1B9C2B75008A08AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481CE1B9C2B75008A08AE /* main.m */; };
 		7CC481D21B9C2B75008A08AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481D11B9C2B75008A08AE /* AppDelegate.m */; };
 		7CC481D51B9C2B75008A08AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481D41B9C2B75008A08AE /* ViewController.m */; };
@@ -2074,7 +2074,6 @@
 				7CC481D81B9C2B75008A08AE /* Main.storyboard in Resources */,
 				7C81E1D71C7D389200E0E298 /* 11.1.png in Resources */,
 				7C81E1D91C7D389200E0E298 /* header.png in Resources */,
-				7C488D78202AE95D00EEDD72 /* Info.plist in Resources */,
 				7C81E1C11C7D389200E0E298 /* 10.jpg in Resources */,
 				7C81E1C51C7D389200E0E298 /* 14.jpg in Resources */,
 				7C81E1CB1C7D389200E0E298 /* 2.jpg in Resources */,
@@ -2088,12 +2087,10 @@
 				7C0E35BB1D1009CF00059B89 /* 1.gif in Resources */,
 				7C81E1D41C7D389200E0E298 /* 00.jpg in Resources */,
 				7CF602921F90A26500D0C222 /* MJRefresh.bundle in Resources */,
-				7C96F9DF1D531CC400381092 /* Info.plist in Resources */,
 				7CF602971F90A26500D0C222 /* README.md in Resources */,
 				7C81E1D21C7D389200E0E298 /* 8.jpg in Resources */,
 				7CF6029C1F90A53A00D0C222 /* ThemeDarkBlack.strings in Resources */,
 				7C81E1D61C7D389200E0E298 /* 1.11.png in Resources */,
-				7C81E1D81C7D389200E0E298 /* 4.jpg in Resources */,
 				7CC481DD1B9C2B75008A08AE /* LaunchScreen.xib in Resources */,
 				7C81E1DA1C7D389200E0E298 /* list_ico.png in Resources */,
 				7C81E1C41C7D389200E0E298 /* 13.jpg in Resources */,
@@ -2164,6 +2161,7 @@
 				7CF602521F90A09F00D0C222 /* PASBaseTableView.m in Sources */,
 				7CBD67111F61226400CDB912 /* MASConstraintMaker.m in Sources */,
 				7C83A6841F958E4500BEE051 /* JSONValueTransformer.m in Sources */,
+				7CC3D0E3218067720034F458 /* YBPopupMenu.m in Sources */,
 				7CBD67121F61226400CDB912 /* DataFormatterFunc+RegularExpression.m in Sources */,
 				7C83A67E1F958E3100BEE051 /* JSONModelClassProperty.m in Sources */,
 				7CBD67131F61226400CDB912 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -2200,6 +2198,7 @@
 				7CBD67341F61226400CDB912 /* MASViewConstraint.m in Sources */,
 				7C93C4FF2064F99100151369 /* CommonNewFileFunc.m in Sources */,
 				7CF602A71F949A6800D0C222 /* MJRefreshBackStateFooter.m in Sources */,
+				7CC3D0E1218067670034F458 /* YBRectConst.m in Sources */,
 				7CBD67351F61226400CDB912 /* UIView+Create.m in Sources */,
 				7CF602A91F949A6F00D0C222 /* MJRefreshNormalHeader.m in Sources */,
 				7CBD67371F61226400CDB912 /* URLHTTP.m in Sources */,
@@ -2259,6 +2258,7 @@
 				7CBD67711F61226400CDB912 /* UIImage+Addition.m in Sources */,
 				7CF6029E1F949A4B00D0C222 /* MJRefreshBackFooter.m in Sources */,
 				7CF6021C1F905A2F00D0C222 /* UILabel+Util.m in Sources */,
+				7CC3D0E22180676E0034F458 /* YBPopupMenuPath.m in Sources */,
 				7CBD67731F61226400CDB912 /* ThirdCell.m in Sources */,
 				7C83A6801F958E3800BEE051 /* JSONAPI.m in Sources */,
 				7CBD67751F61226400CDB912 /* UIAlertViewController.m in Sources */,
@@ -2640,6 +2640,28 @@
 					"$(PROJECT_DIR)/TableViewNew/TestA",
 					"$(PROJECT_DIR)/TableViewNew/MyFirst",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+					"-l\"MBProgressHUD\"",
+					"-l\"FBRetainCycleDetector\"",
+					"-l\"MLeaksFinder\"",
+					"-l\"SDWebImage\"",
+					"-l\"YYModel\"",
+					"-l\"c++\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2667,6 +2689,28 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TableViewNew/TestA",
 					"$(PROJECT_DIR)/TableViewNew/MyFirst",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+					"-l\"MBProgressHUD\"",
+					"-l\"FBRetainCycleDetector\"",
+					"-l\"MLeaksFinder\"",
+					"-l\"SDWebImage\"",
+					"-l\"YYModel\"",
+					"-l\"c++\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
