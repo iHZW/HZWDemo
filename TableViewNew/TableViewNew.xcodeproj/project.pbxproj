@@ -1214,7 +1214,7 @@
 			path = PSPDFUIKitMainThreadGuard;
 			sourceTree = "<group>";
 		};
-		7C7F0CF11BE707DC0073CE8C /* libraries */ = {
+		7C7F0CF11BE707DC0073CE8C /* library */ = {
 			isa = PBXGroup;
 			children = (
 				7CE8318A2153857700572510 /* AFNetworking */,
@@ -1228,7 +1228,7 @@
 				7C13CDD11CFB259600C0CD9B /* NJKWebViewProgress */,
 				7CBB69D91BEA3F75005A7BDF /* JSONKit.m */,
 			);
-			path = libraries;
+			path = library;
 			sourceTree = "<group>";
 		};
 		7C81E1A01C7D389200E0E298 /* big_image */ = {
@@ -1473,7 +1473,7 @@
 				7CF602271F906B9700D0C222 /* PASBaseFramework */,
 				7CC9E2851E4AEDE7002CEB29 /* XDGesture */,
 				7C13CDD91CFB25E000C0CD9B /* Untility */,
-				7C7F0CF11BE707DC0073CE8C /* libraries */,
+				7C7F0CF11BE707DC0073CE8C /* library */,
 				7CC481FC1B9C370B008A08AE /* images */,
 				7CC481F21B9C3259008A08AE /* controller */,
 				7CC481F31B9C3259008A08AE /* model */,
