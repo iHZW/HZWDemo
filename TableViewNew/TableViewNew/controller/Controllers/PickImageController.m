@@ -35,6 +35,13 @@
 
 @property (nonatomic, strong) MyLabel *myLabel; /**< 置底的label */
 
+@property (nonatomic, strong) UIButton *leftTopBtn;
+
+@property (nonatomic, strong) UIButton *rightTopBtn;
+
+@property (nonatomic, strong) UIButton *leftBottomBtn;
+
+@property (nonatomic, strong) UIButton *rightBottomBtn;
 
 @end
 
@@ -79,6 +86,63 @@
     
 }
 
+
+- (void)createPopBtn
+{
+    [self.view addSubview:self.leftTopBtn];
+    [self.view addSubview:self.rightTopBtn];
+    [self.view addSubview:self.leftBottomBtn];
+    [self.view addSubview:self.rightBottomBtn];
+    
+    CGSize btnSize = CGSizeMake(50, 50);
+    [self.leftTopBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.top.equalTo(self.view.mas_top).offset(70);
+        make.size.mas_equalTo(btnSize);
+    }];
+    
+    
+}
+
+- (UIButton *)leftTopBtn
+{
+    if (!_leftTopBtn) {
+        _leftTopBtn = [self getDefaultBtn:0];
+    }
+    return _leftTopBtn;
+}
+
+- (UIButton *)rightTopBtn
+{
+    if (!_rightTopBtn) {
+        _rightTopBtn = [self getDefaultBtn:1];
+    }
+    return _rightTopBtn;
+}
+
+- (UIButton *)leftBottomBtn
+{
+    if (!_leftBottomBtn) {
+        _leftBottomBtn = [self getDefaultBtn:2];
+    }
+    return _leftBottomBtn;
+}
+
+- (UIButton *)rightBottomBtn
+{
+    if (!_rightBottomBtn) {
+        _rightBottomBtn = [self getDefaultBtn:3];
+    }
+    return _rightBottomBtn;
+}
+
+- (UIButton *)getDefaultBtn:(NSInteger)tag
+{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [btn addTarget:self action:@selector(clickDefaultBtn:) forControlEvents:UIControlEventTouchUpInside];
+    return btn;
+}
+
 /**< 切换开关状态 */
 - (void)switchState:(UISwitch *)sender
 {
@@ -112,6 +176,32 @@
         make.right.equalTo(self.view.mas_right).offset(-15);
         make.height.mas_equalTo(60);
     }];
+    
+}
+
+
+- (void)clickDefaultBtn:(UIButton *)sender
+{
+    switch (sender.tag) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            
+            break;
+            
+        default:
+            break;
+    }
     
 }
 

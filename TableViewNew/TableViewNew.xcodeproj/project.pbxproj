@@ -287,6 +287,9 @@
 		7CC3D0E1218067670034F458 /* YBRectConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0D621805F0E0034F458 /* YBRectConst.m */; };
 		7CC3D0E22180676E0034F458 /* YBPopupMenuPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0D721805F0E0034F458 /* YBPopupMenuPath.m */; };
 		7CC3D0E3218067720034F458 /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0D921805F0E0034F458 /* YBPopupMenu.m */; };
+		7CC3D0E72182F6190034F458 /* ZWWeakObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC3D0E52182F6190034F458 /* ZWWeakObject.h */; };
+		7CC3D0E82182F6190034F458 /* ZWWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0E62182F6190034F458 /* ZWWeakObject.m */; };
+		7CC3D0E92182F6190034F458 /* ZWWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0E62182F6190034F458 /* ZWWeakObject.m */; };
 		7CC481CF1B9C2B75008A08AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481CE1B9C2B75008A08AE /* main.m */; };
 		7CC481D21B9C2B75008A08AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481D11B9C2B75008A08AE /* AppDelegate.m */; };
 		7CC481D51B9C2B75008A08AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481D41B9C2B75008A08AE /* ViewController.m */; };
@@ -654,6 +657,8 @@
 		7CC3D0D821805F0E0034F458 /* YBRectConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBRectConst.h; sourceTree = "<group>"; };
 		7CC3D0D921805F0E0034F458 /* YBPopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBPopupMenu.m; sourceTree = "<group>"; };
 		7CC3D0DA21805F0E0034F458 /* YBPopupMenuPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBPopupMenuPath.h; sourceTree = "<group>"; };
+		7CC3D0E52182F6190034F458 /* ZWWeakObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWWeakObject.h; sourceTree = "<group>"; };
+		7CC3D0E62182F6190034F458 /* ZWWeakObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWWeakObject.m; sourceTree = "<group>"; };
 		7CC481C91B9C2B75008A08AE /* TableViewNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC481CE1B9C2B75008A08AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CC481D01B9C2B75008A08AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1449,13 +1454,22 @@
 			isa = PBXGroup;
 			children = (
 				7CC3D0D521805F0E0034F458 /* YBPopupMenu.h */,
-				7CC3D0D621805F0E0034F458 /* YBRectConst.m */,
-				7CC3D0D721805F0E0034F458 /* YBPopupMenuPath.m */,
-				7CC3D0D821805F0E0034F458 /* YBRectConst.h */,
 				7CC3D0D921805F0E0034F458 /* YBPopupMenu.m */,
+				7CC3D0D821805F0E0034F458 /* YBRectConst.h */,
+				7CC3D0D621805F0E0034F458 /* YBRectConst.m */,
 				7CC3D0DA21805F0E0034F458 /* YBPopupMenuPath.h */,
+				7CC3D0D721805F0E0034F458 /* YBPopupMenuPath.m */,
 			);
 			path = YBPopupMenu;
+			sourceTree = "<group>";
+		};
+		7CC3D0E42182F60C0034F458 /* ZWWeakObject */ = {
+			isa = PBXGroup;
+			children = (
+				7CC3D0E52182F6190034F458 /* ZWWeakObject.h */,
+				7CC3D0E62182F6190034F458 /* ZWWeakObject.m */,
+			);
+			path = ZWWeakObject;
 			sourceTree = "<group>";
 		};
 		7CC481C01B9C2B75008A08AE = {
@@ -1541,6 +1555,7 @@
 		7CC481F21B9C3259008A08AE /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				7CC3D0E42182F60C0034F458 /* ZWWeakObject */,
 				7C0EF90D1D73B9B900E4328F /* UITextField */,
 				7C0EF8DE1D732EA900E4328F /* Controllers */,
 				7C0EF8DF1D732EA900E4328F /* scrollerView */,
@@ -1931,6 +1946,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC3D0E72182F6190034F458 /* ZWWeakObject.h in Headers */,
 				7CC3D0DB21805F0F0034F458 /* YBPopupMenu.h in Headers */,
 				7CC3D0E021805F0F0034F458 /* YBPopupMenuPath.h in Headers */,
 				7CA26B15217586D300801417 /* TextObject.h in Headers */,
@@ -2231,6 +2247,7 @@
 				7CF6029D1F949A4800D0C222 /* MJRefreshAutoFooter.m in Sources */,
 				7CF602A21F949A5A00D0C222 /* MJRefreshAutoGifFooter.m in Sources */,
 				7C83A67F1F958E3300BEE051 /* JSONModelError.m in Sources */,
+				7CC3D0E92182F6190034F458 /* ZWWeakObject.m in Sources */,
 				7C83A6831F958E4200BEE051 /* JSONKeyMapper.m in Sources */,
 				7CBD67531F61226400CDB912 /* SJAvatarBrowser.m in Sources */,
 				7CF602A41F949A6000D0C222 /* MJRefreshAutoStateFooter.m in Sources */,
@@ -2395,6 +2412,7 @@
 				7C2A44401DD0822500DC5B53 /* DataFormatterFunc.m in Sources */,
 				7CE831B92153857700572510 /* AFURLResponseSerialization.m in Sources */,
 				7CE831BB2153857700572510 /* AFURLConnectionOperation.m in Sources */,
+				7CC3D0E82182F6190034F458 /* ZWWeakObject.m in Sources */,
 				7CDFFD1E1B9DD2F600E7C63A /* BookCell.m in Sources */,
 				7CE831B12153857700572510 /* UIAlertView+AFNetworking.m in Sources */,
 				7C0EF9101D73B9D500E4328F /* UITextNewField.m in Sources */,

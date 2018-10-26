@@ -33,6 +33,8 @@
 #import "TestBasicsViewController.h"
 #import "TextObject.h"
 #import "MyFirstA.h"
+#import "ZWWeakObject.h"
+#import "NSTimer+Util.h"
 
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
@@ -62,6 +64,9 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     UIImageView *_imageView;//图片
 }
 @property (nonatomic,strong) UIScrollView *headerScrollView;
+
+@property (nonatomic, strong) NSTimer *zwTimer;
+
 
 /**
  1:UIActionSheetDelegate  相机代理
@@ -121,13 +126,21 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyShowRefreshInfo:) name:RemindString object:nil];
 
+    /**< 防止循环引用使用中间件 ZWWeakObject */
+    [self testWeakTimer];
 }
 
 
+- (void)testWeakTimer
+{
+    ZWWeakObject *weakObject = [ZWWeakObject proxyWithWeakObjec:self];
+    self.zwTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:weakObject selector:@selector(refreshData:) userInfo:nil repeats:YES];
+}
 
-
-
-
+- (void)refreshData:(NSTimer *)sender
+{
+    NSLog(@"11111");
+}
 
 /**< 创建导航 */
 - (void)createNav
@@ -664,13 +677,18 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_tbView deselectRowAtIndexPath:indexPath animated:NO];
-        
+    
+    /**< 点击cell暂停定时器 */
+    if (self.zwTimer) {
+        [self.zwTimer util_suspend];
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:RemindString object:nil];
     
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-        [TextObject logMethodName];
-        //        [self selectImage];
+//        [TextObject logMethodName];
+                [self selectImage];
     }else if(indexPath.section == 0 && indexPath.row == 1)
     {
 #pragma mark  Block调用
@@ -900,10 +918,25 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    
+    /**< 唤醒定时器 */
+    if (self.zwTimer) {
+        [self.zwTimer util_resume];
+    }
+
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
     NSData * imageData = [NSData dataWithContentsOfFile:fullPath];
     _imageView.image = [UIImage imageWithData:imageData];
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    if (self.zwTimer) {
+        [self.zwTimer util_suspend];
+    }
 }
 
 
