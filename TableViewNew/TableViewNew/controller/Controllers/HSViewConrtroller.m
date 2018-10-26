@@ -455,7 +455,11 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     //让adjustContentInset值不受SafeAreaInset值的影响。
 #ifdef __IPHONE_11_0
     if ([_tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
-        _tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        if (@available(iOS 11.0, *)) {
+            _tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            // Fallback on earlier versions
+        }
     }
 #endif
 
@@ -554,7 +558,7 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 //        rect.origin.x -= delta;
         rect.size.height += delta;
 //        rect.size.width += delta;
-        NSLog(@"%f",rect.size.height);
+
         self.headerScrollView.frame = rect;
     }
     
@@ -563,7 +567,7 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 
 - (void)createGroupTableView
 {
-    _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0 + (IS_IPHONE_X ? 20 : 0), WMAIN, HMAIN-20) style:UITableViewStylePlain];
+    _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64 + (IS_IPHONE_X ? 20 : 0), WMAIN, HMAIN-20) style:UITableViewStylePlain];
     _tbView.delegate = self;
     _tbView.dataSource = self;
     _tbView.separatorStyle = UITableViewCellSeparatorStyleNone;//去掉分割线
@@ -577,7 +581,11 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     
 #ifdef __IPHONE_11_0
     if ([_tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
-        _tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        if (@available(iOS 11.0, *)) {
+            _tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            // Fallback on earlier versions
+        }
     }
 #endif
     
