@@ -290,6 +290,14 @@
 		7CC3D0E72182F6190034F458 /* ZWWeakObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC3D0E52182F6190034F458 /* ZWWeakObject.h */; };
 		7CC3D0E82182F6190034F458 /* ZWWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0E62182F6190034F458 /* ZWWeakObject.m */; };
 		7CC3D0E92182F6190034F458 /* ZWWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0E62182F6190034F458 /* ZWWeakObject.m */; };
+		7CC3D0EC2186AC8F0034F458 /* TestPopViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC3D0EA2186AC8F0034F458 /* TestPopViewCell.h */; };
+		7CC3D0ED2186AC8F0034F458 /* TestPopViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0EB2186AC8F0034F458 /* TestPopViewCell.m */; };
+		7CC3D0EE2186AC8F0034F458 /* TestPopViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0EB2186AC8F0034F458 /* TestPopViewCell.m */; };
+		7CC3D0F22186AEC20034F458 /* TestPopViewXibCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC3D0EF2186AEC20034F458 /* TestPopViewXibCell.h */; };
+		7CC3D0F32186AEC20034F458 /* TestPopViewXibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0F02186AEC20034F458 /* TestPopViewXibCell.m */; };
+		7CC3D0F42186AEC20034F458 /* TestPopViewXibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3D0F02186AEC20034F458 /* TestPopViewXibCell.m */; };
+		7CC3D0F52186AEC20034F458 /* TestPopViewXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3D0F12186AEC20034F458 /* TestPopViewXibCell.xib */; };
+		7CC3D0F62186AEC20034F458 /* TestPopViewXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC3D0F12186AEC20034F458 /* TestPopViewXibCell.xib */; };
 		7CC481CF1B9C2B75008A08AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481CE1B9C2B75008A08AE /* main.m */; };
 		7CC481D21B9C2B75008A08AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481D11B9C2B75008A08AE /* AppDelegate.m */; };
 		7CC481D51B9C2B75008A08AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481D41B9C2B75008A08AE /* ViewController.m */; };
@@ -659,6 +667,11 @@
 		7CC3D0DA21805F0E0034F458 /* YBPopupMenuPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBPopupMenuPath.h; sourceTree = "<group>"; };
 		7CC3D0E52182F6190034F458 /* ZWWeakObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWWeakObject.h; sourceTree = "<group>"; };
 		7CC3D0E62182F6190034F458 /* ZWWeakObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWWeakObject.m; sourceTree = "<group>"; };
+		7CC3D0EA2186AC8F0034F458 /* TestPopViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestPopViewCell.h; sourceTree = "<group>"; };
+		7CC3D0EB2186AC8F0034F458 /* TestPopViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPopViewCell.m; sourceTree = "<group>"; };
+		7CC3D0EF2186AEC20034F458 /* TestPopViewXibCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestPopViewXibCell.h; sourceTree = "<group>"; };
+		7CC3D0F02186AEC20034F458 /* TestPopViewXibCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPopViewXibCell.m; sourceTree = "<group>"; };
+		7CC3D0F12186AEC20034F458 /* TestPopViewXibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestPopViewXibCell.xib; sourceTree = "<group>"; };
 		7CC481C91B9C2B75008A08AE /* TableViewNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC481CE1B9C2B75008A08AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CC481D01B9C2B75008A08AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -869,6 +882,11 @@
 				7C387A4E200310D5005AC033 /* HZWTabBarController.m */,
 				7C0EF8E51D732FBA00E4328F /* HSViewConrtroller.h */,
 				7C0EF8E61D732FBA00E4328F /* HSViewConrtroller.m */,
+				7CC3D0EA2186AC8F0034F458 /* TestPopViewCell.h */,
+				7CC3D0EB2186AC8F0034F458 /* TestPopViewCell.m */,
+				7CC3D0EF2186AEC20034F458 /* TestPopViewXibCell.h */,
+				7CC3D0F02186AEC20034F458 /* TestPopViewXibCell.m */,
+				7CC3D0F12186AEC20034F458 /* TestPopViewXibCell.xib */,
 				7C0EF8E11D732FBA00E4328F /* ClickMoreCellControl.h */,
 				7C0EF8E21D732FBA00E4328F /* ClickMoreCellControl.m */,
 				7C0EF8E31D732FBA00E4328F /* DetialViewController.h */,
@@ -1950,8 +1968,10 @@
 				7CC3D0DB21805F0F0034F458 /* YBPopupMenu.h in Headers */,
 				7CC3D0E021805F0F0034F458 /* YBPopupMenuPath.h in Headers */,
 				7CA26B15217586D300801417 /* TextObject.h in Headers */,
+				7CC3D0EC2186AC8F0034F458 /* TestPopViewCell.h in Headers */,
 				7CA26B14217586D300801417 /* MyFirstA.h in Headers */,
 				7CC3D0DE21805F0F0034F458 /* YBRectConst.h in Headers */,
+				7CC3D0F22186AEC20034F458 /* TestPopViewXibCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2064,6 +2084,7 @@
 				7CBD67961F61226400CDB912 /* 4.jpg in Resources */,
 				7CBD67971F61226400CDB912 /* LaunchScreen.xib in Resources */,
 				7CBD67981F61226400CDB912 /* list_ico.png in Resources */,
+				7CC3D0F62186AEC20034F458 /* TestPopViewXibCell.xib in Resources */,
 				7CBD67991F61226400CDB912 /* 13.jpg in Resources */,
 				7C488D79202AE95D00EEDD72 /* Info.plist in Resources */,
 				7CBD679A1F61226400CDB912 /* 1.jpg in Resources */,
@@ -2086,6 +2107,7 @@
 				7C81E1D01C7D389200E0E298 /* 6.jpg in Resources */,
 				7C81E1C71C7D389200E0E298 /* 16.jpg in Resources */,
 				7C81E1C81C7D389200E0E298 /* 17.jpg in Resources */,
+				7CC3D0F52186AEC20034F458 /* TestPopViewXibCell.xib in Resources */,
 				7C81E1D31C7D389200E0E298 /* 9.jpg in Resources */,
 				7CC481D81B9C2B75008A08AE /* Main.storyboard in Resources */,
 				7C81E1D71C7D389200E0E298 /* 11.1.png in Resources */,
@@ -2182,6 +2204,7 @@
 				7C83A67E1F958E3100BEE051 /* JSONModelClassProperty.m in Sources */,
 				7CBD67131F61226400CDB912 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7CBD67171F61226400CDB912 /* GYZActionSheet.m in Sources */,
+				7CC3D0EE2186AC8F0034F458 /* TestPopViewCell.m in Sources */,
 				7C2EBBB61FEA667D00FEA7BB /* TestDrawView.m in Sources */,
 				7CF602A81F949A6B00D0C222 /* MJRefreshGifHeader.m in Sources */,
 				7CBD67191F61226400CDB912 /* ClickMoreAndMoreCell.m in Sources */,
@@ -2211,6 +2234,7 @@
 				7CBD67311F61226400CDB912 /* WaterFallCollectionViewController.m in Sources */,
 				7CBD67321F61226400CDB912 /* GYZSheetView.m in Sources */,
 				7CF602481F90809800D0C222 /* NSObject+Customizer.m in Sources */,
+				7CC3D0F42186AEC20034F458 /* TestPopViewXibCell.m in Sources */,
 				7CBD67341F61226400CDB912 /* MASViewConstraint.m in Sources */,
 				7C93C4FF2064F99100151369 /* CommonNewFileFunc.m in Sources */,
 				7CF602A71F949A6800D0C222 /* MJRefreshBackStateFooter.m in Sources */,
@@ -2341,6 +2365,7 @@
 				7CC056501C32D77600C81468 /* UIRemindView.m in Sources */,
 				7C83A6981F95924A00BEE051 /* PINDiskCache.m in Sources */,
 				7C2A44271DD0821D00DC5B53 /* UIView+Frame.m in Sources */,
+				7CC3D0F32186AEC20034F458 /* TestPopViewXibCell.m in Sources */,
 				7C0EF9021D732FBA00E4328F /* MyImagePickerController.m in Sources */,
 				7C96F9E01D531CC400381092 /* MASCompositeConstraint.m in Sources */,
 				7CF602861F90A26500D0C222 /* MJRefreshComponent.m in Sources */,
@@ -2368,6 +2393,7 @@
 				7C83A68C1F95915000BEE051 /* PASDataCache.m in Sources */,
 				7C96F9E51D531CC400381092 /* MASViewConstraint.m in Sources */,
 				7C2A44261DD0821D00DC5B53 /* UIView+Create.m in Sources */,
+				7CC3D0ED2186AC8F0034F458 /* TestPopViewCell.m in Sources */,
 				7C7F0CE61BE644EC0073CE8C /* URLHTTP.m in Sources */,
 				7CF6028F1F90A26500D0C222 /* MJRefreshGifHeader.m in Sources */,
 				7C488D74202AE95D00EEDD72 /* FMDatabasePool.m in Sources */,

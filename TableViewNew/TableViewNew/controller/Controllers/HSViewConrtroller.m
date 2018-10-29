@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 
 @property (nonatomic, strong) NSTimer *zwTimer;
 
+@property (nonatomic, strong) UIImageView *imageView;
 
 /**
  1:UIActionSheetDelegate  相机代理
@@ -701,8 +702,10 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     {
 #pragma mark  Block调用
         PickImageController *ctrl = [[PickImageController alloc]init];
+        @pas_weakify_self
         ctrl.block = ^(UIColor * color){
-            _imageView.backgroundColor = color;
+            @pas_strongify_self
+            self.imageView.backgroundColor = color;
         };
         [self.navigationController pushViewController:ctrl animated:YES];
     }else if (indexPath.section == 0 && indexPath.row == 2)

@@ -271,7 +271,7 @@ UITableViewDataSource
     [UIView animateWithDuration: 0.25 animations:^{
         self.layer.affineTransform = CGAffineTransformMakeScale(1.0, 1.0);
         self.alpha = 1;
-        _menuBackView.alpha = 1;
+        self.menuBackView.alpha = 1;
     } completion:^(BOOL finished) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(ybPopupMenuDidShow)]) {
             [self.delegate ybPopupMenuDidShow];

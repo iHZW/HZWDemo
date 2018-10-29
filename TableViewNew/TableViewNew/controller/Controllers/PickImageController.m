@@ -14,10 +14,17 @@
 #import "FlashTagView.h"
 #import "CaptchView.h"
 #import "MyLabel.h"
+#import "YBPopupMenu.h"
+#import "TestPopViewXibCell.h"
+
+#define TITLES @[@"修改", @"删除", @"扫一扫",@"付款",@"测试"]
+#define ICONS  @[@"motify",@"delete",@"saoyisao",@"pay",@"delete"]
+#define kPopBtnSize   CGSizeMake(60, 60)
+#define kPopBtnSideSpace    5
 
 //  http://blog.csdn.net/lsy2013/article/details/42965805图片判断类型   pan/  jpg /  jpeg
 
-@interface PickImageController ()
+@interface PickImageController ()<YBPopupMenuDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) UISlider *slider;
 
@@ -27,6 +34,8 @@
 
 @property (nonatomic, strong) UIImageView *imageView1;
 
+@property (nonatomic, strong) UIView *flashingView; /**< 闪烁view */
+
 @property (nonatomic, strong) UILabel *bgLabel; /**< 变色背景label */
 
 @property (nonatomic, strong) FlashTagView *flashTagView;  /**< 闪烁view */
@@ -35,6 +44,8 @@
 
 @property (nonatomic, strong) MyLabel *myLabel; /**< 置底的label */
 
+@property (nonatomic, strong) UITextField *popTextField;
+
 @property (nonatomic, strong) UIButton *leftTopBtn;
 
 @property (nonatomic, strong) UIButton *rightTopBtn;
@@ -42,6 +53,9 @@
 @property (nonatomic, strong) UIButton *leftBottomBtn;
 
 @property (nonatomic, strong) UIButton *rightBottomBtn;
+
+@property (nonatomic, strong) YBPopupMenu *testPopupMenu;
+
 
 @end
 
@@ -60,6 +74,8 @@
 //    [self createTextView];//同上
 
     [self createButtonFrame];
+    
+    
     
     UISwitch *mySwitch = [[UISwitch alloc]initWithFrame:CGRectMake(100, 200, 0, 0 )];
 //    [mySwitch setOn:YES animated:YES];
@@ -83,10 +99,11 @@
     [self createCaptchView]; /**< 动态验证码 */
     
     [self createSelfhoold]; /**< 置底的label */
-    
+    /**< 弹出框popView */
+    [self createPopBtn];
 }
 
-
+/**< 弹出框 */
 - (void)createPopBtn
 {
     [self.view addSubview:self.leftTopBtn];
@@ -94,14 +111,30 @@
     [self.view addSubview:self.leftBottomBtn];
     [self.view addSubview:self.rightBottomBtn];
     
-    CGSize btnSize = CGSizeMake(50, 50);
+    CGSize btnSize = kPopBtnSize;
     [self.leftTopBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(20);
+        make.left.equalTo(self.view.mas_left).offset(kPopBtnSideSpace);
         make.top.equalTo(self.view.mas_top).offset(70);
         make.size.mas_equalTo(btnSize);
     }];
     
+    [self.rightTopBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view.mas_right).offset(-kPopBtnSideSpace);
+        make.top.equalTo(self.view.mas_top).offset(70);
+        make.size.mas_equalTo(btnSize);
+    }];
     
+    [self.leftBottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(kPopBtnSideSpace);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-70);
+        make.size.mas_equalTo(btnSize);
+    }];
+    
+    [self.rightBottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view.mas_right).offset(-kPopBtnSideSpace);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-70);
+        make.size.mas_equalTo(btnSize);
+    }];
 }
 
 - (UIButton *)leftTopBtn
@@ -136,10 +169,12 @@
     return _rightBottomBtn;
 }
 
+#pragma mark ------------------------------一:popView 依赖点击的View(根据传入的View一自动适配最适合的方向,)------------------------------------
 - (UIButton *)getDefaultBtn:(NSInteger)tag
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [btn addTarget:self action:@selector(clickDefaultBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setBackgroundColor:[UIColor lightGrayColor]];
     return btn;
 }
 
@@ -151,7 +186,16 @@
     }else{
         [PASCommonUtil setObject:kSwitchClose forKey:SwitchStateKey];
     }
+    
+#pragma mark ------------------------------二:popView 依赖点击的View------------------------------------
+    [YBPopupMenu showRelyOnView:sender titles:@[@"111",@"222",@"333",@"444",@"555",@"666",@"777",@"888"] icons:nil menuWidth:100 otherSettings:^(YBPopupMenu *popupMenu) {
+        popupMenu.priorityDirection=  YBPopupMenuArrowDirectionBottom;
+        popupMenu.borderWidth = 1;
+        popupMenu.borderColor = [UIColor greenColor];
+    }];
+    
 }
+
 
 - (MyLabel *)myLabel
 {
@@ -180,8 +224,12 @@
 }
 
 
+
+/**< 点击不同位置弹出对应的PodView */
 - (void)clickDefaultBtn:(UIButton *)sender
 {
+    [YBPopupMenu showRelyOnView:sender titles:TITLES icons:ICONS menuWidth:120 delegate:self];
+    
     switch (sender.tag) {
         case 0:
             
@@ -204,6 +252,106 @@
     }
     
 }
+
+
+#pragma mark ------------------------------三:popView 根据手指触摸的位置显示 ------------------------------------
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = touches.anyObject;
+    CGPoint point = [touch locationInView:self.view];
+    
+    if (CGRectContainsPoint(self.flashingView.frame, point)) {
+        [self showCustomPopupMenuWithPoint:point];
+    }else
+    {
+        [self showDarkPopupMenuWithPoint:point];
+    }
+}
+
+
+- (void)showCustomPopupMenuWithPoint:(CGPoint)point
+{
+    [YBPopupMenu showAtPoint:point titles:TITLES icons:nil menuWidth:120 otherSettings:^(YBPopupMenu *popupMenu) {
+        popupMenu.dismissOnSelected = YES;
+        popupMenu.isShowShadow = YES;
+        popupMenu.delegate = self;
+        popupMenu.type = YBPopupMenuTypeDefault;
+        popupMenu.cornerRadius = 20;
+        popupMenu.rectCorner = UIRectCornerAllCorners;//UIRectCornerTopLeft| UIRectCornerTopRight;
+        popupMenu.tag = 100;
+        //如果不加这句默认是 UITableViewCellSeparatorStyleNone 的
+//        popupMenu.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+    }];
+}
+
+- (void)showDarkPopupMenuWithPoint:(CGPoint)point
+{
+    [YBPopupMenu showAtPoint:point titles:TITLES icons:nil menuWidth:120 otherSettings:^(YBPopupMenu *popupMenu) {
+        popupMenu.dismissOnSelected = NO;
+        popupMenu.isShowShadow = YES;
+        popupMenu.delegate = self;
+        popupMenu.offset = 10;
+        popupMenu.type = YBPopupMenuTypeDark;
+        popupMenu.cornerRadius = 8;
+        popupMenu.rectCorner = UIRectCornerBottomLeft | UIRectCornerBottomRight;
+    }];
+}
+
+
+
+
+
+#pragma mark - YBPopupMenuDelegate
+- (void)ybPopupMenu:(YBPopupMenu *)ybPopupMenu didSelectedAtIndex:(NSInteger)index
+{
+    //推荐回调
+    NSLog(@"点击了 %@ 选项",ybPopupMenu.titles[index]);
+}
+
+- (void)ybPopupMenuBeganDismiss
+{
+    if (self.popTextField.isFirstResponder) {
+        [self.popTextField resignFirstResponder];
+    }
+}
+
+- (UITableViewCell *)ybPopupMenu:(YBPopupMenu *)ybPopupMenu cellForRowAtIndex:(NSInteger)index
+{
+    if (ybPopupMenu.tag != 100) {
+        return nil;
+    }
+    static NSString * identifier = @"TestPopViewXibCell";
+    TestPopViewXibCell * cell = [ybPopupMenu.tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TestPopViewXibCell" owner:self options:nil] firstObject];
+    }
+    
+    cell.titleLabel.text = TITLES[index];
+    cell.iconImageView.image = [UIImage imageNamed:ICONS[index]];
+    
+    switch (index) {
+        case 0:
+            cell.statusLabel.hidden = NO;
+            cell.badge.hidden = YES;
+            break;
+        case 2:
+            cell.statusLabel.hidden = YES;
+            cell.badge.hidden = NO;
+            break;
+        default:
+            cell.statusLabel.hidden = YES;
+            cell.badge.hidden = YES;
+            break;
+    }
+    
+    cell.lineView.hidden = index == (TITLES.count-1) ? YES : NO;
+
+    return cell;
+}
+
+
+
+
 
 
 
@@ -235,7 +383,7 @@
 #pragma mark  --------------- 闪烁view ---------------------
 - (void)flashTest
 {
-    [self createFicker]; /**< 添加闪烁view */
+    [self createFlashing]; /**< 添加闪烁view */
     [self createFickerLabel]; /**<  添加闪烁Label*/
     [self createFickerButton]; /**< 闪烁Button */
 }
@@ -309,7 +457,6 @@
 //    }];
 //    
 
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgLabelAction:)];
     [self.bgLabel addGestureRecognizer:tap];
     
@@ -361,12 +508,12 @@
     
 }
 /**< 添加闪烁view */
-- (void)createFicker
+- (void)createFlashing
 {
-    UIView *view = [UIView viewForColor:[UIColor blueColor] withFrame:CGRectZero];
-    [self.view addSubview:view];
+     self.flashingView = [UIView viewForColor:[UIColor blueColor] withFrame:CGRectZero];
+    [self.view addSubview:self.flashingView];
     
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.flashingView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(15);
         make.right.equalTo(self.view.mas_right).offset(15);
         make.top.mas_equalTo(330);
@@ -374,7 +521,7 @@
     }];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapViewAction)];
-    [view addGestureRecognizer:tap];
+    [self.flashingView addGestureRecognizer:tap];
     
 //    self.imageView1 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
 //    [view addSubview:self.imageView1];
@@ -395,7 +542,7 @@
     
     self.flashTagView = [[FlashTagView alloc] initWithFrame:CGRectMake(15, 10, 5, 5)];
     self.flashTagView.flashImageName = @"flash";
-    [view addSubview:self.flashTagView];
+    [self.flashingView addSubview:self.flashTagView];
     
 //    [self.flashTagView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.equalTo(view.mas_left).offset(15);
@@ -591,9 +738,11 @@
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textColor = [UIColor redColor];
     textField.text = newString;
-    [self.view addSubview:textField];
+    textField.delegate = self;
+    self.popTextField = textField;
+    [self.view addSubview:self.popTextField];
     
-    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.popTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(400);
         make.left.equalTo(self.view).offset(20);
         make.right.equalTo(self.view).offset(-20);
@@ -862,6 +1011,36 @@
 {
     [self.view endEditing:YES];
 }
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.testPopupMenu = [YBPopupMenu showRelyOnView:textField titles:@[@"密码必须为数字、大写字母、小写字母和特殊字符中至少三种的组合，长度不少于8且不大于20"] icons:nil menuWidth:CGRectGetWidth(textField.frame) otherSettings:^(YBPopupMenu *popupMenu) {
+        popupMenu.delegate = self;
+        popupMenu.showMaskView = NO;
+        popupMenu.isShowShadow = NO;
+        popupMenu.dismissOnTouchOutside = YES;
+        popupMenu.dismissOnSelected = YES;
+        popupMenu.itemHeight = 60;
+        popupMenu.fontSize = 12;
+        popupMenu.borderWidth = 1;
+        popupMenu.borderColor = [UIColor brownColor];
+        popupMenu.textColor = [UIColor brownColor];
+        popupMenu.priorityDirection = YBPopupMenuPriorityDirectionBottom;
+        popupMenu.maxVisibleCount = 1;
+
+    }];
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.testPopupMenu dismiss];
+    return YES;
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {
