@@ -11,6 +11,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <MediaToolbox/MediaToolbox.h>
 #import <objc/runtime.h>
+#import "TestCalculateCirclePage.h"
 
 typedef  NS_ENUM(NSInteger , SelectType){
     /**< 拍照 */
@@ -25,6 +26,8 @@ typedef  NS_ENUM(NSInteger , SelectType){
 
 static  NSArray *titleArray = nil;
 static  NSArray *selectArray = nil;
+
+__weak NSString *string_weak_ = nil;
 
 @interface ThirdDetailViewController ()<UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
@@ -41,6 +44,7 @@ UINavigationControllerDelegate>
 @property (nonatomic, strong) NSArray *afterArray;
 @property (nonatomic, strong) UILabel *contentLabel; /**< 显示label内容 */
 @property (nonatomic, strong) UIActionSheet *actionSheet; /**< 弹出框 */
+@property (nonatomic, strong) UIAlertController *alertCtrl; /**< 弹出框 */
 
 
 @property (nonatomic,strong) AVCaptureSession * captureSession;
@@ -93,7 +97,7 @@ UINavigationControllerDelegate>
     [self createData];
     
     /**< 视频测试 */
-    [self createMovieView];
+//    [self createMovieView];
 #ifndef FINISH_TEST
     [self createView];
 #endif
@@ -112,7 +116,54 @@ UINavigationControllerDelegate>
 
 /**< 获取某个类的所有子类 */
 //    [self getSubclass];
+    
+    /**< 场景一:  结果为:string_weak_viewDidLoad = HanZhiwei,string_weak_viewWillAppear = HanZhiwei,string_weak_viewWillDisappear = nil*/
+//    NSString *tempString1 = [NSString stringWithFormat:@"HanZhiwei"];
+//    string_weak_ = tempString1;
+//    NSLog(@"string_weak_viewDidLoad = %@",string_weak_);
+    
+    /**< 场景二:  结果为:string_weak_viewDidLoad = nil,string_weak_viewWillAppear = nil,string_weak_viewWillDisappear = nil*/
+//    @autoreleasepool {
+//        NSString *tempString2 = [NSString stringWithFormat:@"HanZhiwei"];
+//        string_weak_ = tempString2;
+//    }
+//    NSLog(@"string_weak_viewDidLoad = %@",string_weak_);
+   
+    /**< 场景三:  结果为:string_weak_viewDidLoad = HanZhiwei,string_weak_viewWillAppear = nil,string_weak_viewWillDisappear = nil*/
+    NSString *tempString3 = nil;
+    @autoreleasepool {
+        tempString3 = [NSString stringWithFormat:@"HanZhiwei"];
+        string_weak_ = tempString3;
+    }
+    NSLog(@"string_weak_viewDidLoad = %@",string_weak_);
+
 }
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"string_weak_viewWillAppear = %@",string_weak_);
+    
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSLog(@"string_weak_viewWillDisappear = %@",string_weak_);
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 - (NSMutableDictionary *)classTitleDict
@@ -333,9 +384,51 @@ UINavigationControllerDelegate>
 //    [self.navigationController dismissMoviePlayerViewControllerAnimated];
 }
 
+- (void)jumpCirclePage
+{
+    TestCalculateCirclePage *ctrl = [[TestCalculateCirclePage alloc] init];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
+
+
+
 - (void)createAlreatSheet
 {
-    UIButton *systemBtn = [UIButton buttonWithFrame:CGRectZero target:self action:@selector(clickSystemBtn) bgImage:nil tag:0101 block:nil];
+    
+    UIButton *roundTest = [UIButton buttonWithFrame:CGRectZero target:self action:@selector(jumpCirclePage) bgImage:nil tag:0101 block:nil];
+    [roundTest setTitle:@"测试均分圆" forState:UIControlStateNormal];
+    roundTest.backgroundColor = [UIColor redColor];
+    [self.view addSubview:roundTest];
+    
+    [roundTest mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).offset(100);
+        make.right.equalTo(self.view.mas_right).offset(-120);
+        make.size.mas_equalTo(CGSizeMake(80, 30));
+    }];
+    
+    
+    UIButton *btnOne = [UIButton buttonWithFrame:CGRectZero target:self action:@selector(btnOneAction) title:@"情况一" font:PASFont(20) titleColor:UIColorFromRGB(0xE2233E) bgImageColor:nil tag:101 block:nil];
+    [btnOne setBackgroundColor: UIColorFromRGB(0x00B50)];
+    UIButton *btnTwo = [UIButton buttonWithFrame:CGRectZero target:self action:@selector(btnTwoAction) title:@"情况二" font:PASFont(20) titleColor:UIColorFromRGB(0xE2233E) bgImageColor:nil tag:1012 block:nil];
+    [btnTwo setBackgroundColor: UIColorFromRGB(0x00B50)];
+
+    [self.view addSubview:btnOne];
+    [self.view addSubview:btnTwo];
+    
+    [btnOne mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(roundTest.mas_bottom).offset(15);
+        make.left.equalTo(roundTest.mas_left);
+        make.size.mas_equalTo(CGSizeMake(80, 35));
+    }];
+    
+    [btnTwo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(roundTest.mas_bottom).offset(15);
+        make.left.equalTo(btnOne.mas_right).offset(15);
+        make.size.mas_equalTo(CGSizeMake(80, 35));
+    }];
+    
+    
+    UIButton *systemBtn = [UIButton buttonWithFrame:CGRectZero target:self action:@selector(clickSystemBtn:) bgImage:nil tag:0101 block:nil];
     [systemBtn setTitle:@"系统功能" forState:UIControlStateNormal];
     systemBtn.backgroundColor = [UIColor redColor];
     [self.view addSubview:systemBtn];
@@ -353,10 +446,86 @@ UINavigationControllerDelegate>
     
 }
 
-/**< 系统功能按钮 */
-- (void)clickSystemBtn
+- (UIAlertController *)alertCtrl
 {
-    [self.actionSheet showInView:self.view];
+    if (!_alertCtrl) {
+        _alertCtrl = [UIAlertController alertControllerWithTitle:@"弹出框" message:@"123412341234" preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"我的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"alertAction = %@",action.title);
+        }];
+        [_alertCtrl addAction:alertAction];
+        
+        UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"你的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"alertAction = %@",action.title);
+        }];
+        [_alertCtrl addAction:alertAction1];
+        
+        UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"她的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"alertAction = %@",action.title);
+        }];
+        [_alertCtrl addAction:alertAction2];
+    }
+    
+    return _alertCtrl;
+}
+
+
+- (void)btnOneAction
+{
+    [self testPOne];
+}
+
+- (void)btnTwoAction
+{
+    [self testTwo];
+}
+
+
+- (void)testPOne
+{
+    dispatch_queue_t queue_t = dispatch_queue_create("hzw", DISPATCH_QUEUE_SERIAL);
+    
+    NSLog(@"1");
+    dispatch_async(queue_t, ^{
+        NSLog(@"2");
+        /**< crash */
+//        dispatch_sync(queue_t, ^{
+//            NSLog(@"3");
+//        });
+        NSLog(@"4");
+    });
+    NSLog(@"5");
+    
+    
+}
+
+- (void)testTwo
+{
+    dispatch_queue_t queue_t = dispatch_queue_create("123", DISPATCH_QUEUE_CONCURRENT);
+    NSLog(@"1");
+    dispatch_async(queue_t, ^{
+        NSLog(@"2");
+        dispatch_sync(queue_t, ^{
+            NSLog(@"3");
+        });
+        NSLog(@"4");
+    });
+    NSLog(@"5");
+}
+
+
+/**< 系统功能按钮 */
+- (void)clickSystemBtn:(UIButton *)sender
+{
+//    if (sender.isSelected) {
+        [self presentViewController:self.alertCtrl animated:YES completion:nil];
+//    }else{
+//        [self.alertCtrl dismissViewControllerAnimated:YES completion:nil];
+//    }
+//
+//    [self.actionSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

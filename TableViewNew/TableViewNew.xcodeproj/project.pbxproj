@@ -75,6 +75,9 @@
 		7C43A2F01D2B95A700C54B9F /* GYZSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43A2ED1D2B95A700C54B9F /* GYZSheetView.m */; };
 		7C43E3561D1FEB7000EE1EBF /* MyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43E3551D1FEB7000EE1EBF /* MyFlowLayout.m */; };
 		7C43E3591D1FEBCC00EE1EBF /* WaterFallViewController_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C43E3581D1FEBCC00EE1EBF /* WaterFallViewController_2.m */; };
+		7C455E4121A64FA5000FB3F4 /* NSObject+DealMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C455E3F21A64FA5000FB3F4 /* NSObject+DealMessage.h */; };
+		7C455E4221A64FA5000FB3F4 /* NSObject+DealMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C455E4021A64FA5000FB3F4 /* NSObject+DealMessage.m */; };
+		7C455E4321A64FA5000FB3F4 /* NSObject+DealMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C455E4021A64FA5000FB3F4 /* NSObject+DealMessage.m */; };
 		7C488D6E202AE95D00EEDD72 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D63202AE95D00EEDD72 /* FMDatabaseQueue.m */; };
 		7C488D6F202AE95D00EEDD72 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D63202AE95D00EEDD72 /* FMDatabaseQueue.m */; };
 		7C488D70202AE95D00EEDD72 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D66202AE95D00EEDD72 /* FMDatabaseAdditions.m */; };
@@ -89,6 +92,9 @@
 		7C488D95202AEB1500EEDD72 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C488D94202AEB0400EEDD72 /* libsqlite3.0.tbd */; };
 		7C488D99202AECC600EEDD72 /* MyBookDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D98202AECC600EEDD72 /* MyBookDBManager.m */; };
 		7C488D9A202AECC600EEDD72 /* MyBookDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C488D98202AECC600EEDD72 /* MyBookDBManager.m */; };
+		7C49BB8A21CCC7DF0079AE0F /* TestCalculateCirclePage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C49BB8821CCC7DF0079AE0F /* TestCalculateCirclePage.h */; };
+		7C49BB8B21CCC7DF0079AE0F /* TestCalculateCirclePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49BB8921CCC7DF0079AE0F /* TestCalculateCirclePage.m */; };
+		7C49BB8C21CCC7E80079AE0F /* TestCalculateCirclePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49BB8921CCC7DF0079AE0F /* TestCalculateCirclePage.m */; };
 		7C5261D72119902D00D2319E /* TestBasicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5261D62119902D00D2319E /* TestBasicsViewController.m */; };
 		7C5261DE2122795E00D2319E /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5261DD2122795E00D2319E /* PSPDFUIKitMainThreadGuard.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7C5261E12123390000D2319E /* FormulaStringCalcUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5261E0212338FF00D2319E /* FormulaStringCalcUtility.m */; };
@@ -522,6 +528,8 @@
 		7C43E3551D1FEB7000EE1EBF /* MyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlowLayout.m; sourceTree = "<group>"; };
 		7C43E3571D1FEBCC00EE1EBF /* WaterFallViewController_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallViewController_2.h; sourceTree = "<group>"; };
 		7C43E3581D1FEBCC00EE1EBF /* WaterFallViewController_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallViewController_2.m; sourceTree = "<group>"; };
+		7C455E3F21A64FA5000FB3F4 /* NSObject+DealMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+DealMessage.h"; sourceTree = "<group>"; };
+		7C455E4021A64FA5000FB3F4 /* NSObject+DealMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DealMessage.m"; sourceTree = "<group>"; };
 		7C488D62202AE95D00EEDD72 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		7C488D63202AE95D00EEDD72 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		7C488D64202AE95D00EEDD72 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -538,6 +546,8 @@
 		7C488D97202AECC600EEDD72 /* MyBookDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyBookDBManager.h; sourceTree = "<group>"; };
 		7C488D98202AECC600EEDD72 /* MyBookDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBookDBManager.m; sourceTree = "<group>"; };
 		7C488D9C202AED5300EEDD72 /* SingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonTemplate.h; sourceTree = "<group>"; };
+		7C49BB8821CCC7DF0079AE0F /* TestCalculateCirclePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCalculateCirclePage.h; sourceTree = "<group>"; };
+		7C49BB8921CCC7DF0079AE0F /* TestCalculateCirclePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCalculateCirclePage.m; sourceTree = "<group>"; };
 		7C5261D52119902D00D2319E /* TestBasicsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBasicsViewController.h; sourceTree = "<group>"; };
 		7C5261D62119902D00D2319E /* TestBasicsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBasicsViewController.m; sourceTree = "<group>"; };
 		7C5261DD2122795E00D2319E /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
@@ -878,6 +888,8 @@
 				7C488D96202AEC7F00EEDD72 /* MyBookDBManager */,
 				7C387A6E200348AF005AC033 /* LeftViewController.h */,
 				7C387A6F200348AF005AC033 /* LeftViewController.m */,
+				7C455E3F21A64FA5000FB3F4 /* NSObject+DealMessage.h */,
+				7C455E4021A64FA5000FB3F4 /* NSObject+DealMessage.m */,
 				7C387A4D200310D5005AC033 /* HZWTabBarController.h */,
 				7C387A4E200310D5005AC033 /* HZWTabBarController.m */,
 				7C0EF8E51D732FBA00E4328F /* HSViewConrtroller.h */,
@@ -907,6 +919,8 @@
 				7C0EF8F71D732FBA00E4328F /* TestWebView+ErrorPageView.m */,
 				7C0EF8F81D732FBA00E4328F /* ThirdDetailViewController.h */,
 				7C0EF8F91D732FBA00E4328F /* ThirdDetailViewController.m */,
+				7C49BB8821CCC7DF0079AE0F /* TestCalculateCirclePage.h */,
+				7C49BB8921CCC7DF0079AE0F /* TestCalculateCirclePage.m */,
 				7C0EF8FA1D732FBA00E4328F /* ThirdViewController.h */,
 				7C0EF8FB1D732FBA00E4328F /* ThirdViewController.m */,
 				7C0EF8FC1D732FBA00E4328F /* UIAlertViewController.h */,
@@ -1966,10 +1980,12 @@
 			files = (
 				7CC3D0E72182F6190034F458 /* ZWWeakObject.h in Headers */,
 				7CC3D0DB21805F0F0034F458 /* YBPopupMenu.h in Headers */,
+				7C49BB8A21CCC7DF0079AE0F /* TestCalculateCirclePage.h in Headers */,
 				7CC3D0E021805F0F0034F458 /* YBPopupMenuPath.h in Headers */,
 				7CA26B15217586D300801417 /* TextObject.h in Headers */,
 				7CC3D0EC2186AC8F0034F458 /* TestPopViewCell.h in Headers */,
 				7CA26B14217586D300801417 /* MyFirstA.h in Headers */,
+				7C455E4121A64FA5000FB3F4 /* NSObject+DealMessage.h in Headers */,
 				7CC3D0DE21805F0F0034F458 /* YBRectConst.h in Headers */,
 				7CC3D0F22186AEC20034F458 /* TestPopViewXibCell.h in Headers */,
 			);
@@ -2175,6 +2191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C83A68D1F9591ED00BEE051 /* PASDataCache.m in Sources */,
+				7C49BB8C21CCC7E80079AE0F /* TestCalculateCirclePage.m in Sources */,
 				7C83A69B1F95925400BEE051 /* PINDiskCache.m in Sources */,
 				7C387A6D2003477B005AC033 /* CWLateralSlideConfiguration.m in Sources */,
 				7C83A65D1F94C3FA00BEE051 /* PASCommonUtil.m in Sources */,
@@ -2205,6 +2222,7 @@
 				7CBD67131F61226400CDB912 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7CBD67171F61226400CDB912 /* GYZActionSheet.m in Sources */,
 				7CC3D0EE2186AC8F0034F458 /* TestPopViewCell.m in Sources */,
+				7C455E4321A64FA5000FB3F4 /* NSObject+DealMessage.m in Sources */,
 				7C2EBBB61FEA667D00FEA7BB /* TestDrawView.m in Sources */,
 				7CF602A81F949A6B00D0C222 /* MJRefreshGifHeader.m in Sources */,
 				7CBD67191F61226400CDB912 /* ClickMoreAndMoreCell.m in Sources */,
@@ -2338,6 +2356,7 @@
 				7C5261E12123390000D2319E /* FormulaStringCalcUtility.m in Sources */,
 				7CFE36891D1B87D200D02D9D /* MyInformationCollectionViewController.m in Sources */,
 				7C0EF9071D732FBA00E4328F /* TestWebView.m in Sources */,
+				7C49BB8B21CCC7DF0079AE0F /* TestCalculateCirclePage.m in Sources */,
 				7C2223B72021B6CA0076EAB1 /* ZJImageMagnification.m in Sources */,
 				7C2EBBB11FEA65B600FEA7BB /* TestDrawViewController.m in Sources */,
 				7C488D70202AE95D00EEDD72 /* FMDatabaseAdditions.m in Sources */,
@@ -2464,6 +2483,7 @@
 				7CBC77AD1C0486990089A545 /* ThirdCell.m in Sources */,
 				7C83A6781F94C5D900BEE051 /* JSONAPI.m in Sources */,
 				7CE831BE2153857700572510 /* AFURLRequestSerialization.m in Sources */,
+				7C455E4221A64FA5000FB3F4 /* NSObject+DealMessage.m in Sources */,
 				7CC3D0DC21805F0F0034F458 /* YBRectConst.m in Sources */,
 				7C0EF90B1D732FBA00E4328F /* UIAlertViewController.m in Sources */,
 				7C2A443D1DD0822500DC5B53 /* CommonFileFunc.m in Sources */,
@@ -2666,7 +2686,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 张 少来 (XE9Z97P568)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 张 少来 (XE9Z97P568)";
 				DEVELOPMENT_TEAM = L39WXY5YB3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2707,10 +2727,10 @@
 					"\"UIKit\"",
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.PAMobileStockHigh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4dd61d00-05c7-4a95-bd2c-235428586bbf";
-				PROVISIONING_PROFILE_SPECIFIER = debug_profile;
+				PROVISIONING_PROFILE = "ea484193-a429-4374-80ec-794b1a8149ec";
+				PROVISIONING_PROFILE_SPECIFIER = PAMobileStockHighDebug;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2757,7 +2777,7 @@
 					"\"UIKit\"",
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.TableViewNew1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pingan.PAMobileStockHigh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8b10a807-32b0-480b-8e99-2ad84e5147dc";
 				PROVISIONING_PROFILE_SPECIFIER = iosPingAnProfile;

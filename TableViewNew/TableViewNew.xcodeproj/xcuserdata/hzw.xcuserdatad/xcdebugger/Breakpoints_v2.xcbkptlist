@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TableViewNew/controller/Controllers/ThirdDetailViewController.m"
-            timestampString = "557915514.899919"
+            timestampString = "569380187.101186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "-getSubclass"
             landmarkType = "7">
          </BreakpointContent>
