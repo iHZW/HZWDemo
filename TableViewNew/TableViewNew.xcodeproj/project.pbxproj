@@ -253,7 +253,6 @@
 		7CBD67761F61226400CDB912 /* CommonFileFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2A442E1DD0822500DC5B53 /* CommonFileFunc.m */; };
 		7CBD67771F61226400CDB912 /* IndexTopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0EF9121D73BA3A00E4328F /* IndexTopItem.m */; };
 		7CBD67781F61226400CDB912 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC481CE1B9C2B75008A08AE /* main.m */; };
-		7CBD677B1F61226400CDB912 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */; };
 		7CBD677D1F61226400CDB912 /* 1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1B81C7D389200E0E298 /* 1.1.png */; };
 		7CBD677E1F61226400CDB912 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1B21C7D389200E0E298 /* 6.jpg */; };
 		7CBD677F1F61226400CDB912 /* 16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C81E1A91C7D389200E0E298 /* 16.jpg */; };
@@ -400,7 +399,6 @@
 		7CF602AD1F949A7B00D0C222 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6027F1F90A26500D0C222 /* UIScrollView+MJRefresh.m */; };
 		7CF602AE1F949A7D00D0C222 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF602811F90A26500D0C222 /* UIView+MJExtension.m */; };
 		7CF602AF1F949A9B00D0C222 /* CaptchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6024B1F908CD900D0C222 /* CaptchView.m */; };
-		7CFC14DA1DE3D9940017C831 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */; };
 		7CFE36891D1B87D200D02D9D /* MyInformationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36881D1B87D200D02D9D /* MyInformationCollectionViewController.m */; };
 		7CFE36D41D1CD24800D02D9D /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36D31D1CD24800D02D9D /* CollectionViewModel.m */; };
 		7CFE36D71D1CD2CB00D02D9D /* WaterFallCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE36D61D1CD2CB00D02D9D /* WaterFallCollectionViewController.m */; };
@@ -671,10 +669,6 @@
 		7C9E363C1DF0166B001072D5 /* BackGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackGroundView.m; sourceTree = "<group>"; };
 		7C9EEC4D1D2E736100DB803E /* GroupNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupNameView.h; sourceTree = "<group>"; };
 		7C9EEC4E1D2E736100DB803E /* GroupNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupNameView.m; sourceTree = "<group>"; };
-		7CBB69921BE9FFAC005A7BDF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		7CBB69941BEA00B7005A7BDF /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		7CBB69961BEA00E6005A7BDF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		7CBB69981BEA0160005A7BDF /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		7CBB69D81BEA3F75005A7BDF /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = ../JSONKit.h; sourceTree = "<group>"; };
 		7CBB69D91BEA3F75005A7BDF /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = ../JSONKit.m; sourceTree = "<group>"; };
 		7CBC77AB1C0486990089A545 /* ThirdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdCell.h; sourceTree = "<group>"; };
@@ -818,7 +812,6 @@
 		7CF602821F90A26500D0C222 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7CF602991F90A53A00D0C222 /* ThemeWhite.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ThemeWhite.strings; sourceTree = "<group>"; };
 		7CF6029A1F90A53A00D0C222 /* ThemeDarkBlack.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ThemeDarkBlack.strings; sourceTree = "<group>"; };
-		7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		7CFE36871D1B87D200D02D9D /* MyInformationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyInformationCollectionViewController.h; path = ../MyInformationCollectionViewController.h; sourceTree = "<group>"; };
 		7CFE36881D1B87D200D02D9D /* MyInformationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInformationCollectionViewController.m; path = ../MyInformationCollectionViewController.m; sourceTree = "<group>"; };
 		7CFE36D21D1CD24800D02D9D /* CollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewModel.h; sourceTree = "<group>"; };
@@ -835,7 +828,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CBD677B1F61226400CDB912 /* JavaScriptCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,7 +847,6 @@
 				7C72D77D22E16DDB00305876 /* CoreImage.framework in Frameworks */,
 				7C72D77B22E16DC900305876 /* ImageIO.framework in Frameworks */,
 				7C488D95202AEB1500EEDD72 /* libsqlite3.0.tbd in Frameworks */,
-				7CFC14DA1DE3D9940017C831 /* JavaScriptCore.framework in Frameworks */,
 				F6C4B2939E3AD09E3C43A12F /* libPods-TableViewNew.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1525,11 +1516,6 @@
 		7CC481C01B9C2B75008A08AE = {
 			isa = PBXGroup;
 			children = (
-				7CFC14D91DE3D9940017C831 /* JavaScriptCore.framework */,
-				7CBB69981BEA0160005A7BDF /* libiconv.tbd */,
-				7CBB69961BEA00E6005A7BDF /* libsqlite3.tbd */,
-				7CBB69941BEA00B7005A7BDF /* libxml2.tbd */,
-				7CBB69921BE9FFAC005A7BDF /* libz.tbd */,
 				7CC481CB1B9C2B75008A08AE /* TableViewNew */,
 				7CC481E51B9C2B76008A08AE /* TableViewNewTests */,
 				7CBD66F71F60F3BA00CDB912 /* TableViewNew123 */,
