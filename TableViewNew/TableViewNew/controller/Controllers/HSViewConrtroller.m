@@ -31,8 +31,6 @@
 #import "UIViewController+TestCategary.h"
 #import "LeftViewController.h"
 #import "TestBasicsViewController.h"
-#import "TextObject.h"
-#import "MyFirstA.h"
 #import "ZWWeakObject.h"
 #import "NSTimer+Util.h"
 
@@ -696,7 +694,6 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-//        [TextObject logMethodName];
                 [self selectImage];
     }else if(indexPath.section == 0 && indexPath.row == 1)
     {
