@@ -10,9 +10,19 @@
 #define PrefixHeader_pch
 
 #import "CustomButton.h"
+#import "PASCommonUtil.h"
 #import "PASSDK.h"
 #import "UIView+Frame.h"
 #import "CMLogManagement.h"
+
+#import "UIView+Create.h"
+#import "UIView+Frame.h"
+#import "UIView+Util.h"
+
+#import "Masonry.h"
+
+/**< 这个是创建单利的宏 */
+#import "SingletonTemplate.h"
 
 
 // Include any system framework and library headers here that should be included in all compilation units.
@@ -20,6 +30,7 @@
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
 #define HMAIN   [[UIScreen mainScreen] bounds].size.height
+#define kMainScreenBounds  [UIScreen mainScreen].bounds
 
 /**< 一:出现No previous prototype for function 'areIntsDifferent'的错误？
  解决办法:

@@ -24,11 +24,21 @@
 #import "URLHTTP.h"
 #import "GYZActionSheet.h"
 #import "IndexTopItem.h"
-
+#import "XDGestureConfigVC.h"
+#import "ThirdDetailViewController.h"
+#import "ViewController.h"
+#import "TestDrawViewController.h"
+#import "UIViewController+TestCategary.h"
+#import "LeftViewController.h"
+#import "TestBasicsViewController.h"
+#import "ZWWeakObject.h"
+#import "NSTimer+Util.h"
 
 
 #define WMAIN   [[UIScreen mainScreen] bounds].size.width
 #define HMAIN   [[UIScreen mainScreen] bounds].size.height
+
+
 #define RemindString    @"niuniu"
 
 #define kNotificationKeyName   @"keyName"
@@ -52,6 +62,10 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     UIImageView *_imageView;//图片
 }
 @property (nonatomic,strong) UIScrollView *headerScrollView;
+
+@property (nonatomic, strong) NSTimer *zwTimer;
+
+@property (nonatomic, strong) UIImageView *imageView;
 
 /**
  1:UIActionSheetDelegate  相机代理
@@ -87,12 +101,23 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self cw_registerShowIntractiveWithEdgeGesture];
+    /**< 判断打开了验证指纹识别功能  进入指纹识别界面 */
+    NSString *switchName = [PASCommonUtil getStringWithKey:SwitchStateKey];
+    if ([switchName isEqualToString:kSwitchOpen]) {
+        ViewController *ctrl = [[ViewController alloc] init];
+        [self presentViewController:ctrl animated:YES completion:nil];
+    }
+    
+    [self createNav];
+
     // Do any additional setup after loading the view.
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
 //
 //    [self createPlainData];
 //    [self createPlainUI];
-
+//    self.title = @"无敌666";
     [self createGroupData];
     [self createGroupTableView];
     [HSViewConrtroller shareInstance].passName = @"无敌666";
@@ -100,7 +125,69 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyShowRefreshInfo:) name:RemindString object:nil];
 
+    /**< 防止循环引用使用中间件 ZWWeakObject */
+    [self testWeakTimer];
 }
+
+
+- (void)testWeakTimer
+{
+    ZWWeakObject *weakObject = [ZWWeakObject proxyWithWeakObjec:self];
+    self.zwTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:weakObject selector:@selector(refreshData:) userInfo:nil repeats:YES];
+}
+
+- (void)refreshData:(NSTimer *)sender
+{
+    NSLog(@"11111");
+}
+
+/**< 创建导航 */
+- (void)createNav
+{
+   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(leftClick)];
+    
+//    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 3)];
+//    [btn setTitle:@"左侧抽屉" forState:UIControlStateNormal];
+//    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(leftClick) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+//    [self.navigationItem setLeftBarButtonItem:barItem];
+}
+
+/**< 注册手势 */
+- (void)cw_registerShowIntractiveWithEdgeGesture
+{
+    // 注册手势驱动
+    __weak typeof(self)weakSelf = self;
+    [self cw_registerShowIntractiveWithEdgeGesture:NO transitionDirectionAutoBlock:^(CWDrawerTransitionDirection direction) {
+        //NSLog(@"direction = %ld", direction);
+        if (direction == CWDrawerTransitionDirectionLeft) { // 左侧滑出
+            [weakSelf leftClick];
+        } else if (direction == CWDrawerTransitionDirectionRight) { // 右侧滑出
+            [weakSelf rightClick];
+        }
+    }];
+}
+
+- (void)leftClick
+{
+    [self testViewCategary:@"💯"];
+    // 自己随心所欲创建的一个控制器
+    LeftViewController *vc = [[LeftViewController alloc] init];
+    
+    // 这个代码与框架无关，与demo相关，因为有兄弟在侧滑出来的界面，使用present到另一个界面返回的时候会有异常，这里提供各个场景的解决方式，需要在侧滑的界面present的同学可以借鉴一下！处理方式在leftViewController的viewDidAppear:方法内
+    vc.drawerType = DrawerDefaultLeft;
+    
+    // 调用这个方法
+    [self cw_showDrawerViewController:vc animationType:CWDrawerAnimationTypeDefault configuration:nil];
+}
+
+
+- (void)rightClick
+{
+    
+}
+
 
 - (void)notifyShowRefreshInfo:(NSNotificationCenter *)notificationCenter
 {
@@ -307,7 +394,6 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 
 
 #pragma mark   actionSheetView调用方法
-
 /**
  *  actionSheetView
  *
@@ -316,6 +402,14 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 - (void)loadPopSheetWith
 {
     NSArray *titleArray = @[@"1",@"2",@"3"];
+    /**<
+     ///默认样式
+     GYZSheetStyleDefault = 0,
+     ///像微信样式
+     GYZSheetStyleWeiChat,
+     ///TableView样式(无取消按钮)
+     GYZSheetStyleTable,
+     */
     GYZActionSheet *actionSheet = [[GYZActionSheet alloc] initSheetWithTitle:nil style:GYZSheetStyleTable itemTitles:titleArray];
     actionSheet.cellTextStyle = NSTextStyleCenter;
     actionSheet.itemTextColor = [UIColor blackColor];
@@ -352,7 +446,21 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     _tbView.delegate = self;
     _tbView.dataSource = self;
     _tbView.backgroundColor = [UIColor clearColor];
+    _tbView.estimatedRowHeight = 0;
+    _tbView.estimatedSectionHeaderHeight = 0;
+    _tbView.estimatedSectionFooterHeight = 0;
     [self.view addSubview:_tbView];
+    
+    //让adjustContentInset值不受SafeAreaInset值的影响。
+#ifdef __IPHONE_11_0
+    if ([_tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        if (@available(iOS 11.0, *)) {
+            _tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+#endif
 
     _tbView.scrollsToTop = YES;
     
@@ -449,25 +557,36 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 //        rect.origin.x -= delta;
         rect.size.height += delta;
 //        rect.size.width += delta;
-        NSLog(@"%f",rect.size.height);
+
         self.headerScrollView.frame = rect;
     }
     
 }
 
 
-
-
 - (void)createGroupTableView
 {
-    _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, WMAIN, HMAIN-64) style:UITableViewStylePlain];
+    _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64 + (IS_IPHONE_X ? 20 : 0), WMAIN, HMAIN-20) style:UITableViewStylePlain];
     _tbView.delegate = self;
     _tbView.dataSource = self;
     _tbView.separatorStyle = UITableViewCellSeparatorStyleNone;//去掉分割线
     _tbView.backgroundColor = [UIColor whiteColor];
+    _tbView.estimatedRowHeight = 0;
+    _tbView.estimatedSectionHeaderHeight = 0;
+    _tbView.estimatedSectionFooterHeight = 0;
     [self.view addSubview:_tbView];
 //    _tbView.tableHeaderView = [self getHeadView];
     _tbView.tableHeaderView = [self getIndexItemView];
+    
+#ifdef __IPHONE_11_0
+    if ([_tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        if (@available(iOS 11.0, *)) {
+            _tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+#endif
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(WMAIN-50, HMAIN-50, 30, 30);
@@ -539,6 +658,7 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     if (nil == cell) {
         cell = [[BookCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
     }
+    [cell.rightBtn addTarget:self action:@selector(clickAddAction:) forControlEvents:UIControlEventTouchUpInside];
 //    else
 //    {
 //        for (UIView *v in [cell.contentView subviews]) {
@@ -554,24 +674,35 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
     return cell;
 }
 
+/**< actionSheet  弹出样式 */
+- (void)clickAddAction:(UIButton *)sender
+{
+    [self loadPopSheetWith];
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_tbView deselectRowAtIndexPath:indexPath animated:NO];
     
-//    [self loadPopSheetWith];
+    /**< 点击cell暂停定时器 */
+    if (self.zwTimer) {
+        [self.zwTimer util_suspend];
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:RemindString object:nil];
     
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-        [self selectImage];
+                [self selectImage];
     }else if(indexPath.section == 0 && indexPath.row == 1)
     {
 #pragma mark  Block调用
         PickImageController *ctrl = [[PickImageController alloc]init];
+        @pas_weakify_self
         ctrl.block = ^(UIColor * color){
-            _imageView.backgroundColor = color;
+            @pas_strongify_self
+            self.imageView.backgroundColor = color;
         };
         [self.navigationController pushViewController:ctrl animated:YES];
     }else if (indexPath.section == 0 && indexPath.row == 2)
@@ -620,6 +751,27 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
         URLHTTP *http = [[URLHTTP alloc]init];
         [self.navigationController pushViewController:http animated:YES];
         
+    }else if (indexPath.section == 2 && indexPath.row == 3)
+    {
+        /**< 手势密码界面 */
+        XDGestureConfigVC *ctrl = [[XDGestureConfigVC alloc] init];
+        
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    else if (indexPath.section == 2 && indexPath.row == 4)
+    {
+        TestDrawViewController *ctrl = [[TestDrawViewController alloc] init];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    else if (indexPath.section == 3 && indexPath.row == 0)
+    {
+        TestBasicsViewController *basics = [[TestBasicsViewController alloc] init];
+        [self.navigationController pushViewController:basics animated:YES];
+    }
+    else
+    {
+        ThirdDetailViewController *detailCtrl = [[ThirdDetailViewController alloc]init];
+        [self.navigationController pushViewController:detailCtrl animated:YES];
     }
     
 }
@@ -774,10 +926,25 @@ typedef NS_ENUM(NSInteger ,QuickSaleTyped){
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
+    
+    /**< 唤醒定时器 */
+    if (self.zwTimer) {
+        [self.zwTimer util_resume];
+    }
+
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage.png"];
     NSData * imageData = [NSData dataWithContentsOfFile:fullPath];
     _imageView.image = [UIImage imageWithData:imageData];
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    if (self.zwTimer) {
+        [self.zwTimer util_suspend];
+    }
 }
 
 

@@ -10,11 +10,15 @@
 #import "ClickMoreAndMoreCell.h"
 #import "BookModel.h"
 #import "CustomButton.h"
+#import <objc/runtime.h>
+
+static NSString *kCellID = @"CellID";
+//#define kCellID   @"kCellId"
 
 @interface ClickMoreCellControl ()<UITableViewDataSource,
 UITableViewDelegate>
 {
-    UITableView *_tableView;
+//    UITableView *_tableView;
 }
 @property (nonatomic, strong) UITableView *tbView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -28,11 +32,73 @@ UITableViewDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
+    self.selectIndex = nil;
     [self createData];
     [self createUI];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+}
+
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+    [super willMoveToParentViewController:parent];
+    
+}
+
+/**< 完全pop成功后回调方法
+ 
+ 这个方法可以监听右滑返回
+ */
+
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    [super didMoveToParentViewController:parent];
+    if (!parent) {
+        NSLog(@"pop success");
+        
+        [self testMethod];
+    }
+}
+
+- (void)testMethod
+{
+    /**< runtime  存储一个值
+     objc_setAssociatedObject(id _Nonnull object, const void * _Nonnull key,
+     id _Nullable value, objc_AssociationPolicy policy);
+     
+     (id _Nonnull object,  值需要存在那个对象里
+     const void * _Nonnull key, 保存值的Key
+     id _Nullable value, 需要保存的值
+     objc_AssociationPolicy policy 变量的属性  OBJC_ASSOCIATION_RETAIN_NONATOMIC
+     )
+     */
+    objc_setAssociatedObject(self, @"mySelf", self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    /**<
+     objc_getAssociatedObject(id _Nonnull object, const void * _Nonnull key)
+     
+     (id _Nonnull object,  从哪个对象获取值
+     const void * _Nonnull key  获取值的Key
+     )
+     */
+    
+    UIViewController *controller = objc_getAssociatedObject(self, @"mySelf");
+    objc_removeAssociatedObjects(controller);
+}
+
 
 
 - (void)createData
@@ -48,17 +114,28 @@ UITableViewDelegate>
 
 - (void)createUI
 {
-    self.tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height) style:UITableViewStylePlain];
+    self.tbView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
     self.tbView.backgroundColor = [UIColor clearColor];
     self.tbView.delegate = self;
     self.tbView.dataSource = self;
-    [self.view addSubview:self.tbView];
     
+//    self.tbView.estimatedSectionFooterHeight = 0;
+//    self.tbView.estimatedSectionHeaderHeight = 0;
+//    self.tbView.estimatedRowHeight = 0;
+    [self.view addSubview:self.tbView];
+    [self.tbView registerClass:[ClickMoreAndMoreCell class] forCellReuseIdentifier:kCellID];
+    
+//#ifdef __IPHONE_11_0
+//    if ([self.tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+//        self.tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    }
+//#endif
+    
+
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressGesture:)];
     [self.tbView addGestureRecognizer:longPress];
 
 }
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -78,41 +155,36 @@ UITableViewDelegate>
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat height = 45;
     if (indexPath.row == self.selectIndex.row && self.selectIndex != nil ) {
+
+//        ClickMoreAndMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
+//
+//        height = [cell getCellHeight];
         if (self.isOpen == YES) {
-            return 100;
+            return 80;
         }else{
             return 45;
         }
+//        BookModel *model = self.dataArray[indexPath.row];
+//        if (model.cellHeight) {
+//            height = model.cellHeight;
+//        }
     }
-    return 45;
+    return height;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"CellID";
-    ClickMoreAndMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        cell = [[ClickMoreAndMoreCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-    }
-    else{
-        for (UIView *view in [cell.contentView subviews])
-        {
-            [view removeFromSuperview];
-        }
-    }
+
+    ClickMoreAndMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
     
-    if (indexPath.row == self.selectIndex.row && self.selectIndex != nil) {
-        if (self.isOpen == YES) {
-            cell.ageLabel.hidden = NO;
-        }else{
-            cell.ageLabel.hidden = YES;
-        }
-    }else{
-        cell.ageLabel.hidden = YES;
-    }
+    cell.isSelect = self.selectIndex && self.selectIndex.row == indexPath.row ? YES : NO ;
     
+    
+//    cell.orderBtn.indexPath = indexPath;
+//    [cell.orderBtn addTarget:self action:@selector(clickOrder:) forControlEvents:UIControlEventTouchUpInside];
+
     CustomButton *orderBtn = [CustomButton buttonWithType:UIButtonTypeCustom];
     orderBtn.frame = CGRectMake(200, 0, 100, 45);
     [orderBtn setTitle:@"下单" forState:UIControlStateNormal];
@@ -134,12 +206,15 @@ UITableViewDelegate>
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     if (self.selectIndex.row == indexPath.row && self.selectIndex != nil) {
         self.isOpen = !self.isOpen;
+        self.selectIndex = nil;
     }else{
         indexPaths = [NSArray arrayWithObjects:indexPath,self.selectIndex, nil];
         self.isOpen = YES;
+        self.selectIndex = indexPath;
     }
-    self.selectIndex = indexPath;
-    [self.tbView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+//    [self.tbView reloadData];
+    [self.tbView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+
 }
 
 

@@ -6,12 +6,29 @@
 	<dict>
 		<key>TableViewNew.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>TableViewNewTest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>7CBD66F51F60F3BA00CDB912</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7CBD66FD1F61226400CDB912</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7CC481C81B9C2B75008A08AE</key>
 		<dict>
 			<key>primary</key>

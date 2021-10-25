@@ -9,6 +9,7 @@
 #import "UIAlertViewController.h"
 #import "SJAvatarBrowser.h"
 #import "UIRemindView.h"
+#import "ZJImageMagnification.h"
 
 @interface UIAlertViewController ()
 {
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIRemindView *bgView;
 
+@property (nonatomic, strong) MASConstraint *imageViewConstaint;
 
 
 @end
@@ -47,17 +49,28 @@
 - (void)createImageUI
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(50, 80, 100, 20);
+    button.frame = CGRectMake(50, 80 + (IS_IPHONE_X ? 20 : 0), 100, 20);
     [button setTitle:@"点击" forState:UIControlStateNormal];
     [button setBackgroundColor:[UIColor redColor]];
+    button.selected = NO;
     [button addTarget:self action:@selector(clickCome:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+  
     
-    
-    self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake( 50, 150, 100, 100)];
+    self.imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
     self.imageView.image = [UIImage imageNamed:@"1.11"];
     self.imageView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.imageView];
+    
+    __block MASConstraint *con = nil;
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(button.mas_left).offset(15).priority(100);
+        con = make.left.equalTo(button.mas_left).priority(101);
+        make.top.equalTo(button.mas_bottom).offset(40);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+    }];
+    /**< 可以控制约束生效和失效 */
+    self.imageViewConstaint = con;
     
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage)];
     self.imageView.userInteractionEnabled = YES;
@@ -195,15 +208,26 @@
 
 
 
-
+#pragma mark  点击图片放大的方法
 - (void)magnifyImage
 {
     NSLog(@"局部放大");
     [SJAvatarBrowser showImage:self.imageView];//调用方法
+//    [ZJImageMagnification scanBigImageWithImageView:self.imageView alpha:1];
 }
 
 - (void)clickCome:(UIButton *)sender
 {
+    sender.selected = !sender.selected;
+    
+    if (sender.selected) {
+        /**< 约束失效 */
+        [self.imageViewConstaint deactivate];
+    }else{
+        /**< 约束生效 */
+        [self.imageViewConstaint activate];
+    }
+    
     _bgView = [[UIRemindView alloc]initWithFrame:CGRectMake(180, 150, 100, 100)];
     [self.view addSubview:_bgView];
     

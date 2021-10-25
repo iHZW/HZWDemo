@@ -10,16 +10,51 @@
 #import "HSViewConrtroller.h"
 #import "Masonry.h"
 #import "UIView+Create.h"
+#import "GCDCommon.h"
+#import "FlashTagView.h"
+#import "CaptchView.h"
+#import "MyLabel.h"
+#import "YBPopupMenu.h"
+#import "TestPopViewXibCell.h"
+
+#define TITLES @[@"修改", @"删除", @"扫一扫",@"付款",@"测试"]
+#define ICONS  @[@"motify",@"delete",@"saoyisao",@"pay",@"delete"]
+#define kPopBtnSize   CGSizeMake(60, 60)
+#define kPopBtnSideSpace    5
 
 //  http://blog.csdn.net/lsy2013/article/details/42965805图片判断类型   pan/  jpg /  jpeg
 
-@interface PickImageController ()
+@interface PickImageController ()<YBPopupMenuDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) UISlider *slider;
 
 @property (nonatomic, assign) NSInteger longPressIndex;
 
 @property (nonatomic, assign) NSInteger tapIndex;
+
+@property (nonatomic, strong) UIImageView *imageView1;
+
+@property (nonatomic, strong) UIView *flashingView; /**< 闪烁view */
+
+@property (nonatomic, strong) UILabel *bgLabel; /**< 变色背景label */
+
+@property (nonatomic, strong) FlashTagView *flashTagView;  /**< 闪烁view */
+
+@property (nonatomic, strong) CaptchView *captchView; /**< 动态验证码 */
+
+@property (nonatomic, strong) MyLabel *myLabel; /**< 置底的label */
+
+@property (nonatomic, strong) UITextField *popTextField;
+
+@property (nonatomic, strong) UIButton *leftTopBtn;
+
+@property (nonatomic, strong) UIButton *rightTopBtn;
+
+@property (nonatomic, strong) UIButton *leftBottomBtn;
+
+@property (nonatomic, strong) UIButton *rightBottomBtn;
+
+@property (nonatomic, strong) YBPopupMenu *testPopupMenu;
 
 
 @end
@@ -40,9 +75,14 @@
 
     [self createButtonFrame];
     
+    
+    
     UISwitch *mySwitch = [[UISwitch alloc]initWithFrame:CGRectMake(100, 200, 0, 0 )];
 //    [mySwitch setOn:YES animated:YES];
-    [mySwitch setEnabled:NO];
+    [mySwitch addTarget:self action:@selector(switchState:) forControlEvents:UIControlEventTouchUpInside];
+    BOOL siwtchState = [[PASCommonUtil getStringWithKey:SwitchStateKey] isEqualToString:kSwitchOpen] ? YES : NO;
+    [mySwitch setOn:siwtchState animated:NO];
+
     [self.view addSubview:mySwitch];
 
    BOOL boll = [self validateNumber:@"niuniunij"];
@@ -53,10 +93,492 @@
     [self createUISlider];  /**< 自定义UISlider */
     
     [self createGestureRecognizerTestView]; /**< 手势测试 */
+
+    [self flashTest]; /**< 闪烁测试 */
+    
+    [self createCaptchView]; /**< 动态验证码 */
+    
+    [self createSelfhoold]; /**< 置底的label */
+    /**< 弹出框popView */
+    [self createPopBtn];
+}
+
+/**< 弹出框 */
+- (void)createPopBtn
+{
+    [self.view addSubview:self.leftTopBtn];
+    [self.view addSubview:self.rightTopBtn];
+    [self.view addSubview:self.leftBottomBtn];
+    [self.view addSubview:self.rightBottomBtn];
+    
+    CGSize btnSize = kPopBtnSize;
+    [self.leftTopBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(kPopBtnSideSpace);
+        make.top.equalTo(self.view.mas_top).offset(70);
+        make.size.mas_equalTo(btnSize);
+    }];
+    
+    [self.rightTopBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view.mas_right).offset(-kPopBtnSideSpace);
+        make.top.equalTo(self.view.mas_top).offset(70);
+        make.size.mas_equalTo(btnSize);
+    }];
+    
+    [self.leftBottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(kPopBtnSideSpace);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-70);
+        make.size.mas_equalTo(btnSize);
+    }];
+    
+    [self.rightBottomBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view.mas_right).offset(-kPopBtnSideSpace);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-70);
+        make.size.mas_equalTo(btnSize);
+    }];
+}
+
+- (UIButton *)leftTopBtn
+{
+    if (!_leftTopBtn) {
+        _leftTopBtn = [self getDefaultBtn:0];
+    }
+    return _leftTopBtn;
+}
+
+- (UIButton *)rightTopBtn
+{
+    if (!_rightTopBtn) {
+        _rightTopBtn = [self getDefaultBtn:1];
+    }
+    return _rightTopBtn;
+}
+
+- (UIButton *)leftBottomBtn
+{
+    if (!_leftBottomBtn) {
+        _leftBottomBtn = [self getDefaultBtn:2];
+    }
+    return _leftBottomBtn;
+}
+
+- (UIButton *)rightBottomBtn
+{
+    if (!_rightBottomBtn) {
+        _rightBottomBtn = [self getDefaultBtn:3];
+    }
+    return _rightBottomBtn;
+}
+
+#pragma mark ------------------------------一:popView 依赖点击的View(根据传入的View一自动适配最适合的方向,)------------------------------------
+- (UIButton *)getDefaultBtn:(NSInteger)tag
+{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [btn addTarget:self action:@selector(clickDefaultBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setBackgroundColor:[UIColor lightGrayColor]];
+    return btn;
+}
+
+/**< 切换开关状态 */
+- (void)switchState:(UISwitch *)sender
+{
+    if (sender.on) {
+        [PASCommonUtil setObject:kSwitchOpen forKey:SwitchStateKey];
+    }else{
+        [PASCommonUtil setObject:kSwitchClose forKey:SwitchStateKey];
+    }
+    
+#pragma mark ------------------------------二:popView 依赖点击的View------------------------------------
+    [YBPopupMenu showRelyOnView:sender titles:@[@"111",@"222",@"333",@"444",@"555",@"666",@"777",@"888"] icons:nil menuWidth:100 otherSettings:^(YBPopupMenu *popupMenu) {
+        popupMenu.priorityDirection=  YBPopupMenuArrowDirectionBottom;
+        popupMenu.borderWidth = 1;
+        popupMenu.borderColor = [UIColor greenColor];
+    }];
     
 }
 
-#pragma mark  --  /**< 手势测试 */
+
+- (MyLabel *)myLabel
+{
+    if (!_myLabel) {
+        _myLabel = [[MyLabel alloc] initWithFrame:CGRectZero];
+        _myLabel.backgroundColor = [UIColor whiteColor];
+        _myLabel.textAlignment = NSTextAlignmentCenter;
+        _myLabel.verticalAlignment = VerticalAlignmentBottom;
+        _myLabel.text = @"火箭发射";
+        _myLabel.font = PASFont(14);
+    }
+    return _myLabel;
+}
+
+
+- (void)createSelfhoold
+{
+    [self.view addSubview:self.myLabel];
+    [self.myLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.captchView.mas_bottom).offset(30);
+        make.left.equalTo(self.captchView);
+        make.right.equalTo(self.view.mas_right).offset(-15);
+        make.height.mas_equalTo(60);
+    }];
+    
+}
+
+
+
+/**< 点击不同位置弹出对应的PodView */
+- (void)clickDefaultBtn:(UIButton *)sender
+{
+    [YBPopupMenu showRelyOnView:sender titles:TITLES icons:ICONS menuWidth:120 delegate:self];
+    
+    switch (sender.tag) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+
+#pragma mark ------------------------------三:popView 根据手指触摸的位置显示 ------------------------------------
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = touches.anyObject;
+    CGPoint point = [touch locationInView:self.view];
+    
+    if (CGRectContainsPoint(self.flashingView.frame, point)) {
+        [self showCustomPopupMenuWithPoint:point];
+    }else
+    {
+        [self showDarkPopupMenuWithPoint:point];
+    }
+}
+
+
+- (void)showCustomPopupMenuWithPoint:(CGPoint)point
+{
+    [YBPopupMenu showAtPoint:point titles:TITLES icons:nil menuWidth:120 otherSettings:^(YBPopupMenu *popupMenu) {
+        popupMenu.dismissOnSelected = YES;
+        popupMenu.isShowShadow = YES;
+        popupMenu.delegate = self;
+        popupMenu.type = YBPopupMenuTypeDefault;
+        popupMenu.cornerRadius = 20;
+        popupMenu.rectCorner = UIRectCornerAllCorners;//UIRectCornerTopLeft| UIRectCornerTopRight;
+        popupMenu.tag = 100;
+        //如果不加这句默认是 UITableViewCellSeparatorStyleNone 的
+//        popupMenu.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+    }];
+}
+
+- (void)showDarkPopupMenuWithPoint:(CGPoint)point
+{
+    [YBPopupMenu showAtPoint:point titles:TITLES icons:nil menuWidth:120 otherSettings:^(YBPopupMenu *popupMenu) {
+        popupMenu.dismissOnSelected = NO;
+        popupMenu.isShowShadow = YES;
+        popupMenu.delegate = self;
+        popupMenu.offset = 10;
+        popupMenu.type = YBPopupMenuTypeDark;
+        popupMenu.cornerRadius = 8;
+        popupMenu.rectCorner = UIRectCornerBottomLeft | UIRectCornerBottomRight;
+    }];
+}
+
+
+
+
+
+#pragma mark - YBPopupMenuDelegate
+- (void)ybPopupMenu:(YBPopupMenu *)ybPopupMenu didSelectedAtIndex:(NSInteger)index
+{
+    //推荐回调
+    NSLog(@"点击了 %@ 选项",ybPopupMenu.titles[index]);
+}
+
+- (void)ybPopupMenuBeganDismiss
+{
+    if (self.popTextField.isFirstResponder) {
+        [self.popTextField resignFirstResponder];
+    }
+}
+
+- (UITableViewCell *)ybPopupMenu:(YBPopupMenu *)ybPopupMenu cellForRowAtIndex:(NSInteger)index
+{
+    if (ybPopupMenu.tag != 100) {
+        return nil;
+    }
+    static NSString * identifier = @"TestPopViewXibCell";
+    TestPopViewXibCell * cell = [ybPopupMenu.tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TestPopViewXibCell" owner:self options:nil] firstObject];
+    }
+    
+    cell.titleLabel.text = TITLES[index];
+    cell.iconImageView.image = [UIImage imageNamed:ICONS[index]];
+    
+    switch (index) {
+        case 0:
+            cell.statusLabel.hidden = NO;
+            cell.badge.hidden = YES;
+            break;
+        case 2:
+            cell.statusLabel.hidden = YES;
+            cell.badge.hidden = NO;
+            break;
+        default:
+            cell.statusLabel.hidden = YES;
+            cell.badge.hidden = YES;
+            break;
+    }
+    
+    cell.lineView.hidden = index == (TITLES.count-1) ? YES : NO;
+
+    return cell;
+}
+
+
+
+
+
+
+
+#pragma mark  --------------- captchView  动态验证码---------------------
+
+- (void)createCaptchView
+{
+    self.captchView = [[CaptchView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.captchView];
+    
+    [self.captchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(500);
+        make.left.mas_equalTo(self.view).offset(15);
+        make.size.mas_equalTo(CGSizeMake(70, 40));
+    }];
+    
+    @pas_weakify_self
+    [self.captchView setClickBlock:^(id capthview) {
+        @pas_strongify_self
+        [self action_clickValidate];
+    }];
+}
+
+- (void)action_clickValidate
+{
+    /**< 在这里编写点击验证码之后需要处理的代码 */
+}
+
+#pragma mark  --------------- 闪烁view ---------------------
+- (void)flashTest
+{
+    [self createFlashing]; /**< 添加闪烁view */
+    [self createFickerLabel]; /**<  添加闪烁Label*/
+    [self createFickerButton]; /**< 闪烁Button */
+}
+
+- (CAAnimationGroup *)getCAAnimationGroup
+{
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"bounds"];
+    animation.values = @[[NSValue valueWithCGRect:CGRectMake(0, 0, 5, 5)], [NSValue valueWithCGRect:CGRectMake(0, 0, 15, 15)]];
+    animation.keyTimes = @[@(0), @(1)];
+    
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    opacity.values = @[@(1.0),@(0.5),@(1.0)];
+    opacity.keyTimes = @[@(0), @(1)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[animation,opacity];
+    group.duration = 1.f;
+    group.repeatCount = 0;
+    group.removedOnCompletion = NO;
+    
+    return group;
+}
+
+- (void)createFickerButton
+{
+    /**< 666 */
+    UIButton *flashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [flashBtn setImage:[UIImage imageNamed:@"flash"] forState:UIControlStateNormal];
+    [flashBtn addTarget:self action:@selector(fickerBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [flashBtn setBackgroundColor:[UIColor blueColor]];
+    [self.view addSubview:flashBtn];
+    
+    [flashBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(450);
+        make.left.equalTo(self.view.mas_left).offset(15);
+        make.size.mas_equalTo(CGSizeMake(50, 30));
+    }];
+}
+
+- (void)fickerBtnAction:(UIButton *)sender
+{
+    CALayer *layer = sender.imageView.layer;
+    performBlockDelay(dispatch_get_main_queue(), .3, ^{
+        [layer addAnimation:[self getCAAnimationGroup] forKey:nil];
+    });
+}
+
+- (void)createFlashTagView
+{
+    self.flashTagView = [[FlashTagView alloc] initWithFrame:CGRectZero];
+    self.flashTagView.flashImageName = @"flash";
+    [self.view addSubview:self.flashTagView];
+}
+
+
+ /**<  添加闪烁Label*/
+- (void)createFickerLabel
+{
+//    self.bgLabel = [UIView viewForColor:[[UIColor blueColor] colorWithAlphaComponent:0.6] withFrame:CGRectZero];
+    self.bgLabel                        = [[UILabel alloc] initWithFrame:CGRectMake(200, 450, 10, 10)];
+    self.bgLabel.backgroundColor        = [UIColorFromRGB(0x4bc3ff) colorWithAlphaComponent:0.4];
+    self.bgLabel.userInteractionEnabled = YES;
+    self.bgLabel.layer.cornerRadius = CGRectGetHeight(self.bgLabel.frame) * 0.5;
+    self.bgLabel.clipsToBounds = YES;
+    [self.view addSubview:self.bgLabel];
+    
+//    [self.bgLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(450);
+//        make.centerX.equalTo(self.view);
+//        make.size.mas_equalTo(CGSizeMake(5, 5));
+//    }];
+//    
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgLabelAction:)];
+    [self.bgLabel addGestureRecognizer:tap];
+    
+}
+
+- (void)bgLabelAction:(id)sender
+{
+//    self.bgLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+//    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+//    opacity.values = @[@(0.1),@(0.6)];
+////    opacity.keyTimes = @[@(0),@(1)];
+//    opacity.duration = 1.0f;
+//    opacity.repeatCount = 1;
+//    opacity.removedOnCompletion = NO;
+//    opacity.delegate = self;
+//    
+//    CALayer *layer = self.bgLabel.layer;
+//    
+//    performBlockDelay(dispatch_get_main_queue(), .3, ^{  /**< 延迟.3秒执行 */
+//        [layer addAnimation:opacity forKey:@""];
+//    });
+    
+//    self.bgLabel.transform              = CGAffineTransformMakeScale(1, 1);
+//
+//    [UIView animateWithDuration:1 animations:^{
+//        self.bgLabel.transform = CGAffineTransformMakeScale(2.2, 2.2);
+//    }completion:^(BOOL finished) {
+//        self.bgLabel.size = CGSizeMake(10, 10);
+//        self.bgLabel.layer.cornerRadius = CGRectGetHeight(self.bgLabel.frame) * 0.5;
+//        self.bgLabel.clipsToBounds = YES;
+//    }];
+    
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    scaleAnimation.toValue = [NSNumber numberWithFloat:3.0];
+    scaleAnimation.autoreverses = NO;
+    scaleAnimation.fillMode = kCAFillModeRemoved;
+    scaleAnimation.removedOnCompletion = NO;
+    scaleAnimation.repeatCount = 0;
+    scaleAnimation.duration = 0.75;
+    
+    [self.bgLabel.layer addAnimation:scaleAnimation forKey:nil];
+    
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    self.bgLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+    
+}
+/**< 添加闪烁view */
+- (void)createFlashing
+{
+     self.flashingView = [UIView viewForColor:[UIColor blueColor] withFrame:CGRectZero];
+    [self.view addSubview:self.flashingView];
+    
+    [self.flashingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(15);
+        make.right.equalTo(self.view.mas_right).offset(15);
+        make.top.mas_equalTo(330);
+        make.height.mas_equalTo(50);
+    }];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapViewAction)];
+    [self.flashingView addGestureRecognizer:tap];
+    
+//    self.imageView1 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
+//    [view addSubview:self.imageView1];
+//    
+//    [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(view.mas_left).offset(15);
+//        make.top.mas_equalTo(10);
+//        make.size.mas_equalTo(CGSizeMake(5, 5));
+//    }];
+//    
+//    UIImageView * imageView2 = [UIImageView imageViewForImage:[UIImage imageNamed:@"flash"] withFrame:CGRectZero];
+//    [view addSubview:imageView2];
+//    
+//    [imageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.imageView1);
+//        make.size.mas_equalTo(CGSizeMake(5, 5));
+//    }];
+    
+    self.flashTagView = [[FlashTagView alloc] initWithFrame:CGRectMake(15, 10, 5, 5)];
+    self.flashTagView.flashImageName = @"flash";
+    [self.flashingView addSubview:self.flashTagView];
+    
+//    [self.flashTagView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(view.mas_left).offset(15);
+//        make.top.mas_equalTo(10);
+//        make.size.mas_equalTo(CGSizeMake(5, 5));
+//    }];
+    
+}
+
+- (void)tapViewAction
+{
+    [self.flashTagView startFlashTagView];
+    self.flashTagView.centerX += 2;
+    self.flashTagView.centerY += 1;
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"bounds"];
+    animation.values = @[[NSValue valueWithCGRect:CGRectMake(0, 0, 5, 5)], [NSValue valueWithCGRect:CGRectMake(0, 0, 15, 15)]];
+    animation.keyTimes = @[@(0), @(1)];
+    
+    CAKeyframeAnimation *opacity = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    opacity.values = @[@(1.0),@(0.5),@(1.0)];
+    opacity.keyTimes = @[@(0), @(1)];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[animation,opacity];
+    group.duration = 1.f;
+    group.repeatCount = 0;
+    group.removedOnCompletion = NO;
+    
+    CALayer *layer = self.imageView1.layer;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [layer addAnimation:group forKey:@""];
+    });
+    
+}
+
+#pragma mark  --------------- 手势测试 ---------------------
 - (void)createGestureRecognizerTestView
 {
     UIView *guestureView = [UIView viewForColor:UIColorFromRGB(0xe2233e) withFrame:CGRectZero];
@@ -75,7 +597,7 @@
     /**< 长按 */
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
     longPress.minimumPressDuration = 1;
-    longPress.numberOfTouchesRequired = 2;
+    longPress.numberOfTouchesRequired = 1;
     [guestureView addGestureRecognizer:longPress];
 
     /**< 轻扫 (方向左)*/
@@ -97,7 +619,8 @@
 /**< 轻按触发事件 */
 - (void)tapAction:(UITapGestureRecognizer *)sender
 {
-    self.view.backgroundColor = UIColorFromRGB(0xcccccc);
+    UIColor *armColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:arc4random()%256/255.0];
+    self.view.backgroundColor = armColor;
     NSLog(@"%ld",(long)self.tapIndex);
     self.tapIndex += 1;
 }
@@ -105,6 +628,7 @@
 /**< 长按触发事件 */
 - (void)longPressAction:(UILongPressGestureRecognizer *)sender
 {
+    /**< 在干吗? */
     if (sender.state == UIGestureRecognizerStateBegan)
     {
         self.view.backgroundColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:arc4random()%256/255.0];
@@ -135,12 +659,12 @@
     slider.maximumValue       = 1.0;
     
     //设置轨道的图片
-//    [slider setMinimumTrackImage:stetchLeftTrack forState:UIControlStateNormal];
-//    [slider setMaximumTrackImage:stetchRightTrack forState:UIControlStateNormal];
+    [slider setMinimumTrackImage:stetchLeftTrack forState:UIControlStateNormal];
+    [slider setMaximumTrackImage:stetchRightTrack forState:UIControlStateNormal];
     
     //设置滑块的图片
-    //[slider setThumbImage:thumbImage forState:UIControlStateHighlighted];
-//    [slider setThumbImage:thumbImage forState:UIControlStateNormal];
+    [slider setThumbImage:thumbImage forState:UIControlStateHighlighted];
+    [slider setThumbImage:thumbImage forState:UIControlStateNormal];
     
     [slider setValue:0.5 animated:YES];
     
@@ -189,11 +713,10 @@
         make.top.mas_equalTo(150);
     }];
     
-    
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
     [indicatorView startAnimating]; // 开始旋转
-    indicatorView.backgroundColor = [UIColor blueColor];
+    indicatorView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:indicatorView];
     
     [indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -203,6 +726,7 @@
     }];
 }
 
+#pragma mark  ------------- 字符串处理 ---------------------
 /**< 字符串处理 */
 - (void)textFieldTestString
 {
@@ -211,11 +735,20 @@
     if (rgn.location != NSNotFound) {
         newString = [newString substringToIndex:rgn.location];
     }
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(50, 400, 400, 30)];
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectZero];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textColor = [UIColor redColor];
     textField.text = newString;
-    [self.view addSubview:textField];
+    textField.delegate = self;
+    self.popTextField = textField;
+    [self.view addSubview:self.popTextField];
+    
+    [self.popTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(400);
+        make.left.equalTo(self.view).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.mas_equalTo(35);
+    }];
 }
 
 
@@ -479,6 +1012,36 @@
 {
     [self.view endEditing:YES];
 }
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.testPopupMenu = [YBPopupMenu showRelyOnView:textField titles:@[@"密码必须为数字、大写字母、小写字母和特殊字符中至少三种的组合，长度不少于8且不大于20"] icons:nil menuWidth:CGRectGetWidth(textField.frame) otherSettings:^(YBPopupMenu *popupMenu) {
+        popupMenu.delegate = self;
+        popupMenu.showMaskView = NO;
+        popupMenu.isShowShadow = NO;
+        popupMenu.dismissOnTouchOutside = YES;
+        popupMenu.dismissOnSelected = YES;
+        popupMenu.itemHeight = 60;
+        popupMenu.fontSize = 12;
+        popupMenu.borderWidth = 1;
+        popupMenu.borderColor = [UIColor brownColor];
+        popupMenu.textColor = [UIColor brownColor];
+        popupMenu.priorityDirection = YBPopupMenuPriorityDirectionBottom;
+        popupMenu.maxVisibleCount = 1;
+
+    }];
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.testPopupMenu dismiss];
+    return YES;
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {

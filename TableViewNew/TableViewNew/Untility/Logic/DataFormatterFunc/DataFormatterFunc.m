@@ -212,6 +212,26 @@
 }
 
 /**
+ 防止数组越界
+ 
+ @param array 数组对象
+ @param index 下标
+ @return
+ */
++ (id)checkArray:(NSArray *)array index:(NSUInteger)index
+{
+    if (index >= [array count]) {
+        return nil;
+    }
+    
+    id value = [array objectAtIndex:index];
+    if (value == [NSNull null]) {
+        return nil;
+    }
+    return value;
+}
+
+/**
  *  将JSON对象序列化二进制数据
  *
  *  @param obj JSON对象
@@ -439,4 +459,79 @@
     
     return retVal;
 }
+
+/**
+ 解决float 除法精度问题  A/B
+ 
+ @param value A
+ @param decimal B
+ @return 结果
+ */
++ (float)decimalNumberForFloat:(float)value decimal:(float)decimal
+{
+    NSDecimalNumber* n1 = [NSDecimalNumber decimalNumberWithString:[NSString    stringWithFormat:@"%f",value]];
+    NSDecimalNumber* n2 = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f",decimal]];
+    NSDecimalNumber* n3 = [n1 decimalNumberByDividingBy:n2];
+    return [n3 floatValue];
+}
+
++ (NSString *)decimalNumberWithMultiplyingBy:(NSString *)decimal1 by:(NSString *)decimal2
+{
+    
+    NSDecimalNumber* n1 = [NSDecimalNumber decimalNumberWithString:decimal1];
+    NSDecimalNumber* n2 = [NSDecimalNumber decimalNumberWithString:decimal2];
+    if (n1 == [NSDecimalNumber notANumber]) {
+        n1 = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
+    if (n2 == [NSDecimalNumber notANumber]) {
+        n2 = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
+    NSDecimalNumber* n3 = [n1 decimalNumberByMultiplyingBy:n2];
+    return [n3 stringValue];
+}
+
++ (NSString *)decimalNumberWithAddBy:(NSString *)decimal1 by:(NSString *)decimal2
+{
+    NSDecimalNumber* n1 = [NSDecimalNumber decimalNumberWithString:decimal1];
+    NSDecimalNumber* n2 = [NSDecimalNumber decimalNumberWithString:decimal2];
+    if (n1 == [NSDecimalNumber notANumber]) {
+        n1 = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
+    if (n2 == [NSDecimalNumber notANumber]) {
+        n2 = [NSDecimalNumber decimalNumberWithString:@"0"];
+    }
+    
+    NSDecimalNumber* n3 = [n1 decimalNumberByAdding:n2];
+    return [n3 stringValue];
+}
+
+/**12
+ 将字典转化为get请求url字符串
+ 
+ @param dict
+ @return
+ */
++ (NSString *)parseDictionaryToUrlStr:(NSDictionary *)dict{
+    NSArray *keys;
+    NSUInteger i, count;
+    NSString *key = @"";
+    NSString *value = @"";
+    NSMutableString *url = [NSMutableString stringWithString:@"?"];
+    keys = [dict allKeys];
+    count = [keys count];
+    for (i = 0; i < count; i++)
+    {
+        key = [keys objectAtIndex: i];
+        value = [dict objectForKey: key];
+        NSLog (@"Key: %@ for value: %@", key, value);
+        [url appendString:key];
+        [url appendString:@"="];
+        [url appendString:value];
+        if (i != count-1) {
+            [url appendString:@"&"];
+        }
+    }
+    return url;
+}
+
 @end

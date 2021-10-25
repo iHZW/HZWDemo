@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+CWLateralSlide.h"
 
 @interface ThirdDetailViewController : UIViewController
+
+@property (nonatomic,assign) DrawerType drawerType; // 抽屉类型
 
 @end

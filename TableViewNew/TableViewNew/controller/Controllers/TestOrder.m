@@ -47,6 +47,12 @@
     self.tbView.dataSource = self;
     [self.view addSubview:self.tbView];
     
+//#ifdef __IPHONE_11_0
+//    if ([self.tbView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+//        self.tbView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    }
+//#endif
+    
 }
 
 - (void)createData
@@ -160,9 +166,9 @@
     }
     self.selectPath = indexPath;
     [self.tbView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-    CGSize upSize = CGSizeMake(0, indexPath.row * 45) ;
-    CGRect rect = CGRectMake(0, upSize.height, WMAIN, 100);
-    [self.tbView scrollRectToVisible:rect animated:YES];
+//    CGSize upSize = CGSizeMake(0, indexPath.row * 45) ;
+//    CGRect rect = CGRectMake(0, upSize.height, WMAIN, 100);
+//    [self.tbView scrollRectToVisible:rect animated:NO];
 
 }
 

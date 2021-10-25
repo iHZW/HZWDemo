@@ -7,6 +7,8 @@
 //
 
 #import "GifView.h"
+#import "NSTimer+Util.h"
+
 
 @implementation GifView
 
@@ -55,6 +57,9 @@
 
 - (void)stopGif
 {
+    [_timer util_suspend]; /**< 关闭定时器 */
+//    [_timer util_resume]; /**< 开启定时器 */
+    
     [_timer setFireDate:[NSDate distantFuture]]; /**< 关闭定时器 */
 //    [_timer setFireDate:[NSDate distantPast]];   /**< 开启定时器 */
 }
